@@ -1,6 +1,10 @@
 import React from 'react';
 import {connect} from 'react-redux';
+import {BrowserRouter as Router, Route, Link} from "react-router-dom";
 
+import LandingPage from './LandingPage';
+import AboutPage from './AboutPage';
+import SignUpPage from './SignUpPage';
 import {getStudents, getTutors, getConnections} from './actions';
 
 import './App.css';
@@ -8,7 +12,20 @@ import './App.css';
 class App extends React.Component {
   render() {
     return (
-      <div id="app"></div>
+      <Router>
+        <div id="App">
+          <nav id="main-nav">
+            <Link to="/">Logo</Link>
+            <Link to="/about">About</Link>
+            <Link to="/signup">Sign up</Link>
+          </nav>
+          <div>
+            <Route exact path="/" component={LandingPage}/>
+            <Route path="/about" component={AboutPage}/>
+            <Route path="/signup" component={SignUpPage}/>
+          </div>
+        </div>
+      </Router>
     );
   }
 }
