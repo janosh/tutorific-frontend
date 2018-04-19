@@ -1,10 +1,12 @@
 import React from 'react';
 
+import PersonList from '../components/PersonList';
+
 export default class LandingPage extends React.Component {
   render() {
     return (
       <div className="landing-page">
-        <h1>This is the landing page.</h1>
+        <PersonList/>
       </div>
     );
   }

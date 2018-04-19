@@ -2,14 +2,29 @@ import React from 'react';
 import {connect} from 'react-redux';
 import {BrowserRouter as Router, Route, Link} from "react-router-dom";
 
-import LandingPage from './LandingPage';
-import AboutPage from './AboutPage';
-import SignUpPage from './SignUpPage';
+import LandingPage from './pages/LandingPage';
+import AboutPage from './pages/AboutPage';
+import SignUpPage from './pages/SignUpPage';
 import {getStudents, getTutors, getConnections} from './actions';
 
 import './App.css';
 
 class App extends React.Component {
+
+  componentDidMount() {
+    fetch('http://localhost:3000/tutors')
+    .then(res => res.json())
+    .then(tutors => {
+      this.props.getTutors(tutors);
+    });
+
+    fetch('http://localhost:3000/students')
+    .then(res => res.json())
+    .then(students => {
+      this.props.getStudents(students);
+    });
+  }
+
   render() {
     return (
       <Router>
