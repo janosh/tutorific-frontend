@@ -12,3 +12,8 @@ export const getConnections = (connections) => ({
   type: 'getConnections',
   connections
 });
+
+export const changePersonType = (personType) => ({
+  type: 'changePersonType',
+  personType
+});
