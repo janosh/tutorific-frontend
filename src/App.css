@@ -1,0 +1,47 @@
+#app {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+#main-nav {
+  font-size: 1.1rem;
+  color: var(--light-text);
+  display: flex;
+  justify-content: space-between;
+}
+
+#main-nav a {
+  padding: 0 10px;
+  font-weight: lighter;
+  transition: all .2s ease-in-out;
+  display: inline-block;
+}
+
+#main-nav a:hover {
+  padding: 10px;
+  transform: scale(1.05);
+}
+
+#main-nav a:first-child {
+  padding-left: 0;
+}
+
+#main-nav a:last-child {
+  padding-right: 0;
+}
+
+#content, #main-nav {
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 20px 30px;
+}
+
+header {
+  background: var(--main-blue);
+}
+
+main {
+  background: var(--light-background);
+  flex: 1;
+}

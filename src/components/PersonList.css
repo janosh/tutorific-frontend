@@ -1,0 +1,11 @@
+.person-type {
+  border-radius: 5px;
+  overflow: hidden;
+  display: flex;
+}
+
+.person-type button {
+  border-radius: 0;
+  flex: 1;
+}
+

@@ -3,6 +3,7 @@ import {connect} from 'react-redux';
 
 import PersonListItem from './PersonListItem';
 import {changeUserSearch} from '../actions';
+import './PersonList.css';
 
 class PersonList extends React.Component {
 

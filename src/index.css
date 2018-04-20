@@ -1,6 +1,35 @@
-body {
+* {
+  --light-background: rgb(246, 246, 246);
+  --medium-background: rgb(165, 157, 157);
+  --dark-background: rgb(112, 112, 112);
+  --main-blue: #1A8CFF;
+  --light-text: white;
+  --medium-text: rgb(230, 230, 230);
+  --dark-text: black;
   margin: 0;
   padding: 0;
   font-family: sans-serif;
   box-sizing: border-box;
+  text-decoration: none;
+  color: inherit;
+}
+
+
+
+button {
+  border-radius: 5px;
+  background: var(--main-blue);
+  color: var(--light-text);
+  border: none;
+  font-size: 1.2rem;
+  outline: none;
+  padding: 5px 10px;
+}
+
+button:hover {
+  background: darkgray;
+}
+
+button:active {
+  background: gray;
 }

@@ -1,0 +1,19 @@
+.landing-page {
+  display: flex;
+}
+
+.landing-page .person-list {
+  flex: 2;
+  margin-right: 20px;
+  min-width: 200px;
+}
+
+.landing-page .map {
+  flex: 3;
+}
+
+@media screen and (max-width: 500px) {
+  .landing-page {
+    flex-direction: column;
+  }
+}
