@@ -12,8 +12,16 @@ class PersonList extends React.Component {
     return (
       <div className="person-list">
         <div className="person-type">
-          <button onClick={() => this.props.changeUserSearch('tutors')}>Tutors</button>
-          <button onClick={() => this.props.changeUserSearch('students')}>Students</button>
+          <button
+            onClick={() => this.props.changeUserSearch('tutors')}
+            className={this.props.userSearches === 'tutors' ? 'active' : null}>
+            Tutors
+          </button>
+          <button
+            onClick={() => this.props.changeUserSearch('students')}
+            className={this.props.userSearches === 'students' ? 'active' : null}>
+            Students
+          </button>
         </div>
         {persons.map(person => {
           return <PersonListItem key={person._id} person={person}/>
