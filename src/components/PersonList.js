@@ -2,23 +2,17 @@ import React from 'react';
 import {connect} from 'react-redux';
 
 import PersonListItem from './PersonListItem';
-import {changePersonType} from '../actions';
-
-// const tutors = false;
+import {changeUserSearch} from '../actions';
 
 class PersonList extends React.Component {
-  constructor() {
-    super();
-    this.state = {tutors: true};
-  }
 
   render() {
-    const persons = this.state.tutors ? this.props.tutors : this.props.students;
+    const persons = this.props.userSearches === 'tutors' ? this.props.tutors : this.props.students;
     return (
       <div className="person-list">
         <div className="person-type">
-          <button>Tutors</button>
-          <button>Students</button>
+          <button onClick={() => this.props.changeUserSearch('tutors')}>Tutors</button>
+          <button onClick={() => this.props.changeUserSearch('students')}>Students</button>
         </div>
         {persons.map(person => {
           return <PersonListItem key={person._id} person={person}/>
@@ -30,14 +24,14 @@ class PersonList extends React.Component {
 
 const mapStateToProps = (state) => {
   return {
-    personType: state.personType,
+    userSearches: state.appState.userSearches,
     students: state.students,
     tutors: state.tutors
   };
 };
 
 const mapDispatchToProps = (dispatch) => ({
-  changePersonType: (personType) => dispatch(changePersonType(personType)),
+  changeUserSearch: (userSearches) => dispatch(changeUserSearch(userSearches)),
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(PersonList);

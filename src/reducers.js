@@ -1,5 +1,9 @@
 import {combineReducers} from 'redux';
 
+const defaultAppState = {
+  userSearches: 'tutors'
+}
+
 const tutors = (state = [], action) => {
   if (action.type === 'getTutors') return action.tutors;
   return state;
@@ -10,12 +14,12 @@ const students = (state = [], action) => {
   return state;
 };
 
-const appState = (state = [], action) => {
+const appState = (state = defaultAppState, action) => {
   switch (action.type) {
-  case 'changePersonType':
+  case 'changeUserSearch':
     return {
       ...state,
-      personType: action.personType
+      userSearches: action.userSearches
     }
   default:
     return state;
