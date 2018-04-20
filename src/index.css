@@ -3,7 +3,9 @@
   --light-background: rgb(246, 246, 246);
   --medium-background: rgb(165, 157, 157);
   --dark-background: rgb(112, 112, 112);
+  --light-blue: rgb(104, 152, 255);
   --main-blue: #1A8CFF;
+  --dark-blue: rgb(0, 3, 158);
   --light-text: white;
   --medium-text: rgb(230, 230, 230);
   --dark-text: black;
@@ -13,24 +15,44 @@
   box-sizing: border-box;
   text-decoration: none;
   color: inherit;
+  outline: none;
 }
 
+input:not([type="radio"]) {
+  padding: 5px 10px;
+  border-radius: 5px;
+  border: none;
+  margin: 10px 10px 10px 0;
+  font-size: 1rem;
+  min-width: 250px;
+  border: 1px solid gray;
+}
 
+input[type="radio"] {
+  margin: 10px 5px 10px 20px;
+}
+
+input[type="number"] {
+  min-width: 0;
+}
+
+label {
+  display: block;
+}
 
 button {
   border-radius: 5px;
   background: var(--main-blue);
   color: var(--light-text);
   border: none;
-  font-size: 1.2rem;
   outline: none;
   padding: 5px 10px;
 }
 
 button:hover {
-  background: darkgray;
+  background: var(--light-blue);
 }
 
 button:active {
-  background: gray;
+  background: var(--dark-blue);
 }
