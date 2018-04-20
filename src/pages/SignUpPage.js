@@ -1,7 +1,7 @@
 import React from 'react';
 import {connect} from 'react-redux';
 
-import {changeUserSearch} from '../actions';
+import {changeUserType} from '../actions';
 import './SignUpPage.css';
 
 class SignUpPage extends React.Component {
@@ -55,14 +55,14 @@ class SignUpPage extends React.Component {
 
 const mapStateToProps = (state) => {
   return {
-    userSearches: state.appState.userSearches,
+    userType: state.appState.userType,
     students: state.students,
     tutors: state.tutors
   };
 };
 
 const mapDispatchToProps = (dispatch) => ({
-  changeUserSearch: (userSearches) => dispatch(changeUserSearch(userSearches)),
+  changeUserType: (userType) => dispatch(changeUserType(userType)),
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(SignUpPage);

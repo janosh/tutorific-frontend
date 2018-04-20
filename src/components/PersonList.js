@@ -2,24 +2,24 @@ import React from 'react';
 import {connect} from 'react-redux';
 
 import PersonListItem from './PersonListItem';
-import {changeUserSearch} from '../actions';
+import {changeUserType} from '../actions';
 import './PersonList.css';
 
 class PersonList extends React.Component {
 
   render() {
-    const persons = this.props.userSearches === 'tutors' ? this.props.tutors : this.props.students;
+    const persons = this.props.userType === 'tutor' ? this.props.tutors : this.props.students;
     return (
       <div className="person-list">
         <div className="person-type">
           <button
-            onClick={() => this.props.changeUserSearch('tutors')}
-            className={this.props.userSearches === 'tutors' ? 'active' : null}>
+            onClick={() => this.props.changeUserType('tutor')}
+            className={this.props.userType === 'tutor' ? 'active' : null}>
             Tutors
           </button>
           <button
-            onClick={() => this.props.changeUserSearch('students')}
-            className={this.props.userSearches === 'students' ? 'active' : null}>
+            onClick={() => this.props.changeUserType('student')}
+            className={this.props.userType === 'student' ? 'active' : null}>
             Students
           </button>
         </div>
@@ -33,14 +33,14 @@ class PersonList extends React.Component {
 
 const mapStateToProps = (state) => {
   return {
-    userSearches: state.appState.userSearches,
+    userType: state.appState.userType,
     students: state.students,
     tutors: state.tutors
   };
 };
 
 const mapDispatchToProps = (dispatch) => ({
-  changeUserSearch: (userSearches) => dispatch(changeUserSearch(userSearches)),
+  changeUserType: (userType) => dispatch(changeUserType(userType)),
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(PersonList);
