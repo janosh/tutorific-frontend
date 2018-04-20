@@ -7,5 +7,11 @@
 .person-type button {
   border-radius: 0;
   flex: 1;
+  background: var(--medium-background);
+}
+
+
+.person-type button.active {
+  background: var(--main-blue);
 }
 

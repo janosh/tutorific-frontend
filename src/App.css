@@ -14,13 +14,10 @@
 #main-nav a {
   padding: 0 10px;
   font-weight: lighter;
-  transition: all .2s ease-in-out;
-  display: inline-block;
 }
 
 #main-nav a:hover {
-  padding: 10px;
-  transform: scale(1.05);
+  text-decoration: underline;
 }
 
 #main-nav a:first-child {
