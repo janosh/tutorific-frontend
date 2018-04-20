@@ -13,7 +13,7 @@ export const getConnections = (connections) => ({
   connections
 });
 
-export const changeUserSearch = (userSearches) => ({
-  type: 'changeUserSearch',
-  userSearches
+export const changeUserType = (userType) => ({
+  type: 'changeUserType',
+  userType
 });
