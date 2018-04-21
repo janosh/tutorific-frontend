@@ -25,7 +25,7 @@
     grid-template-columns: 1fr;
   }
 
-  .signup-form input:not([type="radio"]) {
+  .signup-form input {
     max-width: 300px;
   }
 }
