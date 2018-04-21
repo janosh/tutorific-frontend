@@ -3,7 +3,7 @@ import {connect} from 'react-redux';
 
 import {getStudents, getTutors, getConnections} from '../actions';
 import PersonList from '../components/PersonList';
-import MapContainer from '../components/Map';
+import Map from '../components/Map';
 import './LandingPage.css';
 
 class LandingPage extends React.Component {
@@ -26,7 +26,7 @@ class LandingPage extends React.Component {
     return (
       <div className="landing-page">
         <PersonList/>
-        <MapContainer/>
+        <Map/>
       </div>
     );
   }
