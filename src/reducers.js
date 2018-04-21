@@ -1,7 +1,8 @@
 import {combineReducers} from 'redux';
 
 const defaultAppState = {
-  userType: 'tutor'
+  userType: 'student',
+  signUpData: {}
 }
 
 const tutors = (state = [], action) => {
@@ -16,11 +17,19 @@ const students = (state = [], action) => {
 
 const appState = (state = defaultAppState, action) => {
   switch (action.type) {
-  case 'changeUserType':
-    return {
-      ...state,
-      userType: action.userType
-    }
+    case 'changeUserType':
+      return {
+        ...state,
+        userType: action.userType
+      }
+    case 'updateSignUpData':
+      return {
+        ...state,
+        signUpData: {
+          ...state.signUpData,
+          ...action.data
+        }
+      }
   default:
     return state;
   }

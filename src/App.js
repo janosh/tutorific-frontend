@@ -14,21 +14,17 @@ export default class App extends React.Component {
       <Router>
         <div id="app">
           <header>
-            <nav id="main-nav">
-              <div>
-                <Link to="/">Tutorific</Link>
-                <Link to="/about">About</Link>
-                <Link to="/support">Support</Link>
-                <Link to="/contact">Contact</Link>
-              </div>
-              <div>
-                <Link to="/login">Login</Link>
-                <Link to="/signup">Sign up</Link>
-              </div>
+            <nav>
+              <Link to="/">Tutorific</Link>
+              <Link to="/about">About</Link>
+              <Link to="/support">Support</Link>
+              <Link to="/contact">Contact</Link>
+              <Link to="/login">Login</Link>
+              <Link to="/signup">Sign up</Link>
             </nav>
           </header>
           <main>
-            <div id="content">
+            <div className="content">
               <Route exact path="/" component={LandingPage}/>
               <Route path="/about" component={AboutPage}/>
               <Route path="/signup" component={SignUpPage}/>
