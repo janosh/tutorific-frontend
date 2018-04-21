@@ -101,27 +101,75 @@ class SignUpPage extends React.Component {
           <div className="signup-form contact-info">
             <div>
               <label htmlFor="email">Email</label>
-              <input id="email" type="email" placeholder="john@doe.com" required/>
+              <input
+                name="email"
+                id="email"
+                type="email"
+                placeholder="john@doe.com"
+                required
+                onChange={this.update}
+                value={this.props.signUpData.email || ''}
+              />
             </div>
             <div>
               <label htmlFor="phone">Phone</label>
-              <input id="phone" type="tel" placeholder="+1 234 567 890"/>
+              <input
+                name="phone"
+                id="phone"
+                type="tel"
+                placeholder="+1 234 567 890"
+                required
+                onChange={this.update}
+                value={this.props.signUpData.phone || ''}
+              />
             </div>
             <div>
               <label htmlFor="street">Street</label>
-              <input id="street" type="text" placeholder="Long Lane"/>
+              <input
+                name="street"
+                id="street"
+                type="text"
+                placeholder="Long Lane"
+                required
+                onChange={this.update}
+                value={this.props.signUpData.street || ''}
+              />
             </div>
             <div>
               <label htmlFor="number">Number</label>
-              <input id="number" type="text" placeholder="42"/>
+              <input
+                name="number"
+                id="number"
+                type="text"
+                placeholder="42"
+                required
+                onChange={this.update}
+                value={this.props.signUpData.number || ''}
+              />
             </div>
             <div>
               <label htmlFor="zip">ZIP</label>
-              <input id="zip" type="text" placeholder="6942"/>
+              <input
+                name="zip"
+                id="zip"
+                type="text"
+                placeholder="6942"
+                required
+                onChange={this.update}
+                value={this.props.signUpData.zip || ''}
+              />
             </div>
             <div>
               <label htmlFor="country">Country</label>
-              <input id="country" type="text" placeholder="Wonderland"/>
+              <input
+                name="country"
+                id="country"
+                type="text"
+                placeholder="Long Lane"
+                required
+                onChange={this.update}
+                value={this.props.signUpData.country || ''}
+              />
             </div>
           </div>
           <h2>Personal</h2>
@@ -130,14 +178,9 @@ class SignUpPage extends React.Component {
               <label htmlFor="grade">Grade</label>
               <input id="grade" type="number" name="grade" min="1" max="13" placeholder="1" required/>
             </div>
-            <div className="gender">
-              <p>Gender</p>
-              <input type="radio" id="male" name="gender" value="male"/>
-              <label htmlFor="male">Male</label>
-              <input type="radio" id="female" name="gender" value="female"/>
-              <label htmlFor="female">Female</label>
-              <input type="radio" id="other" name="gender" value="other"/>
-              <label htmlFor="other">Other</label>
+            <div>
+              <label htmlFor="gender">Gender</label>
+              <select name="Gender" placeholder="Gender"><option>Male</option><option>Female</option><option>Other</option></select>
             </div>
           </div>
           <button onClick={() => this.submitFormData(this.props.signUpData)}>Submit</button>
