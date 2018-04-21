@@ -1,7 +1,31 @@
-#signup {
-  margin-top: 20px;
+#signup-page h2 {
+  margin-top: 2rem;
 }
 
-.gender > label {
+.gender label {
   display: inline;
+}
+
+.signup-form {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(200px, 300px));
+  grid-gap: 1rem;
+}
+
+.signup.person-type {
+  display: inline-block;
+}
+
+.signup-form input {
+  width: 90%;
+}
+
+@media screen and (max-width: 500px) {
+  .signup-form {
+    grid-template-columns: 1fr;
+  }
+
+  .signup-form input:not([type="radio"]) {
+    max-width: 300px;
+  }
 }

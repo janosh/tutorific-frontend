@@ -8,24 +8,26 @@ import './PersonList.css';
 class PersonList extends React.Component {
 
   render() {
-    const persons = this.props.userType === 'tutor' ? this.props.tutors : this.props.students;
+    const persons = this.props.userType === 'student' ? this.props.tutors : this.props.students;
     return (
       <div className="person-list">
         <div className="person-type">
           <button
-            onClick={() => this.props.changeUserType('tutor')}
-            className={this.props.userType === 'tutor' ? 'active' : null}>
+            onClick={() => this.props.changeUserType('student')}
+            className={this.props.userType === 'student' ? 'active' : null}>
             Tutors
           </button>
           <button
-            onClick={() => this.props.changeUserType('student')}
-            className={this.props.userType === 'student' ? 'active' : null}>
+            onClick={() => this.props.changeUserType('tutor')}
+            className={this.props.userType === 'tutor' ? 'active' : null}>
             Students
           </button>
         </div>
-        {persons.map(person => {
-          return <PersonListItem key={person._id} person={person}/>
-        })}
+        <div className="list">
+          {persons.map(person => {
+            return <PersonListItem key={person._id} person={person}/>
+          })}
+        </div>
       </div>
     );
   }
