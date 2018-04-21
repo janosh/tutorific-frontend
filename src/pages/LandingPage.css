@@ -1,15 +1,20 @@
 .landing-page {
   display: flex;
+  overflow: hidden;
+  height: 100%;
 }
 
 .landing-page .person-list {
-  flex: 2;
+  flex: 1;
   margin-right: 20px;
-  min-width: 200px;
+}
+
+.person-list {
+  overflow-y: scroll;
 }
 
 .landing-page .map {
-  flex: 3;
+  flex: 1;
 }
 
 @media screen and (max-width: 500px) {

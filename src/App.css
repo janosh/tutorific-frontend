@@ -1,44 +1,50 @@
 #app {
   display: flex;
+  height: 100vh;
   flex-direction: column;
-  min-height: 100vh;
-}
-
-#main-nav {
-  font-size: 1.1rem;
-  color: var(--light-text);
-  display: flex;
-  justify-content: space-between;
-}
-
-#main-nav a {
-  padding: 0 10px;
-  font-weight: lighter;
-}
-
-#main-nav a:hover {
-  text-decoration: underline;
-}
-
-#main-nav a:first-child {
-  padding-left: 0;
-}
-
-#main-nav a:last-child {
-  padding-right: 0;
-}
-
-#content, #main-nav {
-  max-width: 1000px;
-  margin: 0 auto;
-  padding: 20px 30px;
 }
 
 header {
   background: var(--main-blue);
+  margin-bottom: 2rem;
+  border-bottom: 1px solid var(--dark-blue);
+}
+
+nav {
+  max-width: 1000px;
+  margin: 0 auto;
+  font-size: 1.3rem;
+  display: flex;
+  justify-content: space-between;
+  padding: 0 4rem;
+}
+
+nav a {
+  color: var(--light-text);
+  padding: 1rem 1rem 1rem 0;
+  white-space: nowrap;
+}
+
+nav a:last-child {
+  padding-right: 0;
+}
+
+nav a:hover {
+  text-decoration: underline;
 }
 
 main {
-  background: var(--light-background);
+}
+
+.content {
   flex: 1;
+  padding: 0 4rem;
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+@media screen and (max-width: 700px) {
+  nav, .content {
+    padding: 0 2rem;
+  }
 }

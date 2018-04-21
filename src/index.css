@@ -1,4 +1,4 @@
-* {
+body {
   --very-light-background: white;
   --light-background: rgb(246, 246, 246);
   --medium-background: rgb(165, 157, 157);
@@ -13,31 +13,22 @@
   padding: 0;
   font-family: sans-serif;
   box-sizing: border-box;
-  text-decoration: none;
-  color: inherit;
-  outline: none;
+  background: var(--light-background);
 }
 
-input:not([type="radio"]) {
+* {
+  outline: none;
+  text-decoration: none;
+  color: inherit;
+}
+
+input {
   padding: 5px 10px;
   border-radius: 5px;
   border: none;
   margin: 10px 10px 10px 0;
   font-size: 1rem;
-  min-width: 250px;
   border: 1px solid gray;
-}
-
-input[type="radio"] {
-  margin: 10px 5px 10px 20px;
-}
-
-input[type="number"] {
-  min-width: 0;
-}
-
-label {
-  display: block;
 }
 
 button {
@@ -47,12 +38,4 @@ button {
   border: none;
   outline: none;
   padding: 5px 10px;
-}
-
-button:hover {
-  background: var(--light-blue);
-}
-
-button:active {
-  background: var(--dark-blue);
 }

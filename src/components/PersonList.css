@@ -2,6 +2,7 @@
   border-radius: 5px;
   overflow: hidden;
   display: flex;
+  margin-bottom: 1rem;
 }
 
 .person-type button {
@@ -11,8 +12,12 @@
   font-size: 1.2rem;
 }
 
-
 .person-type button.active {
   background: var(--main-blue);
 }
 
+.list {
+  border-radius: 5px;
+  height: 75vh;
+  overflow: scroll;
+}
