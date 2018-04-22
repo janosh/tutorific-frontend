@@ -18,7 +18,7 @@ export const changeUserType = (userType) => ({
   userType
 });
 
-export const updateSignUpData = (data) => ({
-  type: 'updateSignUpData',
+export const updateSignUpData = (subtype, data) => ({
+  type: 'updateSignUpData' + subtype,
   data
 });
