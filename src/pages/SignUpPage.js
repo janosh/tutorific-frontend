@@ -24,10 +24,11 @@ class SignUpPage extends React.Component {
     }
   }
 
-  submitFormData = (signUpData) => {
+  submitFormData = (e) => {
+    e.preventDefault();
     fetch(config.backendUrl + this.props.userType, {
       method: 'post',
-      body: JSON.stringify(signUpData)
+      body: JSON.stringify(this.props.signUpData)
     })
     .then(res => console.log(res));
   }
@@ -187,6 +188,20 @@ class SignUpPage extends React.Component {
                 value={this.props.signUpData.birthplace}
               />
             </div>
+            <div>
+              <label htmlFor="gender">Gender</label>
+              <select
+                name="gender"
+                id="gender"
+                required
+                onChange={this.update}
+                value={this.props.signUpData.gender}
+              >
+                <option value="male">Male</option>
+                <option value="female">Female</option>
+                <option value="other">Other</option>
+              </select>
+            </div>
             {this.props.userType === 'student' &&
             <div>
               <label htmlFor="grade">Grade</label>
@@ -202,10 +217,25 @@ class SignUpPage extends React.Component {
                 value={this.props.signUpData.grade}
                 />
             </div>}
+            {this.props.userType === 'tutor' &&
+            <div>
+              <label htmlFor="semester">Semester</label>
+              <input
+                name="semester"
+                id="semester"
+                type="number"
+                min="1"
+                max="50"
+                placeholder="1"
+                onChange={this.update}
+                value={this.props.signUpData.semester}
+                />
+            </div>}
             {this.props.userType === 'student' &&
             <div>
               <label htmlFor="schooltype">Schooltype</label>
-              <select name="schooltype"
+              <select
+                name="schooltype"
                 id="schooltype"
                 required
                 onChange={this.update}
@@ -221,26 +251,72 @@ class SignUpPage extends React.Component {
             </div>}
             {this.props.userType === 'student' &&
             <div>
-              <label htmlFor="youthOrganization">Youth Organization</label>
+              <label htmlFor="youth-organization">Youth Organization</label>
               <input
-                name="youthOrganization"
-                id="youthOrganization"
+                name="youth-organization"
+                id="youth-organization"
                 type="text"
                 placeholder="Unicef"
                 onChange={this.update}
                 value={this.props.signUpData.youthOrganization}
               />
             </div>}
+            {this.props.userType === 'tutor' &&
             <div>
-              <label htmlFor="gender">Gender</label>
-              <select name="Gender">
-                <option value="male">Male</option>
-                <option value="female">Female</option>
-                <option value="other">Other</option>
-              </select>
-            </div>
+              <label htmlFor="field-of-study">Field of Study</label>
+              <input
+                name="field-of-study"
+                id="field-of-study"
+                type="text"
+                placeholder="Ufology"
+                onChange={this.update}
+                value={this.props.signUpData.fieldOfStudy}
+              />
+            </div>}
           </div>
-          <button onClick={() => this.submitFormData(this.props.signUpData)}>Submit</button>
+          <h2>Subjects</h2>
+          <datalist id="subjects">
+            <option value="Math"/>
+            <option value="Physics"/>
+            <option value="Chemistry"/>
+            <option value="Biology"/>
+            <option value="Computer Science"/>
+            <option value="English"/>
+            <option value="Spanish"/>
+            <option value="French"/>
+            <option value="German"/>
+            <option value="Italian"/>
+            <option value="Chinese"/>
+            <option value="Japanese"/>
+            <option value="Latin"/>
+            <option value="History"/>
+            <option value="Politics"/>
+            <option value="Ethics"/>
+            <option value="Social Studies"/>
+            <option value="Philosophy"/>
+            <option value="Economics"/>
+            <option value="Physical Education"/>
+            <option value="Music"/>
+            <option value="Art"/>
+          </datalist>
+          <div className="signup-form subject-info">
+            {this.props.signUpData.subjects.map(subject => {
+              return (
+                <div key={subject.name}>
+                  <label htmlFor="subjects">Subjects</label>
+                  <input
+                    name="subjects"
+                    type="subjects"
+                    required
+                    list="subjects"
+                    onChange={this.update}
+                    value={subject.name}
+                  />
+                </div>
+              );
+            })}
+          </div>
+          <button id="submit-sign-up-form" onClick={this.submitFormData}>Submit</button>
         </form>
       </div>
     );
