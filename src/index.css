@@ -9,14 +9,14 @@ body {
   --light-text: white;
   --medium-text: rgb(230, 230, 230);
   --dark-text: black;
-  margin: 0;
-  padding: 0;
-  font-family: sans-serif;
-  box-sizing: border-box;
   background: var(--light-background);
 }
 
 * {
+  margin: 0;
+  padding: 0;
+  font-family: sans-serif;
+  box-sizing: border-box;
   outline: none;
   text-decoration: none;
   color: inherit;

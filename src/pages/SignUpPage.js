@@ -9,8 +9,11 @@ import './SignUpPage.css';
 class SignUpPage extends React.Component {
 
   update = async (e) => {
-    await this.props.updateSignUpData({
-      [e.target.name]: e.target.value
+    const props = e.target.name.split('.');
+    const prop = props.pop();
+    const subtype = props.join('.');
+    await this.props.updateSignUpData(subtype, {
+      [prop]: e.target.value
     });
   }
 
@@ -114,49 +117,49 @@ class SignUpPage extends React.Component {
             <div>
               <label htmlFor="street">Street</label>
               <input
-                name="street"
+                name="Address.street"
                 id="street"
                 type="text"
                 placeholder="Long Lane"
                 required
                 onChange={this.update}
-                value={this.props.signUpData.street || ''}
+                value={this.props.signUpData.address.street || ''}
               />
             </div>
             <div>
               <label htmlFor="number">Number</label>
               <input
-                name="number"
+                name="Address.number"
                 id="number"
                 type="text"
                 placeholder="42"
                 required
                 onChange={this.update}
-                value={this.props.signUpData.number || ''}
+                value={this.props.signUpData.address.number || ''}
               />
             </div>
             <div>
               <label htmlFor="zip">ZIP</label>
               <input
-                name="zip"
+                name="Address.zip"
                 id="zip"
                 type="text"
                 placeholder="6942"
                 required
                 onChange={this.update}
-                value={this.props.signUpData.zip || ''}
+                value={this.props.signUpData.address.zip || ''}
               />
             </div>
             <div>
               <label htmlFor="country">Country</label>
               <input
-                name="country"
+                name="Address.country"
                 id="country"
                 type="text"
-                placeholder="Long Lane"
+                placeholder="Wonderland"
                 required
                 onChange={this.update}
-                value={this.props.signUpData.country || ''}
+                value={this.props.signUpData.address.country || ''}
               />
             </div>
           </div>
@@ -187,7 +190,7 @@ const mapStateToProps = (state) => {
 
 const mapDispatchToProps = (dispatch) => ({
   changeUserType: (userType) => dispatch(changeUserType(userType)),
-  updateSignUpData: (data) => dispatch(updateSignUpData(data)),
+  updateSignUpData: (subtype, data) => dispatch(updateSignUpData(subtype, data)),
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(SignUpPage);
