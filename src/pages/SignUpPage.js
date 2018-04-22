@@ -1,6 +1,7 @@
 import React from 'react';
 import {connect} from 'react-redux';
 
+import SelectPersonType from '../components/SelectPersonType';
 import {changeUserType, updateSignUpData} from '../actions';
 import config from '../config';
 import './SignUpPage.css';
@@ -31,20 +32,7 @@ class SignUpPage extends React.Component {
   render() {
     return (
       <div id="signup-page">
-        <h1>Sign up as &nbsp;
-          <div className="signup person-type">
-            <button
-              onClick={() => this.props.changeUserType('student')}
-              className={this.props.userType === 'student' ? 'active' : null}>
-              Tutor
-            </button>
-            <button
-              onClick={() => this.props.changeUserType('tutor')}
-              className={this.props.userType === 'tutor' ? 'active' : null}>
-              Student
-            </button>
-          </div>
-        </h1>
+        <h1>Sign up as <SelectPersonType/></h1>
         <form id="signup-page">
           <h2>Account</h2>
           <div className="signup-form account-info">

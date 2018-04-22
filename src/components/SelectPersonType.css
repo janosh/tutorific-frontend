@@ -1,0 +1,18 @@
+.person-type {
+  border-radius: 5px;
+  overflow: hidden;
+  display: flex;
+  margin-bottom: 1rem;
+}
+
+.person-type button {
+  border-radius: 0;
+  flex: 1;
+  background: var(--medium-background);
+  font-size: 1.2rem;
+}
+
+.person-type button.active {
+  background: var(--main-blue);
+}
+
