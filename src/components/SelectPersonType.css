@@ -9,7 +9,6 @@
   border-radius: 0;
   flex: 1;
   background: var(--medium-background);
-  font-size: 1.2rem;
 }
 
 .person-type button.active {

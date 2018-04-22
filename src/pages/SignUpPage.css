@@ -24,6 +24,10 @@ label {
   display: block;
 }
 
+#submit-sign-up-form {
+  margin: 2rem 0;
+}
+
 @media screen and (max-width: 500px) {
   .signup-form {
     grid-template-columns: 1fr;
