@@ -17,6 +17,12 @@ const defaultAppState = {
       zip: emptyState ? '' : '6942',
       country: emptyState ? '' : 'Wonderland',
     },
+    birthday: emptyState ? '' : '2000-01-01',
+    birthplace: emptyState ? '' : 'Honolulu',
+    youthOrganization: emptyState ? '' : 'Unicef',
+    grade: emptyState ? '' : '7',
+    gender: emptyState ? '' : 'male',
+    schoolType: emptyState ? '' : 'vocational',
   }
 }
 
