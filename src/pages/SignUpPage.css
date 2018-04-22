@@ -1,9 +1,13 @@
 #signup-page h2 {
-  margin-top: 2rem;
+  margin: 2rem 0 1rem 0;
 }
 
-.gender label {
-  display: inline;
+#signup-page h1 {
+  margin-bottom: 2rem;
+}
+
+#signup-page .person-type {
+  width: 10rem;
 }
 
 .signup-form {
@@ -12,12 +16,12 @@
   grid-gap: 1rem;
 }
 
-.signup.person-type {
-  display: inline-block;
+.signup-form input, select {
+  width: 90%;
 }
 
-.signup-form input {
-  width: 90%;
+label {
+  display: block;
 }
 
 @media screen and (max-width: 500px) {

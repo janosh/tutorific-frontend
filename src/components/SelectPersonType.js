@@ -7,17 +7,18 @@ import './SelectPersonType.css';
 class PersonList extends React.Component {
 
   render() {
+    const {userType, changeUserType, plural} = this.props;
     return (
       <div className="person-type">
         <button
-          onClick={() => this.props.changeUserType('student')}
-          className={this.props.userType === 'student' ? 'active' : null}>
-          Tutors
+          onClick={() => changeUserType(plural ? 'student' : 'tutor')}
+          className={userType === (plural ? 'student' : 'tutor') ? 'active' : null}>
+          Tutor{plural ? 's' : null}
         </button>
         <button
-          onClick={() => this.props.changeUserType('tutor')}
-          className={this.props.userType === 'tutor' ? 'active' : null}>
-          Students
+          onClick={() => changeUserType(plural ? 'tutor' : 'student')}
+          className={userType === (plural ? 'tutor' : 'student') ? 'active' : null}>
+          Student{plural ? 's' : null}
         </button>
       </div>
     );

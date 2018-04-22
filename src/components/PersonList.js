@@ -11,7 +11,7 @@ class PersonList extends React.Component {
     const persons = this.props.userType === 'student' ? this.props.tutors : this.props.students;
     return (
       <div className="person-list">
-        <SelectPersonType/>
+        <SelectPersonType plural={true}/>
         <div className="list">
           {persons.map(person => {
             return <PersonListItem key={person._id} person={person}/>

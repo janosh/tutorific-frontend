@@ -35,7 +35,8 @@ class SignUpPage extends React.Component {
   render() {
     return (
       <div id="signup-page">
-        <h1>Sign up as <SelectPersonType/></h1>
+        <h1>Sign up tu Tutorific today!</h1>
+        <SelectPersonType/>
         <form id="signup-page">
           <h2>Account</h2>
           <div className="signup-form account-info">
@@ -48,7 +49,7 @@ class SignUpPage extends React.Component {
                 placeholder="John"
                 required
                 onChange={this.update}
-                value={this.props.signUpData.firstname || ''}
+                value={this.props.signUpData.firstname}
               />
             </div>
             <div>
@@ -60,7 +61,7 @@ class SignUpPage extends React.Component {
                 placeholder="Doe"
                 required
                 onChange={this.update}
-                value={this.props.signUpData.lastname || ''}
+                value={this.props.signUpData.lastname}
               />
             </div>
             <div>
@@ -72,7 +73,7 @@ class SignUpPage extends React.Component {
                 placeholder={String.fromCharCode('0x2022').repeat(10)}
                 required
                 onChange={this.update}
-                value={this.props.signUpData.password || ''}
+                value={this.props.signUpData.password}
               />
             </div>
             <div>
@@ -84,7 +85,7 @@ class SignUpPage extends React.Component {
                 placeholder={String.fromCharCode('0x2022').repeat(10)}
                 required
                 onChange={this.passwordsMatch}
-                value={this.props.signUpData.confirmPassword || ''}
+                value={this.props.signUpData.confirmPassword}
               />
             </div>
           </div>
@@ -99,7 +100,7 @@ class SignUpPage extends React.Component {
                 placeholder="john@doe.com"
                 required
                 onChange={this.update}
-                value={this.props.signUpData.email || ''}
+                value={this.props.signUpData.email}
               />
             </div>
             <div>
@@ -111,7 +112,7 @@ class SignUpPage extends React.Component {
                 placeholder="+1 234 567 890"
                 required
                 onChange={this.update}
-                value={this.props.signUpData.phone || ''}
+                value={this.props.signUpData.phone}
               />
             </div>
             <div>
@@ -123,7 +124,7 @@ class SignUpPage extends React.Component {
                 placeholder="Long Lane"
                 required
                 onChange={this.update}
-                value={this.props.signUpData.address.street || ''}
+                value={this.props.signUpData.address.street}
               />
             </div>
             <div>
@@ -135,7 +136,7 @@ class SignUpPage extends React.Component {
                 placeholder="42"
                 required
                 onChange={this.update}
-                value={this.props.signUpData.address.number || ''}
+                value={this.props.signUpData.address.number}
               />
             </div>
             <div>
@@ -147,7 +148,7 @@ class SignUpPage extends React.Component {
                 placeholder="6942"
                 required
                 onChange={this.update}
-                value={this.props.signUpData.address.zip || ''}
+                value={this.props.signUpData.address.zip}
               />
             </div>
             <div>
@@ -159,19 +160,84 @@ class SignUpPage extends React.Component {
                 placeholder="Wonderland"
                 required
                 onChange={this.update}
-                value={this.props.signUpData.address.country || ''}
+                value={this.props.signUpData.address.country}
               />
             </div>
           </div>
           <h2>Personal</h2>
           <div className="signup-form personal-info">
             <div>
-              <label htmlFor="grade">Grade</label>
-              <input id="grade" type="number" name="grade" min="1" max="13" placeholder="1" required/>
+              <label htmlFor="birthday">Birthday</label>
+              <input
+                name="birthday"
+                id="birthday"
+                type="date"
+                onChange={this.update}
+                value={this.props.signUpData.birthday}
+              />
             </div>
             <div>
+              <label htmlFor="birthplace">Birthplace</label>
+              <input
+                name="birthplace"
+                id="birthplace"
+                type="tel"
+                placeholder="Honolulu"
+                onChange={this.update}
+                value={this.props.signUpData.birthplace}
+              />
+            </div>
+            {this.props.userType === 'student' &&
+            <div>
+              <label htmlFor="grade">Grade</label>
+              <input
+                name="grade"
+                id="grade"
+                type="number"
+                min="1"
+                max="13"
+                placeholder="1"
+                required
+                onChange={this.update}
+                value={this.props.signUpData.grade}
+                />
+            </div>}
+            {this.props.userType === 'student' &&
+            <div>
+              <label htmlFor="schooltype">Schooltype</label>
+              <select name="schooltype"
+                id="schooltype"
+                required
+                onChange={this.update}
+                value={this.props.signUpData.schoolType}
+              >
+                <option value="elementary">Elementary School</option>
+                <option value="middle">Middle School</option>
+                <option value="high">High School</option>
+                <option value="special-needs">Special-Needs School</option>
+                <option value="vocational">Vocational School</option>
+                <option value="refugee">Refugee School</option>
+              </select>
+            </div>}
+            {this.props.userType === 'student' &&
+            <div>
+              <label htmlFor="youthOrganization">Youth Organization</label>
+              <input
+                name="youthOrganization"
+                id="youthOrganization"
+                type="text"
+                placeholder="Unicef"
+                onChange={this.update}
+                value={this.props.signUpData.youthOrganization}
+              />
+            </div>}
+            <div>
               <label htmlFor="gender">Gender</label>
-              <select name="Gender" placeholder="Gender"><option>Male</option><option>Female</option><option>Other</option></select>
+              <select name="Gender">
+                <option value="male">Male</option>
+                <option value="female">Female</option>
+                <option value="other">Other</option>
+              </select>
             </div>
           </div>
           <button onClick={() => this.submitFormData(this.props.signUpData)}>Submit</button>
