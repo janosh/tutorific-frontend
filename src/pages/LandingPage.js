@@ -1,32 +1,17 @@
 import React from 'react';
 import {connect} from 'react-redux';
 
-import {getStudents, getTutors, getConnections} from '../actions';
-import PersonList from '../components/PersonList';
-import Map from '../components/Map';
+import LocationSearch from '../components/LocationSearch';
+import {setUserLocation} from '../actions';
 import './LandingPage.css';
 
-class LandingPage extends React.Component {
-
-  componentDidMount() {
-    fetch('http://localhost:3000/tutors')
-    .then(res => res.json())
-    .then(tutors => {
-      this.props.getTutors(tutors);
-    });
-
-    fetch('http://localhost:3000/students')
-    .then(res => res.json())
-    .then(students => {
-      this.props.getStudents(students);
-    });
-  }
+class MainPage extends React.Component {
 
   render() {
     return (
-      <div className="landing-page">
-        <PersonList/>
-        <Map/>
+      <div id="landing-page">
+        <h1>Get free tutoring from a university student near you!</h1>
+        <LocationSearch/>
       </div>
     );
   }
@@ -34,16 +19,12 @@ class LandingPage extends React.Component {
 
 const mapStateToProps = (state) => {
   return {
-    students: state.students,
-    tutors: state.tutors,
-    connections: state.connections
+    userLocation: state.userLocation
   };
 };
 
 const mapDispatchToProps = (dispatch) => ({
-  getStudents: (students) => dispatch(getStudents(students)),
-  getTutors: (tutors) => dispatch(getTutors(tutors)),
-  getConnections: (connections) => dispatch(getConnections(connections))
+  setUserLocation: (userLocation) => dispatch(setUserLocation(userLocation))
 });
 
-export default connect(mapStateToProps, mapDispatchToProps)(LandingPage);
+export default connect(mapStateToProps, mapDispatchToProps)(MainPage);
