@@ -1,6 +1,6 @@
 .person-list-item {
   background: var(--very-light-background);
-  margin-top: 10px;
-  padding: 15px 20px;
+  padding: 1rem;
   border-radius: 5px;
+  border: 1px solid var(--medium-background);
 }
