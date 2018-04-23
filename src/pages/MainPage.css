@@ -1,24 +1,17 @@
 #main-page {
-  display: flex;
+  display: grid;
+  grid-gap: 1rem;
+  grid-template-columns: auto 2fr 2fr;
   overflow: hidden;
   height: 100%;
-}
-
-#main-page .person-list {
-  flex: 1;
-  margin-right: 20px;
 }
 
 .person-list {
   overflow-y: scroll;
 }
 
-#main-page .map {
-  flex: 1;
-}
-
 @media screen and (max-width: 500px) {
   #main-page {
-    flex-direction: column;
+    grid-template-columns: 1fr;
   }
 }
