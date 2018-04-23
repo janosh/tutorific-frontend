@@ -1,7 +1,9 @@
 import React from 'react';
 import {connect} from 'react-redux';
 
+import SelectPersonType from './SelectPersonType';
 import {updateLoginData} from '../actions';
+import config from '../config';
 
 import './Login.css';
 
@@ -26,6 +28,18 @@ class Login extends React.Component {
       this.props.toggleLoginPanel();
   }
 
+  submitLoginData = (e) => {
+    e.preventDefault();
+    fetch(config.backendUrl + this.props.userType, {
+      method: 'post',
+      body: JSON.stringify(this.props.signUpData),
+      headers: {
+        'content-type': 'application/json'
+      }
+    })
+    .then(res => console.log(res));
+  }
+
   render() {
     return (
       <div id="login" ref={node => this.node = node}>
@@ -47,7 +61,8 @@ class Login extends React.Component {
             onChange={this.update}
             value={this.props.app.loginPassword}
           />
-          <button>Login</button>
+          <SelectPersonType storePrefix="login"/>
+          <button className="login-button" onClick={this.submitLoginData}>Login</button>
         </form>
       </div>
     );
