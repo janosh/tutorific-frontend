@@ -1,39 +1,45 @@
-const emptyState = false;
+const emptySignUp = false;
 
 const defaultAppState = {
+  app: {
+    loginPanelVisible: false,
+    loadingStudents: false,
+    loadingTutors: false,
+  },
   user: {
     type: 'student',
-    location: ''
+    location: '',
+    loggedIn: false
   },
   signUpData: {
     // account info
-    firstname: emptyState ? '' : 'Jack',
-    lastname: emptyState ? '' : 'the Ripper',
-    password: emptyState ? '' : 'abcdefgh',
-    confirmPassword: emptyState ? '' : 'abcdefgh',
-    email: emptyState ? '' : 'jacky@theripper.com',
+    firstname: emptySignUp ? '' : 'Jack',
+    lastname: emptySignUp ? '' : 'the Ripper',
+    password: emptySignUp ? '' : 'abcdefgh',
+    confirmPassword: emptySignUp ? '' : 'abcdefgh',
+    email: emptySignUp ? '' : 'jacky@theripper.com',
     // contact info
-    phone: emptyState ? '' : '+34 4321 123 523',
-    address: emptyState ? {} : {
-      street: emptyState ? '' : 'Long Lane',
-      number: emptyState ? '' : '42',
-      city: emptyState ? '' : 'Paradise City',
-      zip: emptyState ? '' : '6942',
-      country: emptyState ? '' : 'Wonderland',
+    phone: emptySignUp ? '' : '+34 4321 123 523',
+    address: emptySignUp ? {} : {
+      street: emptySignUp ? '' : 'Long Lane',
+      number: emptySignUp ? '' : '42',
+      city: emptySignUp ? '' : 'Paradise City',
+      zip: emptySignUp ? '' : '6942',
+      country: emptySignUp ? '' : 'Wonderland',
     },
     // personal info
-    birthday: emptyState ? '' : '2000-01-01',
-    birthplace: emptyState ? '' : 'Honolulu',
-    gender: emptyState ? '' : 'female',
+    birthday: emptySignUp ? '' : '2000-01-01',
+    birthplace: emptySignUp ? '' : 'Honolulu',
+    gender: emptySignUp ? '' : 'female',
     // student-specific data
-    youthOrganization: emptyState ? '' : 'Unicef',
-    grade: emptyState ? '' : '7',
-    schoolType: emptyState ? '' : 'vocational',
+    youthOrganization: emptySignUp ? '' : 'Unicef',
+    grade: emptySignUp ? '' : '7',
+    schoolType: emptySignUp ? '' : 'vocational',
     // tutor-specific data
-    semester: emptyState ? '' : '5',
-    fieldOfStudy: emptyState ? '' : 'Theoretical Physics',
+    semester: emptySignUp ? '' : '5',
+    fieldOfStudy: emptySignUp ? '' : 'Theoretical Physics',
     // subjects info
-    subjects: emptyState ? [] : [{name: 'Physics', grade: 7},{name: 'Math', grade: 5},{name: 'English', grade: 8}],
+    subjects: emptySignUp ? [] : [{name: 'Physics', grade: 7},{name: 'Math', grade: 5},{name: 'English', grade: 8}],
   },
   tutorsList: [],
   studentsList: []
