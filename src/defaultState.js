@@ -7,9 +7,11 @@ const defaultAppState = {
     loadingTutors: false,
     loginEmail: '',
     loginPassword: '',
+    loginUserType: 'student',
+    signupUserType: 'student',
+    filtersUserType: 'student',
   },
   user: {
-    type: 'student',
     location: '',
     loggedIn: false
   },

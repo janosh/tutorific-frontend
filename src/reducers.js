@@ -4,6 +4,11 @@ import defaultAppState from './defaultState';
 
 const app = (state = defaultAppState.app, action) => {
   switch (action.type) {
+    case 'changeOneUserType':
+    return {
+      ...state,
+      [action.storePrefix + 'UserType']: action.userType
+    }
     case 'toggleLoginPanel':
     return {
       ...state,
@@ -43,11 +48,6 @@ const app = (state = defaultAppState.app, action) => {
 
 const user = (state = defaultAppState.user, action) => {
   switch (action.type) {
-    case 'changeUserType':
-    return {
-      ...state,
-      type: action.userType
-    }
     case 'changeUserLocation':
     return {
       ...state,
@@ -78,6 +78,15 @@ const signUpData = (state = defaultAppState.signUpData, action) => {
         ...action.data
       }
     }
+    // TODO
+    // case 'updateSignUpDataSubjects':
+    // return {
+    //   ...state,
+    //   subjects: {
+    //     ...state.address,
+    //     ...action.data
+    //   }
+    // }
     default:
     return state;
   }
