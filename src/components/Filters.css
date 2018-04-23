@@ -1,0 +1,13 @@
+.filters {
+  display: grid;
+  grid-gap: 1rem;
+  grid-auto-rows: min-content;
+  background: var(--less-light-background);
+  padding: 1rem;
+  border-radius: 5px;
+}
+
+.filters h2 {
+  padding-bottom: 0.7rem;
+  border-bottom: 1px solid var(--dark-background);
+}
