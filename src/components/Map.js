@@ -19,6 +19,6 @@ const Map = compose(
   >
     {props.isMarkerShown && <Marker position={{ lat: -34.397, lng: 150.644 }} />}
   </GoogleMap>
-)
+);
 
 export default Map;
