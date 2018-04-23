@@ -13,10 +13,21 @@
 }
 
 #login-panel input {
+  margin-bottom: 0.5rem;
+  display: block;
+  width: 100%;
+}
+
+#login-panel .person-type {
+  display: inline-flex;
   margin-right: 0.5rem;
 }
 
-#login-panel button {
+#login-panel .login-button {
+  background: var(--dark-blue);
+}
+
+#login-panel button.active {
   background: var(--dark-blue);
 }
 
