@@ -1,5 +1,6 @@
-export const changeUserType = (userType) => ({
-  type: 'changeUserType',
+export const changeUserType = (storePrefix, userType) => ({
+  type: 'changeOneUserType',
+  storePrefix,
   userType
 });
 
