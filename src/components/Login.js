@@ -23,15 +23,14 @@ class Login extends React.Component {
 
   handleClickOutside = (e) => {
     if (!this.node.contains(e.target) && this.props.app.loginPanelVisible)
-      this.props.toggleLoginPanelVisibility();
+      this.props.toggleLoginPanel();
   }
 
   render() {
     return (
       <div id="login" ref={node => this.node = node}>
-        <span onClick={this.props.toggleLoginPanelVisibility}>{this.props.user.loggedIn ? this.props.user.firstname : 'Login'}</span>
-        <form id="login-panel"
-          className={this.props.app.loginPanelVisible ? null : 'hidden'}>
+        <span onClick={this.props.toggleLoginPanel}>{this.props.user.loggedIn ? this.props.user.firstname : 'Login'}</span>
+        <form id="login-panel" className={this.props.app.loginPanelVisible ? null : 'hidden'}>
           <input
             name="loginEmail"
             type="email"
@@ -64,7 +63,7 @@ const mapStateToProps = (state) => {
 
 const mapDispatchToProps = (dispatch) => ({
   toggleUserLoggedIn: () => dispatch({type: 'toggleUserLoggedIn'}),
-  toggleLoginPanelVisibility: () => dispatch({type: 'toggleLoginPanelVisibility'}),
+  toggleLoginPanel: () => dispatch({type: 'toggleLoginPanel'}),
   updateLoginData: (data) => dispatch(updateLoginData(data)),
 });
 

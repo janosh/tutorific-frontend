@@ -9,17 +9,15 @@
   border-radius: 5px;
   top: 4rem;
   z-index: 2;
-  display: flex;
+  padding: 0.5rem;
 }
 
 #login-panel input {
-  margin: 0.5rem;
+  margin-right: 0.5rem;
 }
 
 #login-panel button {
   background: var(--dark-blue);
-  border-top-left-radius: 0;
-  border-bottom-left-radius: 0;
 }
 
 .hidden {
