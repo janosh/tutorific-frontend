@@ -5,13 +5,14 @@ import {getStudents, getTutors, getConnections} from '../actions';
 import Filters from '../components/Filters';
 import PersonList from '../components/PersonList';
 import Map from '../components/Map';
+import config from '../config';
 import './MainPage.css';
 
 class MainPage extends React.Component {
 
   componentDidMount() {
     this.props.getTutorsRequest();
-    fetch('http://localhost:3000/tutors')
+    fetch(config.backendUrl + 'tutors')
     .then(res => res.json())
     .then(tutors => {
       this.props.getTutors(tutors);
@@ -23,7 +24,7 @@ class MainPage extends React.Component {
     });
 
     this.props.getStudentsRequest();
-    fetch('http://localhost:3000/students')
+    fetch(config.backendUrl + 'students')
     .then(res => res.json())
     .then(students => {
       this.props.getStudents(students);
