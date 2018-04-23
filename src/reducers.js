@@ -4,10 +4,15 @@ import defaultAppState from './defaultState';
 
 const app = (state = defaultAppState.app, action) => {
   switch (action.type) {
-    case 'toggleLoginPanelVisible':
+    case 'toggleLoginPanelVisibility':
     return {
       ...state,
       loginPanelVisible: !state.loginPanelVisible
+    }
+    case 'updateLoginData':
+    return {
+      ...state,
+      ...action.data
     }
     case 'getTutorsRequest':
     return {

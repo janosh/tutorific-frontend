@@ -3,6 +3,11 @@ export const changeUserType = (userType) => ({
   userType
 });
 
+export const updateLoginData = (data) => ({
+  type: 'updateLoginData',
+  data
+});
+
 export const setUserLocation = (userLocation) => ({
   type: 'setUserLocation',
   userLocation

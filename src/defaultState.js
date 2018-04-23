@@ -5,6 +5,8 @@ const defaultAppState = {
     loginPanelVisible: false,
     loadingStudents: false,
     loadingTutors: false,
+    loginEmail: '',
+    loginPassword: '',
   },
   user: {
     type: 'student',
