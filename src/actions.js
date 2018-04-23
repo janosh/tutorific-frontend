@@ -18,6 +18,11 @@ export const changeUserType = (userType) => ({
   userType
 });
 
+export const setUserLocation = (userLocation) => ({
+  type: 'setUserLocation',
+  userLocation
+});
+
 export const updateSignUpData = (subtype, data) => ({
   type: 'updateSignUpData' + subtype,
   data
