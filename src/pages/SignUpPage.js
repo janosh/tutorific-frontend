@@ -28,7 +28,10 @@ class SignUpPage extends React.Component {
     e.preventDefault();
     fetch(config.backendUrl + this.props.userType, {
       method: 'post',
-      body: JSON.stringify(this.props.signUpData)
+      body: JSON.stringify(this.props.signUpData),
+      headers: {
+        'content-type': 'application/json'
+      }
     })
     .then(res => console.log(res));
   }
@@ -138,6 +141,18 @@ class SignUpPage extends React.Component {
                 required
                 onChange={this.update}
                 value={this.props.signUpData.address.number}
+              />
+            </div>
+            <div>
+              <label htmlFor="city">City</label>
+              <input
+                name="Address.city"
+                id="city"
+                type="text"
+                placeholder="Paradise City"
+                required
+                onChange={this.update}
+                value={this.props.signUpData.address.city}
               />
             </div>
             <div>
@@ -325,8 +340,8 @@ class SignUpPage extends React.Component {
 
 const mapStateToProps = (state) => {
   return {
-    userType: state.appState.userType,
-    signUpData: state.appState.signUpData
+    userType: state.user.type,
+    signUpData: state.signUpData
   };
 };
 
