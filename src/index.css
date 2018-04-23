@@ -19,14 +19,12 @@ body {
   box-sizing: border-box;
   outline: none;
   text-decoration: none;
-  color: inherit;
 }
 
 input, select {
-  padding: 5px 10px;
+  padding: 0.5rem 0.7rem;
   border-radius: 5px;
   border: none;
-  margin: 10px 10px 10px 0;
   font-size: 1rem;
   border: 1px solid gray;
   line-height: 2.2rem;
@@ -40,6 +38,6 @@ button {
   color: var(--light-text);
   border: none;
   outline: none;
-  padding: 5px 10px;
+  padding: 0.5rem 0.7rem;
   font-size: 1.2rem;
 }

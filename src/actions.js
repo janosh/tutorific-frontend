@@ -1,3 +1,17 @@
+export const changeUserType = (userType) => ({
+  type: 'changeUserType',
+  userType
+});
+
+export const setUserLocation = (userLocation) => ({
+  type: 'setUserLocation',
+  userLocation
+});
+
+export const toggleUserLoggedIn = () => ({
+  type: 'toggleUserLoggedIn'
+});
+
 export const getTutors = (tutors) => ({
   type: 'getTutors',
   tutors
@@ -11,16 +25,6 @@ export const getStudents = (students) => ({
 export const getConnections = (connections) => ({
   type: 'getConnections',
   connections
-});
-
-export const changeUserType = (userType) => ({
-  type: 'changeUserType',
-  userType
-});
-
-export const setUserLocation = (userLocation) => ({
-  type: 'setUserLocation',
-  userLocation
 });
 
 export const updateSignUpData = (subtype, data) => ({
