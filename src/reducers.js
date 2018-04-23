@@ -7,18 +7,12 @@ const user = (state = defaultAppState.user, action) => {
     case 'changeUserType':
     return {
       ...state,
-      user: {
-        ...state.user,
-        type: action.userType
-      }
+      type: action.userType
     }
     case 'changeUserLocation':
     return {
       ...state,
-      user: {
-        ...state.user,
-        location: action.userLocation
-      }
+      location: action.userLocation
     }
     default:
     return state;
@@ -28,23 +22,16 @@ const user = (state = defaultAppState.user, action) => {
 const signUpData = (state = defaultAppState.signUpData, action) => {
   switch (action.type) {
     case 'updateSignUpData':
-    console.log(action.data);
     return {
       ...state,
-      signUpData: {
-        ...state.signUpData,
-        ...action.data
-      }
+      ...action.data
     }
     case 'updateSignUpDataAddress':
     return {
       ...state,
-      signUpData: {
-        ...state.signUpData,
-        address: {
-          ...state.signUpData.address,
-          ...action.data
-        }
+      address: {
+        ...state.address,
+        ...action.data
       }
     }
     default:
