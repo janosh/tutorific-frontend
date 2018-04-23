@@ -10,16 +10,28 @@ import './MainPage.css';
 class MainPage extends React.Component {
 
   componentDidMount() {
+    this.props.getTutorsRequest();
     fetch('http://localhost:3000/tutors')
     .then(res => res.json())
     .then(tutors => {
       this.props.getTutors(tutors);
+      this.props.getTutorsSuccess();
+    })
+    .catch(reason => {
+      console.error(reason.message);
+      this.props.getTutorsFailure();
     });
 
+    this.props.getStudentsRequest();
     fetch('http://localhost:3000/students')
     .then(res => res.json())
     .then(students => {
       this.props.getStudents(students);
+      this.props.getStudentsSuccess();
+    })
+    .catch(reason => {
+      console.error(reason.message);
+      this.props.getStudentsFailure();
     });
   }
 
@@ -44,7 +56,13 @@ const mapStateToProps = (state) => {
 
 const mapDispatchToProps = (dispatch) => ({
   getStudents: (students) => dispatch(getStudents(students)),
+  getStudentsRequest: (tutors) => dispatch({type: 'getStudentsRequest'}),
+  getStudentsSuccess: (tutors) => dispatch({type: 'getStudentsSuccess'}),
+  getStudentsFailure: (tutors) => dispatch({type: 'getStudentsFailure'}),
   getTutors: (tutors) => dispatch(getTutors(tutors)),
+  getTutorsRequest: (tutors) => dispatch({type: 'getTutorsRequest'}),
+  getTutorsSuccess: (tutors) => dispatch({type: 'getTutorsSuccess'}),
+  getTutorsFailure: (tutors) => dispatch({type: 'getTutorsFailure'}),
   getConnections: (connections) => dispatch(getConnections(connections))
 });
 

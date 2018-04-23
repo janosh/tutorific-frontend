@@ -5,7 +5,7 @@ import LocationSearch from '../components/LocationSearch';
 import {setUserLocation} from '../actions';
 import './LandingPage.css';
 
-class MainPage extends React.Component {
+class LandingPage extends React.Component {
 
   render() {
     return (
@@ -27,4 +27,4 @@ const mapDispatchToProps = (dispatch) => ({
   setUserLocation: (userLocation) => dispatch(setUserLocation(userLocation))
 });
 
-export default connect(mapStateToProps, mapDispatchToProps)(MainPage);
+export default connect(mapStateToProps, mapDispatchToProps)(LandingPage);
