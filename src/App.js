@@ -2,6 +2,7 @@ import React from 'react';
 import {BrowserRouter as Router, Route, Link} from "react-router-dom";
 
 import LandingPage from './pages/LandingPage';
+import MainPage from './pages/MainPage';
 import AboutPage from './pages/AboutPage';
 import SignUpPage from './pages/SignUpPage';
 
@@ -16,9 +17,9 @@ export default class App extends React.Component {
           <header>
             <nav>
               <Link to="/">Tutorific</Link>
+              <Link to="/find">Find</Link>
               <Link to="/about">About</Link>
               <Link to="/support">Support</Link>
-              <Link to="/contact">Contact</Link>
               <Link to="/login">Login</Link>
               <Link to="/signup">Sign up</Link>
             </nav>
@@ -27,6 +28,7 @@ export default class App extends React.Component {
             <div className="content">
               <Route exact path="/" component={LandingPage}/>
               <Route path="/about" component={AboutPage}/>
+              <Route path="/find" component={MainPage}/>
               <Route path="/signup" component={SignUpPage}/>
             </div>
           </main>
