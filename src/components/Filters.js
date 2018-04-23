@@ -1,6 +1,9 @@
 import React from 'react';
 
+import SelectPersonType from './SelectPersonType';
 import LocationSearch from './LocationSearch';
+
+import './Filters.css';
 
 export default class Filters extends React.Component {
 
@@ -9,6 +12,7 @@ export default class Filters extends React.Component {
       navigator.geolocation.getCurrentPosition(pos => {
         const {latitude, longitude} = pos.coords;
         console.log('latitude', latitude);
+        console.log('longitude', longitude);
       })
     }
   }
@@ -18,6 +22,7 @@ export default class Filters extends React.Component {
       <div className="filters">
         <h2>Filters</h2>
         <LocationSearch/>
+        <SelectPersonType plural={true} storePrefix="filters"/>
       </div>
     );
   }
