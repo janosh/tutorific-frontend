@@ -5,6 +5,7 @@ import LandingPage from './pages/LandingPage';
 import MainPage from './pages/MainPage';
 import AboutPage from './pages/AboutPage';
 import SignUpPage from './pages/SignUpPage';
+import Login from './components/Login';
 
 import './App.css';
 
@@ -20,8 +21,8 @@ export default class App extends React.Component {
               <Link to="/find">Find</Link>
               <Link to="/about">About</Link>
               <Link to="/support">Support</Link>
-              <Link to="/login">Login</Link>
               <Link to="/signup">Sign up</Link>
+              <Link to="#"><Login/></Link>
             </nav>
           </header>
           <main>

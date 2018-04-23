@@ -1,0 +1,27 @@
+#login {
+  display: flex;
+  justify-content: flex-end;
+}
+
+#login-panel {
+  position: absolute;
+  background: var(--main-blue);
+  border-radius: 5px;
+  top: 4rem;
+  z-index: 2;
+  display: flex;
+}
+
+#login-panel input {
+  margin: 0.5rem;
+}
+
+#login-panel button {
+  background: var(--dark-blue);
+  border-top-left-radius: 0;
+  border-bottom-left-radius: 0;
+}
+
+.hidden {
+  display: none;
+}
