@@ -81,7 +81,7 @@ export default class AboutPage extends React.Component {
           </div>
           <div className="about-tile techstack">
           <h3>Tech Stack</h3>
-          <h4>Frontendå</h4>
+          <h4>Frontend</h4>
           <ul>
             <li>React</li>
             <li>Redux</li>
