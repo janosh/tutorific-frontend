@@ -40,7 +40,7 @@ class SignUpPage extends React.Component {
     return (
       <div id="signup-page">
         <h1>Sign up tu Tutorific today!</h1>
-        <SelectPersonType/>
+        <SelectPersonType storePrefix="signup"/>
         <form id="signup-page">
           <h2>Account</h2>
           <div className="signup-form account-info">
