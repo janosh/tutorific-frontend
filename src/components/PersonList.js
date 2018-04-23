@@ -8,12 +8,12 @@ import './PersonList.css';
 class PersonList extends React.Component {
 
   render() {
-    const persons = this.props.userType === 'student' ? this.props.tutors : this.props.students;
+    const personsList = this.props.userType === 'student' ? this.props.tutorsList : this.props.studentsList;
     return (
       <div className="person-list">
         <SelectPersonType plural={true}/>
         <div className="list">
-          {persons.map(person => {
+          {personsList.map(person => {
             return <PersonListItem key={person._id} person={person}/>
           })}
         </div>
@@ -24,9 +24,9 @@ class PersonList extends React.Component {
 
 const mapStateToProps = (state) => {
   return {
-    userType: state.appState.userType,
-    students: state.students,
-    tutors: state.tutors
+    userType: state.user.type,
+    studentsList: state.studentsList,
+    tutorsList: state.tutorsList
   };
 };
 

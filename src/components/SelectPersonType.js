@@ -27,7 +27,7 @@ class PersonList extends React.Component {
 
 const mapStateToProps = (state) => {
   return {
-    userType: state.appState.userType
+    userType: state.user.type
   };
 };
 
