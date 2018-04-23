@@ -1,3 +1,8 @@
+#signup-page {
+  margin: 0 auto;
+  max-width: 1000px;
+}
+
 #signup-page h2 {
   margin: 2rem 0 1rem 0;
 }
