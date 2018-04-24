@@ -1,0 +1,10 @@
+.map-container {
+  flex: 1;
+}
+
+.map {
+  height: 100%;
+  min-height: 400px;
+  border-radius: 10px;
+  border: 1px solid var(--medium-background);
+}

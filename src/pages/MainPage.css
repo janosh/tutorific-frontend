@@ -1,11 +1,21 @@
 #main-page {
+  height: 100%;
   display: grid;
   grid-gap: 1rem;
-  grid-template-columns: auto 2fr 2fr;
+  grid-template-columns: auto auto 2fr;
 }
 
 .person-list {
   overflow-y: scroll;
+}
+
+@media screen and (max-width: 1000px) {
+  #main-page {
+    grid-template-columns: auto 1fr;
+  }
+  #main-page .map-container {
+    grid-column: 1/-1;
+  }
 }
 
 @media screen and (max-width: 500px) {
