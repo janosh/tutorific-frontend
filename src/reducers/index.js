@@ -8,8 +8,8 @@ import {signUpData} from './signUpData';
 
 export default combineReducers({
   app,
-  user,
   signUpData,
+  studentsList,
   tutorsList,
-  studentsList
+  user,
 });
