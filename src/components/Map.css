@@ -3,3 +3,9 @@
   border: 1px solid var(--medium-background);
   overflow: hidden;
 }
+
+@media screen and (max-width: 1000px) {
+  .map-container {
+    height: 400px;
+  }
+}

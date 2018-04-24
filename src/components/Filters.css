@@ -5,6 +5,7 @@
   background: var(--less-light-background);
   padding: 1rem;
   border-radius: 5px;
+  overflow: scroll;
 }
 
 .filters h2 {
