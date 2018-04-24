@@ -2,10 +2,18 @@ import defaultAppState from './defaultState';
 
 export const user = (state = defaultAppState.user, action) => {
   switch (action.type) {
-    case 'changeUserLocation':
+    case 'setUserLocation':
     return {
       ...state,
-      location: action.userLocation
+      location: {
+        ...state.location,
+        ...action.userLocation
+      }
+    }
+    case 'setUserLocationChoice':
+    return {
+      ...state,
+      locationChoice: action.userLocationChoice
     }
     case 'toggleUserLoggedIn':
     return {
