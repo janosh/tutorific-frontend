@@ -6,22 +6,21 @@
 
 header {
   background: var(--main-blue);
-  margin-bottom: 2rem;
   border-bottom: 1px solid var(--dark-blue);
+  overflow: scroll;
 }
 
 nav {
-  max-width: 1000px;
   margin: 0 auto;
+  width: fit-content;
   font-size: 1.3rem;
   display: flex;
   justify-content: space-between;
-  padding: 0 4rem;
 }
 
 nav a {
   color: var(--light-text);
-  padding: 1rem 1rem 1rem 0;
+  padding: 1rem;
   white-space: nowrap;
 }
 
@@ -33,12 +32,8 @@ nav a:hover {
   text-decoration: underline;
 }
 
-.content {
-  padding: 0 2rem;
-}
-
-@media screen and (max-width: 800px) {
-  nav, .content {
-    padding: 0 1rem;
-  }
+main {
+  padding: 1rem;
+  flex: 1;
+  overflow: scroll;
 }

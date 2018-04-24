@@ -36,7 +36,7 @@ const LocationSearch = compose(
       bounds={props.bounds}
       onPlacesChanged={props.onPlacesChanged}
     >
-      <input placeholder="Choose location"/>
+      <input placeholder="Choose city"/>
     </StandaloneSearchBox>
     <ol>
       {props.places.map(({ place_id, formatted_address, geometry: { location } }) =>

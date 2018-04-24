@@ -26,12 +26,10 @@ export default class App extends React.Component {
             </nav>
           </header>
           <main>
-            <div className="content">
-              <Route exact path="/" component={LandingPage}/>
-              <Route path="/about" component={AboutPage}/>
-              <Route path="/find" component={MainPage}/>
-              <Route path="/signup" component={SignUpPage}/>
-            </div>
+            <Route exact path="/" component={LandingPage}/>
+            <Route path="/about" component={AboutPage}/>
+            <Route path="/find" component={MainPage}/>
+            <Route path="/signup" component={SignUpPage}/>
           </main>
         </div>
       </Router>
