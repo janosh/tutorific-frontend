@@ -1,7 +1,7 @@
 import React from 'react';
 
 import SelectPersonType from './SelectPersonType';
-import LocationSearch from './LocationSearch';
+import Geosearch from './Geosearch';
 
 import './Filters.css';
 
@@ -11,7 +11,7 @@ export default class Filters extends React.Component {
     return (
       <div className="filters">
         <h2>Filters</h2>
-        <LocationSearch/>
+        <Geosearch/>
         <SelectPersonType plural={true} storePrefix="filters"/>
       </div>
     );

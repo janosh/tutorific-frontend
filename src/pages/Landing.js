@@ -1,7 +1,7 @@
 import React from 'react';
 import {connect} from 'react-redux';
+import {Link} from "react-router-dom";
 
-import LocationSearch from '../components/LocationSearch';
 import logo from '../assets/logo.svg';
 import {setUserLocation} from '../actions';
 import './Landing.css';
@@ -12,10 +12,7 @@ class LandingPage extends React.Component {
     return (
       <div id="landing-page">
         <img src={logo} alt="Logo"/>
-        <div id="landing-page-title">
-          <h1>Get free tutoring from a student near you!</h1>
-          <LocationSearch/>
-        </div>
+        <h1><Link to="/find">Get free tutoring from a student near you!</Link></h1>
       </div>
     );
   }
