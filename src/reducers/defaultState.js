@@ -1,6 +1,6 @@
 const emptySignUp = false;
 
-const defaultAppState = {
+export default {
   app: {
     loginPanelVisible: false,
     loadingStudents: false,
@@ -47,6 +47,4 @@ const defaultAppState = {
   },
   tutorsList: [],
   studentsList: []
-}
-
-export default defaultAppState;
+};
