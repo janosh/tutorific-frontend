@@ -4,7 +4,7 @@ import {connect} from 'react-redux';
 import SelectPersonType from '../components/SelectPersonType';
 import {changeUserType, updateSignUpData} from '../actions';
 import config from '../config';
-import './SignUpPage.css';
+import './SignUp.css';
 
 class SignUpPage extends React.Component {
 

@@ -6,9 +6,9 @@ import Filters from '../components/Filters';
 import PersonList from '../components/PersonList';
 import Map from '../components/Map';
 import config from '../config';
-import './MainPage.css';
+import './Find.css';
 
-class MainPage extends React.Component {
+class FindPage extends React.Component {
 
   componentDidMount() {
     this.props.getTutorsRequest();
@@ -67,4 +67,4 @@ const mapDispatchToProps = (dispatch) => ({
   getConnections: (connections) => dispatch(getConnections(connections))
 });
 
-export default connect(mapStateToProps, mapDispatchToProps)(MainPage);
+export default connect(mapStateToProps, mapDispatchToProps)(FindPage);

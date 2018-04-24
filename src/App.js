@@ -1,10 +1,10 @@
 import React from 'react';
 import {BrowserRouter as Router, Route, Link} from "react-router-dom";
 
-import LandingPage from './pages/LandingPage';
-import MainPage from './pages/MainPage';
-import AboutPage from './pages/AboutPage';
-import SignUpPage from './pages/SignUpPage';
+import LandingPage from './pages/Landing';
+import FindPage from './pages/Find';
+import AboutPage from './pages/About';
+import SignUpPage from './pages/SignUp';
 import Login from './components/Login';
 import logo from './assets/logo.svg';
 
@@ -33,7 +33,7 @@ export default class App extends React.Component {
           <main>
             <Route exact path="/" component={LandingPage}/>
             <Route path="/about" component={AboutPage}/>
-            <Route path="/find" component={MainPage}/>
+            <Route path="/find" component={FindPage}/>
             <Route path="/signup" component={SignUpPage}/>
           </main>
         </div>
