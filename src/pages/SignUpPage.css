@@ -4,41 +4,53 @@
 }
 
 #signup-page h2 {
-  margin: 2rem 0 1rem 0;
+  margin-bottom: 1rem;
 }
 
 #signup-page h1 {
-  margin-bottom: 2rem;
+  margin-bottom: 1rem;
 }
 
-#signup-page .person-type {
-  width: 10rem;
+.form-title {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  margin-bottom: 1rem;
 }
 
-.signup-form {
+#signup-form {
+  display: grid;
+  grid-gap: 2rem;
+  grid-auto-rows: auto;
+}
+
+@media screen and (min-width: 1000px) {
+  #signup-form {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+.signup-form-section-fields {
   display: grid;
   grid-template-columns: repeat(2, minmax(200px, 300px));
   grid-gap: 1rem;
 }
 
-.signup-form input, select {
-  width: 90%;
-}
-
-label {
-  display: block;
+.signup-form-section-fields input, select {
+  width: 100%;
 }
 
 #submit-sign-up-form {
-  margin: 2rem 0;
+  text-align: center;
+  margin-top: 2rem;
+}
+
+#submit-sign-up-form button {
+  min-width: 10rem;
 }
 
 @media screen and (max-width: 500px) {
-  .signup-form {
+  .signup-form-section-fields {
     grid-template-columns: 1fr;
-  }
-
-  .signup-form input {
-    max-width: 300px;
   }
 }
