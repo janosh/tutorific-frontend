@@ -44,7 +44,7 @@ export default {
     semester: emptySignUp ? '' : '5',
     fieldOfStudy: emptySignUp ? '' : 'Theoretical Physics',
     // subjects info
-    subjects: emptySignUp ? [] : [{name: 'Physics', grade: 7},{name: 'Math', grade: 5},{name: 'English', grade: 8}],
+    subjects: emptySignUp ? [] : [{name: 'Physics', grade: 7},{name: 'Math', grade: 5},{name: 'English', grade: 8},{name: 'Biology', grade: 12}],
   },
   tutorsList: [],
   studentsList: []

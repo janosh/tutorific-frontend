@@ -8,14 +8,14 @@ import './Map.css';
 class Map extends React.Component {
 
   render() {
-    const {lng: userLng, lat: userLat} = this.props.userLocation;
+    const {lng: userLng, lat: userLat} = this.props.userLocationChoice.location || this.props.userLocation;
     return (
       <div className="map-container">
         <GoogleMapReact
           bootstrapURLKeys={{key: config.googleMapsApiKey}}
           center={{lat: userLat || 50, lng: userLng || 10}}
-          zoom={userLng ? 10 : 4}
-          >
+          zoom={userLng ? 12 : 4}
+        >
         </GoogleMapReact>
       </div>
     );
@@ -24,7 +24,8 @@ class Map extends React.Component {
 
 const mapStateToProps = (state) => {
   return {
-    userLocation: state.user.location
+    userLocation: state.user.location,
+    userLocationChoice: state.user.locationChoice,
   };
 };
 
