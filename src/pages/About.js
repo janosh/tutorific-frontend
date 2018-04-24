@@ -1,6 +1,6 @@
 import React from 'react';
 
-import './AboutPage.css';
+import './About.css';
 
 export default class AboutPage extends React.Component {
   render() {

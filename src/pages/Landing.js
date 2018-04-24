@@ -4,7 +4,7 @@ import {connect} from 'react-redux';
 import LocationSearch from '../components/LocationSearch';
 import logo from '../assets/logo.svg';
 import {setUserLocation} from '../actions';
-import './LandingPage.css';
+import './Landing.css';
 
 class LandingPage extends React.Component {
 
