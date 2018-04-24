@@ -2,7 +2,7 @@
   height: 100%;
   display: grid;
   grid-gap: 1rem;
-  grid-template-columns: auto auto 2fr;
+  grid-template-columns: auto 2fr 3fr;
 }
 
 .person-list {
