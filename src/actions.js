@@ -14,9 +14,10 @@ export const setUserLocation = (userLocation) => ({
   userLocation
 });
 
-export const setUserLocationChoice = (userLocationChoice) => ({
-  type: 'setUserLocationChoice',
-  userLocationChoice
+export const setLocationChoice = (storePrefix, locationChoice) => ({
+  type: 'setLocationChoice',
+  storePrefix,
+  locationChoice,
 });
 
 export const toggleUserLoggedIn = () => ({

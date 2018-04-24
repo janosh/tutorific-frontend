@@ -2,16 +2,19 @@ import React from 'react';
 import {connect} from 'react-redux';
 import Geosuggest from 'react-geosuggest';
 
-import {setUserLocation, setUserLocationChoice} from '../actions';
+import {setUserLocation, setLocationChoice} from '../actions';
 import './Geosearch.css';
 
 class Geosearch extends React.Component {
 
   selectedLocationToStore = (data) => {
-    this.props.setUserLocationChoice({
+    if (!data || !data.gmaps || !data.gmaps.geometry) return;
+    this.props.setLocationChoice({
       label: data.label,
       placeId: data.placeId,
       location: data.location,
+      components: data.gmaps.address_components,
+      bounds: data.gmaps.geometry.bounds,
     })
   }
 
@@ -27,7 +30,7 @@ class Geosearch extends React.Component {
   render() {
     return (
       <Geosuggest
-        placeholder="Choose location"
+        placeholder={this.props.placeholder || 'Choose location'}
         onSuggestSelect={this.selectedLocationToStore}
       />);
   }
@@ -35,14 +38,13 @@ class Geosearch extends React.Component {
 
 const mapStateToProps = (state) => {
   return {
-    userLocation: state.user.location,
-    userLocationChoice: state.user.locationChoice
+    userLocation: state.user.location
   };
 };
 
-const mapDispatchToProps = (dispatch) => ({
+const mapDispatchToProps = (dispatch, ownProps) => ({
   setUserLocation: (userLocation) => dispatch(setUserLocation(userLocation)),
-  setUserLocationChoice: (userLocationChoice) => dispatch(setUserLocationChoice(userLocationChoice))
+  setLocationChoice: (locationChoice) => dispatch(setLocationChoice(ownProps.storePrefix, locationChoice))
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(Geosearch);

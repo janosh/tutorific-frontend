@@ -11,7 +11,7 @@ export default class Filters extends React.Component {
     return (
       <div className="filters">
         <h2>Filters</h2>
-        <Geosearch/>
+        <Geosearch storePrefix="user"/>
         <SelectPersonType plural={true} storePrefix="filters"/>
       </div>
     );
