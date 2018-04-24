@@ -1,10 +1,16 @@
 #landing-page {
   flex: 1;
   display: flex;
-  flex-direction: column;
   justify-content: center;
   align-items: center;
   height: 100%;
+}
+
+#landing-page-title {
+  background: var(--dark-blue);
+  padding: 2rem;
+  border-radius: 1rem;
+  text-align: center;
 }
 
 #landing-page h1 {
@@ -14,7 +20,6 @@
   border-radius: 10px;
   font-weight: lighter;
   margin-bottom: 2rem;
-  text-align: center;
 }
 
 #landing-page input {
