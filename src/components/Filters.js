@@ -7,16 +7,6 @@ import './Filters.css';
 
 export default class Filters extends React.Component {
 
-  componentDidMount() {
-    if ('geolocation' in navigator) {
-      navigator.geolocation.getCurrentPosition(pos => {
-        const {latitude, longitude} = pos.coords;
-        console.log('latitude', latitude);
-        console.log('longitude', longitude);
-      })
-    }
-  }
-
   render() {
     return (
       <div className="filters">

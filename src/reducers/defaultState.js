@@ -12,7 +12,8 @@ export default {
     filtersUserType: 'student',
   },
   user: {
-    location: '',
+    location: {},
+    locationChoice: '',
     loggedIn: false
   },
   signUpData: {
