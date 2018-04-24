@@ -10,8 +10,10 @@ class LandingPage extends React.Component {
   render() {
     return (
       <div id="landing-page">
-        <h1>Get free tutoring from a university student near you!</h1>
-        <LocationSearch/>
+        <div id="landing-page-title">
+          <h1>Get free tutoring from a university student near you!</h1>
+          <LocationSearch/>
+        </div>
       </div>
     );
   }
