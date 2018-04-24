@@ -10,10 +10,12 @@ export const user = (state = defaultAppState.user, action) => {
         ...action.userLocation
       }
     }
-    case 'setUserLocationChoice':
-    return {
-      ...state,
-      locationChoice: action.userLocationChoice
+    case 'setLocationChoice':
+    if (action.storePrefix === 'user') {
+      return {
+        ...state,
+        locationChoice: action.locationChoice
+      }
     }
     case 'toggleUserLoggedIn':
     return {
