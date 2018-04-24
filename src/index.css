@@ -27,7 +27,7 @@ input, select {
   border-radius: 5px;
   border: none;
   font-size: 1rem;
-  border: 1px solid gray;
+  border: 1px solid var(--medium-background);
   line-height: 2.2rem;
   height: 2.2rem;
   background: white;

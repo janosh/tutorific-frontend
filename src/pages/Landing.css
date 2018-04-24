@@ -13,20 +13,17 @@
   padding: 0.1rem;
 }
 
-#landing-page-title {
-  background: var(--less-light-background);
-  padding: 2rem;
-  border-radius: 1rem;
-  text-align: center;
-}
-
 #landing-page h1 {
   background: var(--main-blue);
   color: var(--light-text);
   padding: 1rem 2rem;
   border-radius: 10px;
   font-weight: lighter;
-  margin-bottom: 2rem;
+  margin-bottom: 10rem;
+}
+
+#landing-page a {
+  color: var(--light-text);
 }
 
 #landing-page input {
