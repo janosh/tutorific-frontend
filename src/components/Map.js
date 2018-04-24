@@ -11,10 +11,9 @@ const Map = compose(
     loadingElement: <div/>,
     containerElement: <div className="map-container"/>,
     mapElement: <div className="map"/>,
-  }),
-  withScriptjs,
-  withGoogleMap
-)((props) =>
+    isMarkerShown: true,
+  }), withScriptjs, withGoogleMap
+)(props =>
   <GoogleMap
     defaultZoom={8}
     defaultCenter={{ lat: -34.397, lng: 150.644 }}
