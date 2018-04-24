@@ -1,14 +1,16 @@
 import React from 'react';
 import { compose, withProps } from 'recompose';
 import { withScriptjs, withGoogleMap, GoogleMap, Marker } from 'react-google-maps';
+
+import './Map.css';
 import config from '../config';
 
 const Map = compose(
   withProps({
     googleMapURL: `https://maps.googleapis.com/maps/api/js?key=${config.googleMapsApiKey}&v=3.exp&libraries=geometry,drawing,places`,
     loadingElement: <div/>,
-    containerElement: <div style={{ flex: '1' }} />,
-    mapElement: <div style={{height: '100%', minHeight: '400px', borderRadius: '10px', border: '1px solid var(--medium-background)'}} />,
+    containerElement: <div className="map-container"/>,
+    mapElement: <div className="map"/>,
   }),
   withScriptjs,
   withGoogleMap
