@@ -1,38 +1,24 @@
 import React from 'react';
+import GoogleMapReact from 'google-map-react';
 import {connect} from 'react-redux';
-import {withScriptjs, withGoogleMap, GoogleMap, Marker} from 'react-google-maps';
 
-import './Map.css';
 import config from '../config';
+import './Map.css';
 
-const ComposedMap = withScriptjs(withGoogleMap(props => {
-  const {longitude: userLng, latitude: userLat} = props.userLocation;
-  return <GoogleMap
-    center={{lat: userLat || 50, lng: userLng || 10}}
-    zoom={userLat ? 10 : 4}
-  >
-    {userLat && <Marker
-      label="You"
-      position={{lat: userLat, lng: userLng}}
-    />}
-  </GoogleMap>
-}));
-
-class Map extends React.PureComponent {
-
-  componentDidMount() {
-  }
+class Map extends React.Component {
 
   render() {
+    const {lng: userLng, lat: userLat} = this.props.userLocation;
     return (
-      <ComposedMap
-        googleMapURL={`https://maps.googleapis.com/maps/api/js?key=${config.googleMapsApiKey}&v=3.exp&libraries=geometry,drawing,places`}
-        loadingElement={<div/>}
-        containerElement={<div className="map-container"/>}
-        mapElement={<div className="map"/>}
-        userLocation={this.props.userLocation}
-      />
-    )
+      <div className="map-container">
+        <GoogleMapReact
+          bootstrapURLKeys={{key: config.googleMapsApiKey}}
+          center={{lat: userLat || 50, lng: userLng || 10}}
+          zoom={userLng ? 10 : 4}
+          >
+        </GoogleMapReact>
+      </div>
+    );
   }
 }
 

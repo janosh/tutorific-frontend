@@ -13,7 +13,7 @@ export default {
   },
   user: {
     location: {},
-    locationChoice: '',
+    locationChoice: {},
     loggedIn: false
   },
   signUpData: {
