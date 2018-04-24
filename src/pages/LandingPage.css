@@ -1,13 +1,20 @@
 #landing-page {
   flex: 1;
   display: flex;
-  justify-content: center;
+  flex-direction: column;
+  justify-content: space-around;
   align-items: center;
   height: 100%;
 }
 
+#landing-page img {
+  background: var(--less-light-background);
+  border-radius: 50%;
+  padding: 0.1rem;
+}
+
 #landing-page-title {
-  background: var(--dark-blue);
+  background: var(--less-light-background);
   padding: 2rem;
   border-radius: 1rem;
   text-align: center;

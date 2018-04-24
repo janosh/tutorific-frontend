@@ -6,6 +6,7 @@ import MainPage from './pages/MainPage';
 import AboutPage from './pages/AboutPage';
 import SignUpPage from './pages/SignUpPage';
 import Login from './components/Login';
+import logo from './assets/logo.svg';
 
 import './App.css';
 
@@ -17,7 +18,11 @@ export default class App extends React.Component {
         <div id="app">
           <header>
             <nav>
-              <Link to="/">Tutorific</Link>
+              <Link to="/">
+                <div className="logo-container">
+                  <img src={logo} alt="Logo"/>Tutorific
+                </div>
+              </Link>
               <Link to="/find">Find</Link>
               <Link to="/about">About</Link>
               <Link to="/support">Support</Link>
