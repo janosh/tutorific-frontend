@@ -3,6 +3,7 @@ import {connect} from 'react-redux';
 
 import SelectPersonType from '../components/SelectPersonType';
 import {changeUserType, updateSignUpData} from '../actions';
+import Geosearch from '../components/Geosearch';
 import config from '../config';
 import './SignUp.css';
 
@@ -170,64 +171,8 @@ class SignUpPage extends React.Component {
                 />
               </div>
               <div>
-                <label htmlFor="street">Street</label>
-                <input
-                  name="Address.street"
-                  id="street"
-                  type="text"
-                  placeholder="Long Lane"
-                  required
-                  onChange={this.update}
-                  value={this.props.signUpData.address.street}
-                />
-              </div>
-              <div>
-                <label htmlFor="number">Number</label>
-                <input
-                  name="Address.number"
-                  id="number"
-                  type="text"
-                  placeholder="42"
-                  required
-                  onChange={this.update}
-                  value={this.props.signUpData.address.number}
-                />
-              </div>
-              <div>
-                <label htmlFor="city">City</label>
-                <input
-                  name="Address.city"
-                  id="city"
-                  type="text"
-                  placeholder="Paradise City"
-                  required
-                  onChange={this.update}
-                  value={this.props.signUpData.address.city}
-                />
-              </div>
-              <div>
-                <label htmlFor="zip">ZIP</label>
-                <input
-                  name="Address.zip"
-                  id="zip"
-                  type="text"
-                  placeholder="6942"
-                  required
-                  onChange={this.update}
-                  value={this.props.signUpData.address.zip}
-                />
-              </div>
-              <div>
-                <label htmlFor="country">Country</label>
-                <input
-                  name="Address.country"
-                  id="country"
-                  type="text"
-                  placeholder="Wonderland"
-                  required
-                  onChange={this.update}
-                  value={this.props.signUpData.address.country}
-                />
+                <label htmlFor="address">Address</label>
+                <Geosearch name="address" storePrefix="signUpData" placeholder="Wonderland"/>
               </div>
             </div>
           </div>

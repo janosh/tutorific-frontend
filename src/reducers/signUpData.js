@@ -7,23 +7,23 @@ export const signUpData = (state = defaultAppState.signUpData, action) => {
       ...state,
       ...action.data
     }
-    case 'updateSignUpDataAddress':
-    return {
-      ...state,
-      address: {
-        ...state.address,
-        ...action.data
+    // update signUpData.address
+    case 'setLocationChoice':
+    if (action.storePrefix === 'signUpData') {
+      return {
+        ...state,
+        address: action.locationChoice
       }
     }
     // TODO
-    // case 'updateSignUpDataSubjects':
-    // return {
-    //   ...state,
-    //   subjects: {
-    //     ...state.address,
-    //     ...action.data
-    //   }
-    // }
+    case 'updateSignUpDataSubjects':
+    return {
+      ...state,
+      subjects: [
+        ...state.subjects,
+        ...action.data
+      ]
+    }
     default:
     return state;
   }
