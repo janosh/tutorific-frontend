@@ -4,3 +4,11 @@
   border-radius: 5px;
   border: 1px solid var(--medium-background);
 }
+
+.person-list-item span {
+  color: var(--medium-text);
+}
+
+.person-list-item h3 {
+  color: var(--dark-blue);
+}
