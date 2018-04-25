@@ -15,15 +15,16 @@ export const signUpData = (state = defaultAppState.signUpData, action) => {
         address: action.locationChoice
       }
     }
+    break;
     // TODO
-    case 'updateSignUpDataSubjects':
-    return {
-      ...state,
-      subjects: [
-        ...state.subjects,
-        ...action.data
-      ]
-    }
+    // case 'updateSignUpDataSubjects':
+    // return {
+    //   ...state,
+    //   subjects: [
+    //     ...state.subjects,
+    //     ...action.data
+    //   ]
+    // }
     default:
     return state;
   }

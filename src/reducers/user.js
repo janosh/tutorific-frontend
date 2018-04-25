@@ -17,6 +17,7 @@ export const user = (state = defaultAppState.user, action) => {
         locationChoice: action.locationChoice
       }
     }
+    break;
     case 'toggleUserLoggedIn':
     return {
       ...state,
