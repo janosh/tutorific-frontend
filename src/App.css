@@ -5,8 +5,8 @@
 }
 
 header {
+  z-index: 5;
   background: var(--main-blue);
-  border-bottom: 1px solid var(--dark-blue);
   overflow: scroll;
 }
 
@@ -47,7 +47,6 @@ nav a:hover {
 }
 
 main {
-  padding: 1rem;
   flex: 1;
   overflow: scroll;
 }
