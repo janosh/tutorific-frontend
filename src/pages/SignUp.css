@@ -25,19 +25,13 @@
   grid-auto-rows: auto;
 }
 
-@media screen and (min-width: 1000px) {
-  #signup-form {
-    grid-template-columns: 1fr 1fr;
-  }
-}
-
 .signup-form-section-fields {
   display: grid;
   grid-template-columns: repeat(2, minmax(200px, 300px));
   grid-gap: 1rem;
 }
 
-.signup-form-section-fields input, select {
+.signup-form-section-fields input, .signup-form-section-fields select {
   width: 100%;
 }
 
