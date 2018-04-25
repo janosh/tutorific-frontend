@@ -4,6 +4,7 @@
   "private": true,
   "dependencies": {
     "google-map-react": "^0.34.0",
+    "moment": "^2.22.1",
     "react": "^16.3.2",
     "react-dom": "^16.3.2",
     "react-geosuggest": "^2.7.0",
