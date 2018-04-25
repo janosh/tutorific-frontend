@@ -1,17 +1,32 @@
-.about-tiles {
-  display: grid;
-  grid-template-columns: repeat(3, minmax(300px, 400px));
-  grid-gap: 1rem;
-  grid-auto-rows: min-content;
-}
-
-.about-tile {
+#about-page {
+  margin: 1rem auto;
+  padding: 2rem;
+  width: 90%;
+  max-width: 900px;
   background: var(--very-light-background);
-  padding: 1rem;
   border-radius: 5px;
 }
 
-ul {
+#about-page-title {
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+#about-page-title h2 {
+  font-weight: lighter;
+  margin-top: 1rem;
+}
+
+#about-page section {
+  margin-top: 2rem;
+  line-height: 1.5rem;
+}
+
+#about-page section h3 {
+  margin-bottom: 0.5rem;
+}
+
+#about-page ul {
   margin-left: 0;
-  padding-left: 1rem;
+  padding-left: 2rem;
 }
