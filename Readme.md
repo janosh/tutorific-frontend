@@ -6,16 +6,16 @@
 
 ###Landing Page
 
-![Landing Page](assets/Landing Page.png)
+![Landing Page](screenshots/Landing Page.png)
 
 ### Find Student/Tutor Page
 
-![Find Page-4670842](assets/Find Page-4670842.png)
+![Find Page](screenshots/Find Page.png)
 
 ### Support Page
 
-![Support Page-4670861](assets/Support Page-4670861.png)
+![Support Page](screenshots/Support Page.png)
 
 ### Signup Page
 
-![Signup Page-4670875](assets/Signup Page-4670875.png)
+![Signup Page](screenshots/Signup Page.png)
