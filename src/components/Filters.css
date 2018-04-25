@@ -12,3 +12,25 @@
   padding-bottom: 0.7rem;
   border-bottom: 1px solid var(--dark-background);
 }
+
+.filters input, .filters select {
+  width: 100%;
+}
+
+.distance-buttons button {
+  border-radius: 0;
+  font-size: 1rem;
+  background: var(--very-light-background);
+  color: var(--dark-text);
+}
+
+.distance-buttons button.selected {
+  background: var(--main-blue);
+  color: var(--light-text);
+}
+
+.distance-buttons {
+  border-radius: 5px;
+  overflow: hidden;
+  white-space: nowrap;
+}
