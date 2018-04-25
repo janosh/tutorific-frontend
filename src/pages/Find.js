@@ -38,7 +38,7 @@ class FindPage extends React.Component {
 
   render() {
     return (
-      <div id="main-page">
+      <div id="find-page">
         <Filters/>
         <PersonList/>
         <Map/>
