@@ -1,0 +1,31 @@
+#support-page {
+  margin: 1rem auto;
+  padding: 2rem;
+  width: 90%;
+  max-width: 900px;
+  background: var(--very-light-background);
+  border-radius: 5px;
+}
+
+#support-page h1 {
+  text-align: center;
+  font-size: 2rem;
+}
+
+#support-page h2 {
+  text-align: center;
+  font-size: 1.8rem;
+  margin-top: 2rem;
+}
+
+#support-page {
+  line-height: 1.5rem;
+}
+
+#support-page h3 {
+  margin-top: 1.5rem;
+}
+
+#support-page p {
+  margin-top: 0.3rem;
+}
