@@ -8,7 +8,7 @@ body {
   --main-blue: #1A8CFF;
   --dark-blue: rgb(0, 3, 158);
   --light-text: white;
-  --medium-text: rgb(230, 230, 230);
+  --medium-text: rgb(160, 160, 160);
   --dark-text: black;
   background: var(--light-background);
 }
