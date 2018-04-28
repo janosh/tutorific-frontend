@@ -2,25 +2,34 @@
   display: grid;
   grid-gap: 1rem;
   grid-auto-rows: min-content;
-  background: var(--less-light-background);
+  background: var(--very-light-background);
   padding: 1rem;
   border-radius: 5px;
   overflow: scroll;
 }
 
-.filters h2 {
+.filters h2, .filters p {
   padding-bottom: 0.7rem;
   border-bottom: 1px solid var(--dark-background);
+}
+
+.filters label {
+  font-weight: bold;
 }
 
 .filters input, .filters select {
   width: 100%;
 }
 
+.filters .person-type button:not(.active) {
+  background: var(--less-light-background);
+}
+
 .distance-buttons button {
+  flex: 1;
   border-radius: 0;
   font-size: 1rem;
-  background: var(--very-light-background);
+  background: var(--less-light-background);
   color: var(--dark-text);
 }
 
@@ -33,4 +42,5 @@
   border-radius: 5px;
   overflow: hidden;
   white-space: nowrap;
+  display: flex;
 }

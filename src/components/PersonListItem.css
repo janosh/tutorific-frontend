@@ -2,7 +2,6 @@
   background: var(--very-light-background);
   padding: 1rem;
   border-radius: 5px;
-  border: 1px solid var(--medium-background);
 }
 
 .person-list-item span {
