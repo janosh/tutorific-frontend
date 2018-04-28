@@ -1,18 +1,27 @@
 import React from 'react';
+import {connect} from 'react-redux';
 
 import SelectPersonType from './SelectPersonType';
 import Geosearch from './Geosearch';
 
 import './Filters.css';
 
-export default class Filters extends React.Component {
+class Filters extends React.Component {
 
   render() {
+    const {userType, studentsList, tutorsList} = this.props;
+    const relevantList = userType === 'student' ? studentsList : tutorsList;
+    const findCount = relevantList.length;
+    const availableCount = relevantList.filter(person => person.status === 'available').length;
     return (
       <div className="filters">
         <h2>Filters</h2>
+        <p>Number of <strong>{userType}s</strong> near you: <strong>{findCount}</strong> of which <strong>{availableCount}</strong> are currently available.</p>
         <Geosearch storePrefix="user"/>
-        <SelectPersonType plural={true} storePrefix="filters"/>
+        <div>
+          <label htmlFor="searchfor">Search for</label>
+          <SelectPersonType id="searchfor" storePrefix="filters"/>
+        </div>
         <div>
           <label htmlFor="status">Status</label>
           <select
@@ -20,7 +29,6 @@ export default class Filters extends React.Component {
             id="status"
             required
             onChange={this.update}
-            // value={this.props.signUpData.status}
           >
             <option value="available">Available</option>
             <option value="connected">Connected</option>
@@ -34,24 +42,27 @@ export default class Filters extends React.Component {
             id="last-login-after"
             type="date"
             onChange={this.update}
-            // value={this.props.signUpData.birthday}
           />
         </div>
         <div className="distance-filter">
           <label htmlFor="distance">Distance</label>
           <div name="distance" className="distance-buttons">
-            <button className="selected">
-              5 km
-            </button>
-            <button>
-              10 km
-            </button>
-            <button>
-              20 km
-            </button>
+            <button className="selected">5 km</button>
+            <button>10 km</button>
+            <button>20 km</button>
           </div>
         </div>
       </div>
     );
   }
 }
+
+const mapStateToProps = (state) => {
+  return {
+    userType: state.app.filtersUserType,
+    studentsList: state.studentsList,
+    tutorsList: state.tutorsList,
+  }
+}
+
+export default connect(mapStateToProps)(Filters);
