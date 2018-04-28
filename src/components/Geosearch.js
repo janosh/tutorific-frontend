@@ -38,7 +38,7 @@ class Geosearch extends React.Component {
 
 const mapStateToProps = (state) => {
   return {
-    userLocation: state.user.location
+    userLocation: state.currentUser.location,
   };
 };
 
