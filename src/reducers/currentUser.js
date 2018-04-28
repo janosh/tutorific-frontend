@@ -1,6 +1,6 @@
 import defaultAppState from './defaultState';
 
-export const user = (state = defaultAppState.user, action) => {
+export const currentUser= (state = defaultAppState.user, action) => {
   switch (action.type) {
     case 'setUserLocation':
     return {
@@ -10,14 +10,11 @@ export const user = (state = defaultAppState.user, action) => {
         ...action.userLocation
       }
     }
-    case 'setLocationChoice':
-    if (action.storePrefix === 'user') {
-      return {
-        ...state,
-        locationChoice: action.locationChoice
-      }
+    case 'userSetLocationChoice':
+    return {
+      ...state,
+      locationChoice: action.locationChoice
     }
-    break;
     case 'toggleUserLoggedIn':
     return {
       ...state,
@@ -26,4 +23,4 @@ export const user = (state = defaultAppState.user, action) => {
     default:
     return state;
   }
-}
+};
