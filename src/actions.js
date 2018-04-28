@@ -15,7 +15,7 @@ export const setUserLocation = (userLocation) => ({
 });
 
 export const setLocationChoice = (storePrefix, locationChoice) => ({
-  type: 'setLocationChoice',
+  type: storePrefix + 'SetLocationChoice',
   storePrefix,
   locationChoice,
 });
@@ -42,4 +42,9 @@ export const getConnections = (connections) => ({
 export const updateSignUpData = (subtype, data) => ({
   type: 'updateSignUpData' + subtype,
   data
+});
+
+export const setSingleViewPerson = (person) => ({
+  type: 'setSingleViewPerson',
+  person
 });
