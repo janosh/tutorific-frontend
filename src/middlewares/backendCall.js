@@ -1,3 +1,5 @@
+import { Base64 } from 'js-base64';
+
 import config from '../config';
 
 export const backendCall = store => next => action => {
@@ -8,6 +10,10 @@ export const backendCall = store => next => action => {
   if (store.getState().currentUser.token) {
     const token = store.getState().currentUser.token;
     headers['Authorization'] = 'Bearer ' + token;
+  } else if (action.type === 'submitLoginData') {
+    const {email, password, userType} = action.data;
+    const encodedLoginData = Base64.encode(`${email}:${password}:${userType}`)
+    headers['Authorization'] = 'Basic ' + encodedLoginData;
   }
 
   fetch(config.backendUrl + endpoint, {

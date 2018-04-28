@@ -9,6 +9,14 @@ export const updateLoginData = (data) => ({
   data
 });
 
+export const submitLoginData = (data) => ({
+  type: 'submitLoginData',
+  data,
+  backendCall: {
+    endpoint: '/login',
+  }
+});
+
 export const setUserLocation = (userLocation) => ({
   type: 'setUserLocation',
   userLocation
