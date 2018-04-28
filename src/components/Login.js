@@ -2,8 +2,7 @@ import React from 'react';
 import {connect} from 'react-redux';
 
 import SelectPersonType from './SelectPersonType';
-import {updateLoginData} from '../actions';
-import config from '../config';
+import {updateLoginData, submitLoginData} from '../actions';
 
 import './Login.css';
 
@@ -28,22 +27,12 @@ class Login extends React.Component {
       this.props.toggleLoginPanel();
   }
 
-  submitLoginData = (e) => {
-    e.preventDefault();
-    fetch(config.backendUrl + this.props.userType, {
-      method: 'post',
-      body: JSON.stringify(this.props.signUpData),
-      headers: {
-        'content-type': 'application/json'
-      }
-    })
-    .then(res => console.log(res));
-  }
-
   render() {
     return (
       <div id="login" ref={node => this.node = node}>
-        <span onClick={this.props.toggleLoginPanel}>{this.props.currentUser.loggedIn ? this.props.currentUser.firstname : 'Login'}</span>
+        <span onClick={this.props.toggleLoginPanel}>
+          {this.props.currentUser.loggedIn ? this.props.currentUser.firstname : 'Login'}
+        </span>
         {this.props.app.showLoginModal && <form id="login-modal">
           <input
             name="loginEmail"
@@ -62,7 +51,11 @@ class Login extends React.Component {
             value={this.props.app.loginPassword}
           />
           <SelectPersonType storePrefix="login"/>
-          <button className="login-button" onClick={this.submitLoginData}>Login</button>
+          <button className="login-button" onClick={() => this.props.submitLoginData({
+            email: this.props.loginEmail,
+            password: this.props.loginPassword,
+            userType: this.props.loginUserType,
+          })}>Login</button>
         </form>}
       </div>
     );
@@ -73,6 +66,9 @@ const mapStateToProps = (state) => {
   return {
     app: state.app,
     currentUser: state.currentUser,
+    loginEmail: state.app.loginEmail,
+    loginPassword: state.app.loginPassword,
+    loginUserType: state.app.loginUserType,
   };
 };
 
@@ -80,6 +76,7 @@ const mapDispatchToProps = (dispatch) => ({
   toggleUserLoggedIn: () => dispatch({type: 'toggleUserLoggedIn'}),
   toggleLoginPanel: () => dispatch({type: 'toggleLoginPanel'}),
   updateLoginData: (data) => dispatch(updateLoginData(data)),
+  submitLoginData: (data) => dispatch(submitLoginData(data)),
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(Login);
