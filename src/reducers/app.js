@@ -10,7 +10,7 @@ export const app = (state = defaultAppState.app, action) => {
     case 'toggleLoginPanel':
     return {
       ...state,
-      loginPanelVisible: !state.loginPanelVisible
+      showLoginModal: !state.showLoginModal
     }
     case 'updateLoginData':
     return {
@@ -42,4 +42,4 @@ export const app = (state = defaultAppState.app, action) => {
     default:
     return state;
   }
-}
+};
