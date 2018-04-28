@@ -2,7 +2,7 @@ import React from 'react';
 import {connect} from 'react-redux';
 
 import SelectPersonType from '../components/SelectPersonType';
-import {changeUserType, updateSignUpData} from '../actions';
+import {updateSignUpData} from '../actions';
 import Geosearch from '../components/Geosearch';
 import config from '../config';
 import './SignUp.css';
@@ -304,7 +304,6 @@ const mapStateToProps = (state) => {
 };
 
 const mapDispatchToProps = (dispatch) => ({
-  changeUserType: (userType) => dispatch(changeUserType(userType)),
   updateSignUpData: (subtype, data) => dispatch(updateSignUpData(subtype, data)),
 });
 

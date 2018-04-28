@@ -1,8 +1,8 @@
-const emptySignUp = false;
+const emptySignUp = true;
 
 export default {
   app: {
-    loginPanelVisible: false,
+    showLoginModal: false,
     loadingStudents: false,
     loadingTutors: false,
     loginEmail: '',
@@ -14,7 +14,8 @@ export default {
   user: {
     location: {},
     locationChoice: {},
-    loggedIn: false
+    loggedIn: false,
+    token: '',
   },
   signUpData: {
     // account info
@@ -47,5 +48,6 @@ export default {
     subjects: emptySignUp ? [] : [{name: 'Physics', grade: 7},{name: 'Math', grade: 5},{name: 'English', grade: 8},{name: 'Biology', grade: 12}],
   },
   tutorsList: [],
-  studentsList: []
+  studentsList: [],
+  singleViewPerson: null,
 };
