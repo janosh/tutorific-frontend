@@ -4,30 +4,29 @@ import {connect} from 'react-redux';
 import {changeUserType} from '../actions';
 import './SelectPersonType.css';
 
-class PersonList extends React.Component {
+class SelectPersonType extends React.Component {
 
   render() {
-    const {userType, changeUserType, plural} = this.props;
+    const {userType, changeUserType} = this.props;
     return (
       <div className="person-type">
         <button
-          onClick={() => changeUserType(plural ? 'tutor' : 'student')}
-          className={userType === (plural ? 'tutor' : 'student') ? 'active' : null}>
-          Student{plural ? 's' : null}
+          onClick={() => changeUserType('student')}
+          className={userType === 'student' ? 'active' : null}>
+          Student
         </button>
         <button
-          onClick={() => changeUserType(plural ? 'student' : 'tutor')}
-          className={userType === (plural ? 'student' : 'tutor') ? 'active' : null}>
-          Tutor{plural ? 's' : null}
+          onClick={() => changeUserType('tutor')}
+          className={userType === 'tutor' ? 'active' : null}>
+          Tutor
         </button>
       </div>
     );
   }
 }
 
-PersonList.defaultProps = {
-  plural: false,
-  storePrefix: ''
+SelectPersonType.defaultProps = {
+  storePrefix: '',
 }
 
 const mapStateToProps = (state, ownProps) => {
@@ -40,4 +39,4 @@ const mapDispatchToProps = (dispatch, ownProps) => ({
   changeUserType: (userType) => dispatch(changeUserType(ownProps.storePrefix, userType)),
 });
 
-export default connect(mapStateToProps, mapDispatchToProps)(PersonList);
+export default connect(mapStateToProps, mapDispatchToProps)(SelectPersonType);
