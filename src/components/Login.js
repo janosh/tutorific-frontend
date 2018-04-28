@@ -24,7 +24,7 @@ class Login extends React.Component {
   }
 
   handleClickOutside = (e) => {
-    if (!this.node.contains(e.target) && this.props.app.loginPanelVisible)
+    if (!this.node.contains(e.target) && this.props.app.showLoginModal)
       this.props.toggleLoginPanel();
   }
 
@@ -43,8 +43,8 @@ class Login extends React.Component {
   render() {
     return (
       <div id="login" ref={node => this.node = node}>
-        <span onClick={this.props.toggleLoginPanel}>{this.props.user.loggedIn ? this.props.user.firstname : 'Login'}</span>
-        <form id="login-panel" className={this.props.app.loginPanelVisible ? null : 'hidden'}>
+        <span onClick={this.props.toggleLoginPanel}>{this.props.currentUser.loggedIn ? this.props.currentUser.firstname : 'Login'}</span>
+        {this.props.app.showLoginModal && <form id="login-modal">
           <input
             name="loginEmail"
             type="email"
@@ -63,7 +63,7 @@ class Login extends React.Component {
           />
           <SelectPersonType storePrefix="login"/>
           <button className="login-button" onClick={this.submitLoginData}>Login</button>
-        </form>
+        </form>}
       </div>
     );
   }
@@ -72,7 +72,7 @@ class Login extends React.Component {
 const mapStateToProps = (state) => {
   return {
     app: state.app,
-    user: state.user
+    currentUser: state.currentUser,
   };
 };
 
