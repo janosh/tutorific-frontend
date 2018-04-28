@@ -1,14 +1,15 @@
 import React from 'react';
 import {connect} from 'react-redux';
 
-import {getStudents, getTutors, getConnections} from '../actions';
+import PersonModal from '../components/PersonModal';
 import Filters from '../components/Filters';
 import PersonList from '../components/PersonList';
 import Map from '../components/Map';
+import {getStudents, getTutors, getConnections} from '../actions';
 import config from '../config';
-import './Find.css';
+import './Connect.css';
 
-class FindPage extends React.Component {
+class ConnectPage extends React.Component {
 
   componentDidMount() {
     this.props.getTutorsRequest();
@@ -41,6 +42,7 @@ class FindPage extends React.Component {
       <div id="find-page">
         <Filters/>
         <PersonList/>
+        <PersonModal/>
         <Map/>
       </div>
     );
@@ -51,7 +53,7 @@ const mapStateToProps = (state) => {
   return {
     students: state.students,
     tutors: state.tutors,
-    connections: state.connections
+    connections: state.connections,
   };
 };
 
@@ -67,4 +69,4 @@ const mapDispatchToProps = (dispatch) => ({
   getConnections: (connections) => dispatch(getConnections(connections))
 });
 
-export default connect(mapStateToProps, mapDispatchToProps)(FindPage);
+export default connect(mapStateToProps, mapDispatchToProps)(ConnectPage);
