@@ -2,7 +2,7 @@ import React from 'react';
 import {BrowserRouter as Router, Route, Link} from "react-router-dom";
 
 import LandingPage from './pages/Landing';
-import FindPage from './pages/Find';
+import ConnectPage from './pages/Connect';
 import AboutPage from './pages/About';
 import SupportPage from './pages/Support';
 import SignUpPage from './pages/SignUp';
@@ -18,24 +18,28 @@ export default class App extends React.Component {
         <div id="app">
           <header>
             <nav>
-              <Link to="/">
-                <div className="logo-container">
-                  <img src="./assets/logo.svg" alt="Logo"/>Tutorific
+              <div id="main-nav">
+                <Link to="/"><img src="./assets/logo.svg" alt="Logo"/></Link>
+                <div>
+                  <Link to="/">Tutorific</Link>
+                  <Link to="/connect">Connect</Link>
+                  <Link to="/about">About</Link>
+                  <Link to="/support">Support</Link>
                 </div>
-              </Link>
-              <Link to="/find">Find</Link>
-              <Link to="/about">About</Link>
-              <Link to="/support">Support</Link>
-              <Link to="/signup">Sign up</Link>
-              <Link to="#"><Login/></Link>
+              </div>
+              <div id="signup-nav">
+                <Link to="/signup">Sign up</Link>
+                <Link to="#"><Login/></Link>
+              </div>
             </nav>
           </header>
           <main>
             <Route exact path="/" component={LandingPage}/>
-            <Route path="/find" component={FindPage}/>
+            <Route path="/connect" component={ConnectPage}/>
             <Route path="/about" component={AboutPage}/>
             <Route path="/support" component={SupportPage}/>
             <Route path="/signup" component={SignUpPage}/>
+            {/* <Route path="/*" component={PageNotFound}/> */}
           </main>
         </div>
       </Router>
