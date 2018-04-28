@@ -2,7 +2,7 @@ import React from 'react';
 import {connect} from 'react-redux';
 import {Link} from "react-router-dom";
 
-import {setUserLocation} from '../actions';
+import SelectPersonType from '../components/SelectPersonType';
 import './Landing.css';
 
 class LandingPage extends React.Component {
@@ -12,7 +12,10 @@ class LandingPage extends React.Component {
       <div id="landing-page">
         <div className="overlay">
           <img src="./assets/logo.svg" alt="Logo"/>
-          <h1><Link to="/find">Get free tutoring from a student near you!</Link></h1>
+          <SelectPersonType storePrefix="signup"/>
+          {this.props.userType === 'student' ?
+          <h1><Link to="/connect">Get free tutoring from a student near you!</Link></h1> :
+          <h1><Link to="/signup">Sign up as a tutor today and make a difference in a child's life!</Link></h1>}
         </div>
       </div>
     );
@@ -21,12 +24,8 @@ class LandingPage extends React.Component {
 
 const mapStateToProps = (state) => {
   return {
-    userLocation: state.userLocation
+    userType: state.app.signupUserType,
   };
 };
 
-const mapDispatchToProps = (dispatch) => ({
-  setUserLocation: (userLocation) => dispatch(setUserLocation(userLocation))
-});
-
-export default connect(mapStateToProps, mapDispatchToProps)(LandingPage);
+export default connect(mapStateToProps)(LandingPage);

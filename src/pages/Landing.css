@@ -20,12 +20,18 @@
   max-width: 80vw;
 }
 
+#landing-page button {
+  font-size: 1.8rem;
+  font-weight: lighter;
+}
+
 #landing-page h1 {
   background: var(--main-blue);
   color: var(--light-text);
   padding: 1rem 2rem;
   border-radius: 10px;
   font-weight: lighter;
+  margin: 1rem;
   margin-bottom: 10rem;
 }
 
