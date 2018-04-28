@@ -1,11 +1,12 @@
 import React from 'react';
-import {BrowserRouter as Router, Route, Link} from "react-router-dom";
+import {BrowserRouter as Router, Switch, Route, Link} from "react-router-dom";
 
 import LandingPage from './pages/Landing';
 import ConnectPage from './pages/Connect';
 import AboutPage from './pages/About';
 import SupportPage from './pages/Support';
 import SignUpPage from './pages/SignUp';
+import PageNotFoundPage from './pages/PageNotFound';
 import Login from './components/Login';
 
 import './App.css';
@@ -34,12 +35,14 @@ export default class App extends React.Component {
             </nav>
           </header>
           <main>
-            <Route exact path="/" component={LandingPage}/>
-            <Route path="/connect" component={ConnectPage}/>
-            <Route path="/about" component={AboutPage}/>
-            <Route path="/support" component={SupportPage}/>
-            <Route path="/signup" component={SignUpPage}/>
-            {/* <Route path="/*" component={PageNotFound}/> */}
+            <Switch>
+              <Route exact path="/" component={LandingPage}/>
+              <Route path="/connect" component={ConnectPage}/>
+              <Route path="/about" component={AboutPage}/>
+              <Route path="/support" component={SupportPage}/>
+              <Route path="/signup" component={SignUpPage}/>
+              <Route path="/*" component={PageNotFoundPage}/>
+            </Switch>
           </main>
         </div>
       </Router>
