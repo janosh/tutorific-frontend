@@ -49,5 +49,6 @@ export default {
   },
   tutorsList: [],
   studentsList: [],
+  connectionsList: [],
   singlePersonView: null,
 };
