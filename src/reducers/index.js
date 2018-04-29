@@ -1,17 +1,19 @@
 import {combineReducers} from 'redux';
 
-import {tutorsList} from './tutorsList';
-import {studentsList} from './studentsList';
-import {app} from './app';
 import {currentUser} from './currentUser';
-import {signUp} from './signUp';
+import {filters} from './filters';
+import {login} from './login';
+import {signup} from './signup';
 import {singlePersonView} from './singlePersonView';
+import {studentsList} from './studentsList';
+import {tutorsList} from './tutorsList';
 
 export default combineReducers({
-  app,
-  signUp,
+  currentUser,
+  filters,
+  login,
+  signup,
   singlePersonView,
   studentsList,
   tutorsList,
-  currentUser,
 });

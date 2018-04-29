@@ -8,7 +8,7 @@ import {loadState, saveState} from './localStorage';
 const persistedState = loadState();
 
 const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
-const store = createStore(reducers, persistedState, composeEnhancers(applyMiddleware(thunk, backendCall)));
+const store = createStore(reducers, /*persistedState,*/ composeEnhancers(applyMiddleware(thunk, backendCall)));
 
 store.subscribe(() => saveState(store.getState()));
 

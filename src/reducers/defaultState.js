@@ -1,15 +1,14 @@
-const prefilledSignup = false;
+const prefilledSignup = true;
 
 export default {
-  app: {
+  filters: {
+    userType: 'student',
+  },
+  login: {
     showLoginModal: false,
-    loadingStudents: false,
-    loadingTutors: false,
-    loginEmail: '',
-    loginPassword: '',
-    loginUserType: 'student',
-    signupUserType: 'student',
-    filtersUserType: 'student',
+    email: '',
+    password: '',
+    userType: 'student',
   },
   user: {
     location: {},
@@ -17,13 +16,14 @@ export default {
     loggedIn: false,
     token: '',
   },
-  signUpData: {
+  signup: {
     // account info
     firstname: prefilledSignup ? 'Jack' : '',
     lastname: prefilledSignup ? 'the Ripper' : '',
     password: prefilledSignup ? 'yxcvbnm' : '',
     confirmPassword: prefilledSignup ? 'yxcvbnm' : '',
     email: prefilledSignup ? 'jacky@theripper.com' : '',
+    userType: 'student',
     // contact info
     phone: prefilledSignup ? '+34 4321 123 523' : '',
     address: prefilledSignup ? {} : {

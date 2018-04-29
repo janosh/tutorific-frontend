@@ -23,7 +23,7 @@ class Login extends React.Component {
   }
 
   handleClickOutside = (e) => {
-    if (!this.node.contains(e.target) && this.props.app.showLoginModal)
+    if (!this.node.contains(e.target) && this.props.login.showLoginModal)
       this.props.toggleLoginPanel();
   }
 
@@ -33,28 +33,28 @@ class Login extends React.Component {
         <span onClick={this.props.toggleLoginPanel}>
           {this.props.currentUser.loggedIn ? this.props.currentUser.firstname : 'Login'}
         </span>
-        {this.props.app.showLoginModal && <form id="login-modal">
+        {this.props.login.showLoginModal && <form id="login-modal">
           <input
-            name="loginEmail"
+            name="email"
             type="email"
             placeholder="email"
             required
             onChange={this.update}
-            value={this.props.app.loginEmail}
+            value={this.props.login.email}
           />
           <input
-            name="loginPassword"
+            name="password"
             type="password"
             placeholder="password"
             required
             onChange={this.update}
-            value={this.props.app.loginPassword}
+            value={this.props.login.password}
           />
           <SelectPersonType storePrefix="login"/>
           <button className="login-button" onClick={() => this.props.submitLoginData({
-            email: this.props.loginEmail,
-            password: this.props.loginPassword,
-            userType: this.props.loginUserType,
+            email: this.props.login.email,
+            password: this.props.login.password,
+            userType: this.props.login.userType,
           })}>Login</button>
         </form>}
       </div>
@@ -64,11 +64,8 @@ class Login extends React.Component {
 
 const mapStateToProps = (state) => {
   return {
-    app: state.app,
+    login: state.login,
     currentUser: state.currentUser,
-    loginEmail: state.app.loginEmail,
-    loginPassword: state.app.loginPassword,
-    loginUserType: state.app.loginUserType,
   };
 };
 
