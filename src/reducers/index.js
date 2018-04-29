@@ -4,13 +4,13 @@ import {tutorsList} from './tutorsList';
 import {studentsList} from './studentsList';
 import {app} from './app';
 import {currentUser} from './currentUser';
-import {signUpData} from './signUpData';
-import {singleViewPerson} from './singleViewPerson';
+import {signUp} from './signUp';
+import {singlePersonView} from './singlePersonView';
 
 export default combineReducers({
   app,
-  signUpData,
-  singleViewPerson,
+  signUp,
+  singlePersonView,
   studentsList,
   tutorsList,
   currentUser,
