@@ -11,9 +11,10 @@ class PersonList extends React.Component {
     return (
       <div className="person-list">
         <div className="list">
-          {personsList.map(person => {
-            return <PersonListItem key={person._id} person={person}/>
-          })}
+          {personsList.length === 0 && <div><h2>No {this.props.userType}s to display.</h2></div> }
+          {personsList.map(person =>
+            <PersonListItem key={person._id} person={person}/>
+          )}
         </div>
       </div>
     );

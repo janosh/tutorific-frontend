@@ -7,7 +7,7 @@ import './Geosearch.css';
 
 class Geosearch extends React.Component {
 
-  selectedLocationToStore = (data) => {
+  storeSelection = (data) => {
     if (!data || !data.gmaps || !data.gmaps.geometry) return;
     this.props.setLocationChoice({
       label: data.label,
@@ -31,7 +31,7 @@ class Geosearch extends React.Component {
     return (
       <Geosuggest
         placeholder={this.props.placeholder || 'Choose location'}
-        onSuggestSelect={this.selectedLocationToStore}
+        onSuggestSelect={this.storeSelection}
       />);
   }
 }

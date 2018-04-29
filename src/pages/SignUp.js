@@ -2,7 +2,7 @@ import React from 'react';
 import {connect} from 'react-redux';
 
 import SelectPersonType from '../components/SelectPersonType';
-import {updateSignUpData} from '../actions';
+import {updateSignUp,clearSignUpForm} from '../actions';
 import Geosearch from '../components/Geosearch';
 import config from '../config';
 import './SignUp.css';
@@ -10,26 +10,32 @@ import './SignUp.css';
 class SignUpPage extends React.Component {
 
   update = async (e) => {
-    const props = e.target.name.split('.');
-    const prop = props.pop();
-    const subtype = props.join('.');
-    await this.props.updateSignUpData(subtype, {
-      [prop]: e.target.value
+    await this.props.updateSignUp({
+      [e.target.name]: e.target.value
     });
+  }
+
+  updateSubjects = async (e) => {
+    const subjects = [];
+    for (let i = 0; i <= this.props.signUp.subjects.length; i++) {
+      const subject = document.getElementById('subject' + i).value;
+      subjects.push(subject);
+    }
+    await this.props.updateSignUp({subjects});
   }
 
   passwordsMatch = async (e) => {
     await this.update(e);
-    if (this.props.signUpData.password !== this.props.signUpData.confirmPassword) {
+    if (this.props.signUp.password !== this.props.signUp.confirmPassword) {
       console.log("Passwords don't match!");
     }
   }
 
-  submitFormData = (e) => {
+  submitForm = (e) => {
     e.preventDefault();
     fetch(config.backendUrl + this.props.userType, {
       method: 'post',
-      body: JSON.stringify(this.props.signUpData),
+      body: JSON.stringify(this.props.signUp),
       headers: {
         'content-type': 'application/json'
       }
@@ -50,7 +56,7 @@ class SignUpPage extends React.Component {
             <h2>Account</h2>
             <div className="signup-form-section-fields account-info">
               <div>
-                <label htmlFor="firstname">First Name</label>
+                <label htmlFor="firstname">First Name <span>*</span></label>
                 <input
                   name="firstname"
                   id="firstname"
@@ -58,11 +64,11 @@ class SignUpPage extends React.Component {
                   placeholder="John"
                   required
                   onChange={this.update}
-                  value={this.props.signUpData.firstname}
+                  value={this.props.signUp.firstname}
                 />
               </div>
               <div>
-                <label htmlFor="lastname">Last Name</label>
+                <label htmlFor="lastname">Last Name <span>*</span></label>
                 <input
                   name="lastname"
                   id="lastname"
@@ -70,11 +76,11 @@ class SignUpPage extends React.Component {
                   placeholder="Doe"
                   required
                   onChange={this.update}
-                  value={this.props.signUpData.lastname}
+                  value={this.props.signUp.lastname}
                 />
               </div>
               <div>
-                <label htmlFor="password">Password</label>
+                <label htmlFor="password">Password <span>*</span></label>
                 <input
                   name="password"
                   id="password"
@@ -82,11 +88,11 @@ class SignUpPage extends React.Component {
                   placeholder={String.fromCharCode('0x2022').repeat(10)}
                   required
                   onChange={this.update}
-                  value={this.props.signUpData.password}
+                  value={this.props.signUp.password}
                 />
               </div>
               <div>
-                <label htmlFor="confirm-password">Confirm Password</label>
+                <label htmlFor="confirm-password">Confirm Password <span>*</span></label>
                 <input
                   name="confirmPassword"
                   id="confirm-password"
@@ -94,7 +100,7 @@ class SignUpPage extends React.Component {
                   placeholder={String.fromCharCode('0x2022').repeat(10)}
                   required
                   onChange={this.passwordsMatch}
-                  value={this.props.signUpData.confirmPassword}
+                  value={this.props.signUp.confirmPassword}
                 />
               </div>
             </div>
@@ -126,28 +132,28 @@ class SignUpPage extends React.Component {
               <option value="Art"/>
             </datalist>
             <div className="signup-form-section-fields subject-info">
-              {this.props.signUpData.subjects.map(subject => {
-                return (
-                  <div key={subject.name}>
-                    <label htmlFor="subjects">Subjects</label>
+              {[...Array(this.props.signUp.subjects.length + 1)].map((x, i) =>
+                  <div key={this.props.signUp.subjects[i]}>
+                    <label htmlFor="subjects">Subject {i + 1} <span>*</span></label>
                     <input
                       name="subjects"
+                      id={'subject' + i}
                       type="subjects"
                       required
                       list="subjects"
-                      onChange={this.update}
-                      value={subject.name}
+                      onChange={this.updateSubjects}
+                      value={this.props.signUp.subjects[i]}
                     />
                   </div>
-                );
-              })}
+                )
+              }
             </div>
           </div>
           <div className="signup-form-section contact-info">
             <h2>Contact</h2>
             <div className="signup-form-section-fields contact-info">
               <div>
-                <label htmlFor="email">Email</label>
+                <label htmlFor="email">Email <span>*</span></label>
                 <input
                   name="email"
                   id="email"
@@ -155,11 +161,11 @@ class SignUpPage extends React.Component {
                   placeholder="john@doe.com"
                   required
                   onChange={this.update}
-                  value={this.props.signUpData.email}
+                  value={this.props.signUp.email}
                 />
               </div>
               <div>
-                <label htmlFor="phone">Phone</label>
+                <label htmlFor="phone">Phone <span>*</span></label>
                 <input
                   name="phone"
                   id="phone"
@@ -167,11 +173,11 @@ class SignUpPage extends React.Component {
                   placeholder="+1 234 567 890"
                   required
                   onChange={this.update}
-                  value={this.props.signUpData.phone}
+                  value={this.props.signUp.phone}
                 />
               </div>
               <div>
-                <label htmlFor="address">Address</label>
+                <label htmlFor="address">Address <span>*</span></label>
                 <Geosearch name="address" storePrefix="signUpData" placeholder="Wonderland"/>
               </div>
             </div>
@@ -186,7 +192,7 @@ class SignUpPage extends React.Component {
                   id="birthday"
                   type="date"
                   onChange={this.update}
-                  value={this.props.signUpData.birthday}
+                  value={this.props.signUp.birthday}
                 />
               </div>
               <div>
@@ -197,99 +203,104 @@ class SignUpPage extends React.Component {
                   type="tel"
                   placeholder="Honolulu"
                   onChange={this.update}
-                  value={this.props.signUpData.birthplace}
+                  value={this.props.signUp.birthplace}
                 />
               </div>
               <div>
-                <label htmlFor="gender">Gender</label>
+                <label htmlFor="gender">Gender <span>*</span></label>
                 <select
                   name="gender"
                   id="gender"
                   required
                   onChange={this.update}
-                  value={this.props.signUpData.gender}
+                  value={this.props.signUp.gender}
                 >
+                  <option disabled style={{display: 'none'}}></option>
                   <option value="male">Male</option>
                   <option value="female">Female</option>
                   <option value="other">Other</option>
                 </select>
               </div>
-              {userType === 'student' &&
-              <div>
-                <label htmlFor="grade">Grade</label>
-                <input
-                  name="grade"
-                  id="grade"
-                  type="number"
-                  min="1"
-                  max="13"
-                  placeholder="1"
-                  required
-                  onChange={this.update}
-                  value={this.props.signUpData.grade}
+              {userType === 'student' && <React.Fragment>
+                <div>
+                  <label htmlFor="grade">Grade <span>*</span></label>
+                  <input
+                    name="grade"
+                    id="grade"
+                    type="number"
+                    min="1"
+                    max="13"
+                    placeholder="1"
+                    required
+                    onChange={this.update}
+                    value={this.props.signUp.grade}
+                    />
+                </div>
+                <div>
+                  <label htmlFor="schooltype">Schooltype <span>*</span></label>
+                  <select
+                    name="schoolType"
+                    id="schooltype"
+                    required
+                    onChange={this.update}
+                    value={this.props.signUp.schoolType}
+                  >
+                    <option disabled style={{display: 'none'}}></option>
+                    <option value="elementary">Elementary School</option>
+                    <option value="middle">Middle School</option>
+                    <option value="high">High School</option>
+                    <option value="special-needs">Special-Needs School</option>
+                    <option value="vocational">Vocational School</option>
+                    <option value="refugee">Refugee School</option>
+                  </select>
+                </div>
+                <div>
+                  <label htmlFor="youth-organization">Youth Organization</label>
+                  <input
+                    name="youth-organization"
+                    id="youth-organization"
+                    type="text"
+                    placeholder="Unicef"
+                    onChange={this.update}
+                    value={this.props.signUp.youthOrganization}
                   />
-              </div>}
-              {userType === 'tutor' &&
-              <div>
-                <label htmlFor="semester">Semester</label>
-                <input
-                  name="semester"
-                  id="semester"
-                  type="number"
-                  min="1"
-                  max="50"
-                  placeholder="1"
-                  onChange={this.update}
-                  value={this.props.signUpData.semester}
+                </div>
+              </React.Fragment>}
+              {userType === 'tutor' && <React.Fragment>
+                <div>
+                  <label htmlFor="semester">Semester</label>
+                  <input
+                    name="semester"
+                    id="semester"
+                    type="number"
+                    min="1"
+                    max="50"
+                    placeholder="1"
+                    onChange={this.update}
+                    value={this.props.signUp.semester}
+                    />
+                </div>
+                <div>
+                  <label htmlFor="field-of-study">Field of Study</label>
+                  <input
+                    name="field-of-study"
+                    id="field-of-study"
+                    type="text"
+                    placeholder="Ufology"
+                    onChange={this.update}
+                    value={this.props.signUp.fieldOfStudy}
                   />
-              </div>}
-              {userType === 'student' &&
-              <div>
-                <label htmlFor="schooltype">Schooltype</label>
-                <select
-                  name="schooltype"
-                  id="schooltype"
-                  required
-                  onChange={this.update}
-                  value={this.props.signUpData.schoolType}
-                >
-                  <option value="elementary">Elementary School</option>
-                  <option value="middle">Middle School</option>
-                  <option value="high">High School</option>
-                  <option value="special-needs">Special-Needs School</option>
-                  <option value="vocational">Vocational School</option>
-                  <option value="refugee">Refugee School</option>
-                </select>
-              </div>}
-              {userType === 'student' &&
-              <div>
-                <label htmlFor="youth-organization">Youth Organization</label>
-                <input
-                  name="youth-organization"
-                  id="youth-organization"
-                  type="text"
-                  placeholder="Unicef"
-                  onChange={this.update}
-                  value={this.props.signUpData.youthOrganization}
-                />
-              </div>}
-              {userType === 'tutor' &&
-              <div>
-                <label htmlFor="field-of-study">Field of Study</label>
-                <input
-                  name="field-of-study"
-                  id="field-of-study"
-                  type="text"
-                  placeholder="Ufology"
-                  onChange={this.update}
-                  value={this.props.signUpData.fieldOfStudy}
-                />
-              </div>}
+                </div>
+              </React.Fragment>}
             </div>
           </div>
         </form>
         <div id="submit-sign-up-form">
-          <button onClick={this.submitFormData}>Submit</button>
+          <button onClick={this.submitForm}>Submit</button>
+          <button onClick={() => {
+            if (window.confirm('Are you sure you want to clear the form? This action cannot be undone.'))
+              this.props.clearSignUpForm()}}
+          >Clear Form</button>
         </div>
       </div>
     );
@@ -299,12 +310,13 @@ class SignUpPage extends React.Component {
 const mapStateToProps = (state) => {
   return {
     userType: state.app.signupUserType,
-    signUpData: state.signUpData
+    signUp: state.signUp
   };
 };
 
 const mapDispatchToProps = (dispatch) => ({
-  updateSignUpData: (subtype, data) => dispatch(updateSignUpData(subtype, data)),
+  updateSignUp: (subtype, data) => dispatch(updateSignUp(subtype, data)),
+  clearSignUpForm: () => dispatch(clearSignUpForm()),
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(SignUpPage);

@@ -2,7 +2,7 @@ import React from 'react';
 import {connect} from 'react-redux';
 import moment from 'moment';
 
-import {setSingleViewPerson} from '../actions';
+import {setSinglePersonView} from '../actions';
 import './PersonModal.css';
 
 class PersonModal extends React.Component {
@@ -17,7 +17,7 @@ class PersonModal extends React.Component {
 
   handleClickOutside = (e) => {
     if (this.node && !this.node.contains(e.target) && this.props.person)
-      this.props.setSingleViewPerson(null);
+      this.props.setSinglePersonView(null);
   }
 
   render() {
@@ -28,7 +28,7 @@ class PersonModal extends React.Component {
       <div className="person-modal-backdrop">
         <div className="person-modal" ref={node => this.node = node}>
           <span className="close-modal"
-            onClick={() => this.props.setSingleViewPerson(null)}>&times;
+            onClick={() => this.props.setSinglePersonView(null)}>&times;
           </span>
           <div className="person-modal-content">
             <div className="person-modal-title">
@@ -67,12 +67,12 @@ class PersonModal extends React.Component {
 
 const mapStateToProps = (state) => {
   return {
-    person: state.singleViewPerson,
+    person: state.singlePersonView,
   };
 };
 
 const mapDispatchToProps = (dispatch, ownProps) => ({
-  setSingleViewPerson: (person) => dispatch(setSingleViewPerson(person)),
+  setSinglePersonView: (person) => dispatch(setSinglePersonView(person)),
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(PersonModal);

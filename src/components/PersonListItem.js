@@ -2,14 +2,14 @@ import React from 'react';
 import {connect} from 'react-redux';
 import moment from 'moment';
 
-import {setSingleViewPerson} from '../actions';
+import {setSinglePersonView} from '../actions';
 import './PersonListItem.css';
 
 class PersonListItem extends React.Component {
   render() {
     const person = this.props.person;
     return (
-      <div className="person-list-item" onClick={() => this.props.setSingleViewPerson(person)}>
+      <div className="person-list-item" onClick={() => this.props.setSinglePersonView(person)}>
         <h3>{person.firstname} {person.lastname}</h3>
         <p><span>Status</span> {person.status}</p>
         <p><span>Subjects</span> {person.subjects.map(subject => subject.name).join(', ')}</p>
@@ -22,7 +22,7 @@ class PersonListItem extends React.Component {
 }
 
 const mapDispatchToProps = (dispatch) => ({
-  setSingleViewPerson: (person) => dispatch(setSingleViewPerson(person)),
+  setSinglePersonView: (person) => dispatch(setSinglePersonView(person)),
 });
 
 export default connect(null, mapDispatchToProps)(PersonListItem);
