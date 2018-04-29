@@ -1,12 +1,12 @@
 export const changeUserType = (storePrefix, userType) => ({
   type: 'changeOneUserType',
   storePrefix,
-  userType
+  userType,
 });
 
 export const updateLoginData = (data) => ({
   type: 'updateLoginData',
-  data
+  data,
 });
 
 export const submitLoginData = (data) => ({
@@ -19,7 +19,7 @@ export const submitLoginData = (data) => ({
 
 export const setUserLocation = (userLocation) => ({
   type: 'setUserLocation',
-  userLocation
+  userLocation,
 });
 
 export const setLocationChoice = (storePrefix, locationChoice) => ({
@@ -29,30 +29,34 @@ export const setLocationChoice = (storePrefix, locationChoice) => ({
 });
 
 export const toggleUserLoggedIn = () => ({
-  type: 'toggleUserLoggedIn'
+  type: 'toggleUserLoggedIn',
 });
 
 export const getTutors = (tutors) => ({
   type: 'getTutors',
-  tutors
+  tutors,
 });
 
 export const getStudents = (students) => ({
   type: 'getStudents',
-  students
+  students,
 });
 
 export const getConnections = (connections) => ({
   type: 'getConnections',
-  connections
+  connections,
 });
 
-export const updateSignUpData = (subtype, data) => ({
-  type: 'updateSignUpData' + subtype,
-  data
+export const updateSignUp = (data) => ({
+  type: 'updateSignUp',
+  data,
 });
 
-export const setSingleViewPerson = (person) => ({
-  type: 'setSingleViewPerson',
-  person
+export const clearSignUpForm = () => ({
+  type: 'clearSignUpForm',
+});
+
+export const setSinglePersonView = (person) => ({
+  type: 'setSinglePersonView',
+  person,
 });
