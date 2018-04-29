@@ -1,4 +1,4 @@
-const emptySignUp = true;
+const prefilledSignup = false;
 
 export default {
   app: {
@@ -19,33 +19,33 @@ export default {
   },
   signUpData: {
     // account info
-    firstname: emptySignUp ? '' : 'Jack',
-    lastname: emptySignUp ? '' : 'the Ripper',
-    password: emptySignUp ? '' : 'abcdefgh',
-    confirmPassword: emptySignUp ? '' : 'abcdefgh',
-    email: emptySignUp ? '' : 'jacky@theripper.com',
+    firstname: prefilledSignup ? 'Jack' : '',
+    lastname: prefilledSignup ? 'the Ripper' : '',
+    password: prefilledSignup ? 'yxcvbnm' : '',
+    confirmPassword: prefilledSignup ? 'yxcvbnm' : '',
+    email: prefilledSignup ? 'jacky@theripper.com' : '',
     // contact info
-    phone: emptySignUp ? '' : '+34 4321 123 523',
-    address: emptySignUp ? {} : {
-      street: emptySignUp ? '' : 'Long Lane',
-      number: emptySignUp ? '' : '42',
-      city: emptySignUp ? '' : 'Paradise City',
-      zip: emptySignUp ? '' : '6942',
-      country: emptySignUp ? '' : 'Wonderland',
+    phone: prefilledSignup ? '+34 4321 123 523' : '',
+    address: prefilledSignup ? {} : {
+      street: prefilledSignup ? 'Long Lane' : '',
+      number: prefilledSignup ? '42' : '',
+      city: prefilledSignup ? 'Paradise City' : '',
+      zip: prefilledSignup ? '6942' : '',
+      country: prefilledSignup ? 'Wonderland' : '',
     },
     // personal info
-    birthday: emptySignUp ? '' : '2000-01-01',
-    birthplace: emptySignUp ? '' : 'Honolulu',
-    gender: emptySignUp ? '' : 'female',
+    birthday: prefilledSignup ? '2000-01-01' : '',
+    birthplace: prefilledSignup ? 'Honolulu' : '',
+    gender: prefilledSignup ? 'female' : '',
     // student-specific data
-    youthOrganization: emptySignUp ? '' : 'Unicef',
-    grade: emptySignUp ? '' : '7',
-    schoolType: emptySignUp ? '' : 'vocational',
+    youthOrganization: prefilledSignup ? 'Unicef' : '',
+    grade: prefilledSignup ? '7' : '',
+    schoolType: prefilledSignup ? 'middle' : '',
     // tutor-specific data
-    semester: emptySignUp ? '' : '5',
-    fieldOfStudy: emptySignUp ? '' : 'Theoretical Physics',
+    semester: prefilledSignup ? '5' : '',
+    fieldOfStudy: prefilledSignup ? 'Theoretical Physics' : '',
     // subjects info
-    subjects: emptySignUp ? [] : ['Physics', 'Math', 'English', 'Biology'],
+    subjects: prefilledSignup ? ['Physics', 'Math', 'English', 'Biology'] : [],
   },
   tutorsList: [],
   studentsList: [],

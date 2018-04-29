@@ -4,11 +4,7 @@
   max-width: fit-content;
 }
 
-#signup-page h2 {
-  margin-bottom: 1rem;
-}
-
-#signup-page h1 {
+#signup-page h1, #signup-page h2, #signup-page legend {
   margin-bottom: 1rem;
 }
 
