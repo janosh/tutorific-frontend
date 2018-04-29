@@ -6,6 +6,7 @@
 
 .person-list-item span {
   color: var(--medium-text);
+  font-weight: lighter;
 }
 
 .person-list-item h3 {
