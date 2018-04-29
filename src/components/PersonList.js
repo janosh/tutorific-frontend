@@ -7,7 +7,7 @@ import './PersonList.css';
 class PersonList extends React.Component {
 
   render() {
-    const personsList = this.props.userType === 'student' ? this.props.tutorsList : this.props.studentsList;
+    const personsList = this.props.userType === 'student' ? this.props.studentsList : this.props.tutorsList;
     return (
       <div className="person-list">
         <div className="list">
