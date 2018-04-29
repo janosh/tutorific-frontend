@@ -17,30 +17,33 @@ class SignUpPage extends React.Component {
 
   updateSubjects = async (e) => {
     const subjects = [];
-    for (let i = 0; i <= this.props.signUp.subjects.length; i++) {
-      const subject = document.getElementById('subject' + i).value;
-      subjects.push(subject);
-    }
+    const selects = document.querySelectorAll('.subject-info select');
+    selects.forEach(select =>
+      subjects.push(...Array.from(select.selectedOptions, option => option.value))
+    );
     await this.props.updateSignUp({subjects});
   }
 
-  passwordsMatch = async (e) => {
-    await this.update(e);
+  passwordsMatch = () => {
     if (this.props.signUp.password !== this.props.signUp.confirmPassword) {
-      console.log("Passwords don't match!");
+      document.getElementById('confirm-password').setCustomValidity("Passwords don't match!");
+      return false;
     }
+    return true;
   }
 
   submitForm = (e) => {
     e.preventDefault();
-    fetch(config.backendUrl + this.props.userType, {
-      method: 'post',
-      body: JSON.stringify(this.props.signUp),
-      headers: {
-        'content-type': 'application/json'
-      }
-    })
-    .then(res => console.log(res));
+    if(this.passwordsMatch()) {
+      fetch(config.backendUrl + this.props.userType, {
+        method: 'post',
+        body: JSON.stringify(this.props.signUp),
+        headers: {
+          'content-type': 'application/json'
+        }
+      })
+      .then(res => console.log(res));
+    }
   }
 
   render() {
@@ -99,54 +102,10 @@ class SignUpPage extends React.Component {
                   type="password"
                   placeholder={String.fromCharCode('0x2022').repeat(10)}
                   required
-                  onChange={this.passwordsMatch}
+                  onChange={this.update}
                   value={this.props.signUp.confirmPassword}
                 />
               </div>
-            </div>
-          </div>
-          <div className="signup-form-section subjects-info">
-            <h2>Subjects</h2>
-            <datalist id="subjects">
-              <option value="Math"/>
-              <option value="Physics"/>
-              <option value="Chemistry"/>
-              <option value="Biology"/>
-              <option value="Computer Science"/>
-              <option value="English"/>
-              <option value="Spanish"/>
-              <option value="French"/>
-              <option value="German"/>
-              <option value="Italian"/>
-              <option value="Chinese"/>
-              <option value="Japanese"/>
-              <option value="Latin"/>
-              <option value="History"/>
-              <option value="Politics"/>
-              <option value="Ethics"/>
-              <option value="Social Studies"/>
-              <option value="Philosophy"/>
-              <option value="Economics"/>
-              <option value="Physical Education"/>
-              <option value="Music"/>
-              <option value="Art"/>
-            </datalist>
-            <div className="signup-form-section-fields subject-info">
-              {[...Array(this.props.signUp.subjects.length + 1)].map((x, i) =>
-                  <div key={this.props.signUp.subjects[i]}>
-                    <label htmlFor="subjects">Subject {i + 1} <span>*</span></label>
-                    <input
-                      name="subjects"
-                      id={'subject' + i}
-                      type="subjects"
-                      required
-                      list="subjects"
-                      onChange={this.updateSubjects}
-                      value={this.props.signUp.subjects[i]}
-                    />
-                  </div>
-                )
-              }
             </div>
           </div>
           <div className="signup-form-section contact-info">
@@ -292,6 +251,82 @@ class SignUpPage extends React.Component {
                   />
                 </div>
               </React.Fragment>}
+            </div>
+          </div>
+          <div className="signup-form-section subjects-info">
+            <h2>Subjects</h2>
+            <legend>Hold command or control to toggle selections.</legend>
+            <div className="signup-form-section-fields subject-info">
+              <div>
+                <label htmlFor="science">Science</label>
+                <select
+                  multiple
+                  name="science"
+                  id="science"
+                  style={{height: 'auto'}}
+                  onChange={this.updateSubjects}
+                  value={this.props.signUp.subjects}
+                >
+                  <option>Math</option>
+                  <option>Physics</option>
+                  <option>Chemistry</option>
+                  <option>Biology</option>
+                  <option>Computer Science</option>
+                </select>
+              </div>
+              <div>
+                <label htmlFor="languages">Languages</label>
+                <select
+                  multiple
+                  name="languages"
+                  id="languages"
+                  style={{height: 'auto'}}
+                  onChange={this.updateSubjects}
+                  value={this.props.signUp.subjects}
+                >
+                  <option>English</option>
+                  <option>Spanish</option>
+                  <option>French</option>
+                  <option>German</option>
+                  <option>Italian</option>
+                  <option>Chinese</option>
+                  <option>Japanese</option>
+                  <option>Latin</option>
+                </select>
+              </div>
+              <div>
+                <label htmlFor="humanities">Humanities</label>
+                <select
+                  multiple
+                  name="humanities"
+                  id="humanities"
+                  style={{height: 'auto'}}
+                  onChange={this.updateSubjects}
+                  value={this.props.signUp.subjects}
+                >
+                  <option>History</option>
+                  <option>Politics</option>
+                  <option>Ethics</option>
+                  <option>Social Studies</option>
+                  <option>Philosophy</option>
+                  <option>Economics</option>
+                </select>
+              </div>
+              <div>
+                <label htmlFor="other">Other</label>
+                <select
+                  multiple
+                  name="other"
+                  id="other"
+                  style={{height: 'auto'}}
+                  onChange={this.updateSubjects}
+                  value={this.props.signUp.subjects}
+                >
+                  <option>Physical Education</option>
+                  <option>Music</option>
+                  <option>Art</option>
+                </select>
+              </div>
             </div>
           </div>
         </form>
