@@ -14,9 +14,54 @@
 .person-modal {
   background-color: var(--very-light-background);
   border-radius: 5px;
-  width: 80%;
-  height: 80%;
-  min-height: min-content;
-  margin: 0 auto;
-  padding: 2rem;
+  width: 70%;
+  height: 70%;
+  min-width: fit-content;
+  overflow: scroll;
+  margin: 1rem;
+}
+
+.person-modal-content {
+  padding: 1rem 2rem;
+}
+
+.person-modal-title {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 2rem;
+  color: var(--dark-blue);
+  white-space: nowrap;
+  flex-wrap: wrap;
+}
+
+.person-modal-title h1 {
+  margin-right: 4rem;
+  margin-bottom: 1rem;
+}
+
+.person-modal span {
+  color: var(--medium-text);
+  font-weight: lighter;
+}
+
+.person-modal-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(15rem, 1fr));
+  grid-row-gap: 1rem;
+  grid-column-gap: 2rem;
+}
+
+.close-modal {
+  font-size: 2.5rem;
+  float: right;
+  cursor: pointer;
+  min-width: 2.5rem;
+}
+
+@media screen and (min-width: 700px) {
+  .person-modal-content {
+    font-size: 1.3rem;
+    padding: 3rem 4rem;
+  }
 }
