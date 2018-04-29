@@ -12,7 +12,7 @@ export const submitLoginData = (data) => ({
   type: 'submitLoginData',
   data,
   backendCall: {
-    endpoint: '/login',
+    endpoint: 'login',
   }
 });
 
@@ -33,17 +33,23 @@ export const toggleUserLoggedIn = () => ({
 
 export const getTutors = (tutors) => ({
   type: 'getTutors',
-  tutors,
+  backendCall: {
+    endpoint: 'tutors'
+  }
 });
 
 export const getStudents = (students) => ({
   type: 'getStudents',
-  students,
+  backendCall: {
+    endpoint: 'students'
+  }
 });
 
 export const getConnections = (connections) => ({
   type: 'getConnections',
-  connections,
+  backendCall: {
+    endpoint: 'connections'
+  }
 });
 
 export const updateSignupForm = (data) => ({
@@ -55,7 +61,7 @@ export const submitSignupForm = (data) => ({
   type: 'submitSignupForm',
   data,
   backendCall: {
-    endpoint: '/' + data.userType,
+    endpoint: data.userType,
     method: 'POST',
     body: data,
   }
