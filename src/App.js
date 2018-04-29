@@ -5,7 +5,7 @@ import LandingPage from './pages/Landing';
 import ConnectPage from './pages/Connect';
 import AboutPage from './pages/About';
 import SupportPage from './pages/Support';
-import SignUpPage from './pages/SignUp';
+import SignupPage from './pages/Signup';
 import PageNotFoundPage from './pages/PageNotFound';
 import Login from './components/Login';
 
@@ -40,7 +40,7 @@ export default class App extends React.Component {
               <Route path="/connect" component={ConnectPage}/>
               <Route path="/about" component={AboutPage}/>
               <Route path="/support" component={SupportPage}/>
-              <Route path="/signup" component={SignUpPage}/>
+              <Route path="/signup" component={SignupPage}/>
               <Route path="/*" component={PageNotFoundPage}/>
             </Switch>
           </main>

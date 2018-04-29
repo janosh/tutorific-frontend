@@ -1,15 +1,20 @@
 import defaultAppState from './defaultState';
 
-export const signUp = (state = defaultAppState.signUpData, action) => {
+export const signup = (state = defaultAppState.signup, action) => {
   switch (action.type) {
-    case 'updateSignUp':
+    case 'setSignupUserType':
+    return {
+      ...state,
+      userType: action.userType
+    }
+    case 'updateSignupForm':
     return {
       ...state,
       ...action.data
     }
-    case 'clearSignUpForm':
+    case 'clearSignupForm':
     return {
-      ...defaultAppState.signUpData
+      ...defaultAppState.signup
     }
     default:
     return state;

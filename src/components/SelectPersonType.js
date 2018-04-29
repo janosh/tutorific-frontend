@@ -31,7 +31,7 @@ SelectPersonType.defaultProps = {
 
 const mapStateToProps = (state, ownProps) => {
   return {
-    userType: state.app[ownProps.storePrefix + 'UserType']
+    userType: state[ownProps.storePrefix].userType,
   };
 };
 

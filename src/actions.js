@@ -1,6 +1,5 @@
 export const changeUserType = (storePrefix, userType) => ({
-  type: 'changeOneUserType',
-  storePrefix,
+  type: 'set' + storePrefix[0].toUpperCase() + storePrefix.substr(1) + 'UserType',
   userType,
 });
 
@@ -47,13 +46,23 @@ export const getConnections = (connections) => ({
   connections,
 });
 
-export const updateSignUp = (data) => ({
-  type: 'updateSignUp',
+export const updateSignupForm = (data) => ({
+  type: 'updateSignupForm',
   data,
 });
 
-export const clearSignUpForm = () => ({
-  type: 'clearSignUpForm',
+export const submitSignupForm = (data) => ({
+  type: 'submitSignupForm',
+  data,
+  backendCall: {
+    endpoint: '/' + data.userType,
+    method: 'POST',
+    body: data,
+  }
+});
+
+export const clearSignupForm = () => ({
+  type: 'clearSignupForm',
 });
 
 export const setSinglePersonView = (person) => ({

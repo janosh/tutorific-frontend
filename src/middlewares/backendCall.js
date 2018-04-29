@@ -15,6 +15,9 @@ export const backendCall = store => next => action => {
     const encodedLoginData = Base64.encode(`${email}:${password}:${userType}`)
     headers['Authorization'] = 'Basic ' + encodedLoginData;
   }
+  if (method === 'POST' || method === 'PUT') {
+    headers['content-type'] = 'application/json';
+  }
 
   fetch(config.backendUrl + endpoint, {
     method: method || 'GET',
@@ -28,10 +31,10 @@ export const backendCall = store => next => action => {
       data,
     })
   })
-  .catch(error => {
+  .catch(err => {
     store.dispatch({
       type: action.type + 'Failure',
-      error,
+      err,
     })
   });
   next({

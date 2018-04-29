@@ -2,15 +2,14 @@ import React from 'react';
 import {connect} from 'react-redux';
 
 import SelectPersonType from '../components/SelectPersonType';
-import {updateSignUp,clearSignUpForm} from '../actions';
+import {updateSignupForm, submitSignupForm, clearSignupForm} from '../actions';
 import Geosearch from '../components/Geosearch';
-import config from '../config';
-import './SignUp.css';
+import './Signup.css';
 
-class SignUpPage extends React.Component {
+class SignupPage extends React.Component {
 
   update = async (e) => {
-    await this.props.updateSignUp({
+    await this.props.updateSignupForm({
       [e.target.name]: e.target.value
     });
   }
@@ -21,11 +20,11 @@ class SignUpPage extends React.Component {
     selects.forEach(select =>
       subjects.push(...Array.from(select.selectedOptions, option => option.value))
     );
-    await this.props.updateSignUp({subjects});
+    await this.props.updateSignupForm({subjects});
   }
 
   passwordsMatch = () => {
-    if (this.props.signUp.password !== this.props.signUp.confirmPassword) {
+    if (this.props.signup.password !== this.props.signup.confirmPassword) {
       document.getElementById('confirm-password').setCustomValidity("Passwords don't match!");
       return false;
     }
@@ -34,20 +33,11 @@ class SignUpPage extends React.Component {
 
   submitForm = (e) => {
     e.preventDefault();
-    if(this.passwordsMatch()) {
-      fetch(config.backendUrl + this.props.userType, {
-        method: 'post',
-        body: JSON.stringify(this.props.signUp),
-        headers: {
-          'content-type': 'application/json'
-        }
-      })
-      .then(res => console.log(res));
-    }
+    this.props.submitSignupForm(this.props.signup);
   }
 
   render() {
-    const userType = this.props.userType;
+    const signup = this.props.signup;
     return (
       <div id="signup-page">
         <div className="form-title">
@@ -67,7 +57,7 @@ class SignUpPage extends React.Component {
                   placeholder="John"
                   required
                   onChange={this.update}
-                  value={this.props.signUp.firstname}
+                  value={signup.firstname}
                 />
               </div>
               <div>
@@ -79,7 +69,7 @@ class SignUpPage extends React.Component {
                   placeholder="Doe"
                   required
                   onChange={this.update}
-                  value={this.props.signUp.lastname}
+                  value={signup.lastname}
                 />
               </div>
               <div>
@@ -91,7 +81,7 @@ class SignUpPage extends React.Component {
                   placeholder={String.fromCharCode('0x2022').repeat(10)}
                   required
                   onChange={this.update}
-                  value={this.props.signUp.password}
+                  value={signup.password}
                 />
               </div>
               <div>
@@ -103,7 +93,7 @@ class SignUpPage extends React.Component {
                   placeholder={String.fromCharCode('0x2022').repeat(10)}
                   required
                   onChange={this.update}
-                  value={this.props.signUp.confirmPassword}
+                  value={signup.confirmPassword}
                 />
               </div>
             </div>
@@ -120,7 +110,7 @@ class SignUpPage extends React.Component {
                   placeholder="john@doe.com"
                   required
                   onChange={this.update}
-                  value={this.props.signUp.email}
+                  value={signup.email}
                 />
               </div>
               <div>
@@ -132,12 +122,12 @@ class SignUpPage extends React.Component {
                   placeholder="+1 234 567 890"
                   required
                   onChange={this.update}
-                  value={this.props.signUp.phone}
+                  value={signup.phone}
                 />
               </div>
               <div>
                 <label htmlFor="address">Address <span>*</span></label>
-                <Geosearch name="address" storePrefix="signUpData" placeholder="Wonderland"/>
+                <Geosearch name="address" storePrefix="signup" placeholder="Wonderland"/>
               </div>
             </div>
           </div>
@@ -151,7 +141,7 @@ class SignUpPage extends React.Component {
                   id="birthday"
                   type="date"
                   onChange={this.update}
-                  value={this.props.signUp.birthday}
+                  value={signup.birthday}
                 />
               </div>
               <div>
@@ -162,7 +152,7 @@ class SignUpPage extends React.Component {
                   type="tel"
                   placeholder="Honolulu"
                   onChange={this.update}
-                  value={this.props.signUp.birthplace}
+                  value={signup.birthplace}
                 />
               </div>
               <div>
@@ -172,7 +162,7 @@ class SignUpPage extends React.Component {
                   id="gender"
                   required
                   onChange={this.update}
-                  value={this.props.signUp.gender}
+                  value={signup.gender}
                 >
                   <option disabled style={{display: 'none'}}></option>
                   <option value="male">Male</option>
@@ -180,7 +170,7 @@ class SignUpPage extends React.Component {
                   <option value="other">Other</option>
                 </select>
               </div>
-              {userType === 'student' && <React.Fragment>
+              {signup.userType === 'student' && <React.Fragment>
                 <div>
                   <label htmlFor="grade">Grade <span>*</span></label>
                   <input
@@ -192,7 +182,7 @@ class SignUpPage extends React.Component {
                     placeholder="1"
                     required
                     onChange={this.update}
-                    value={this.props.signUp.grade}
+                    value={signup.grade}
                     />
                 </div>
                 <div>
@@ -202,7 +192,7 @@ class SignUpPage extends React.Component {
                     id="schooltype"
                     required
                     onChange={this.update}
-                    value={this.props.signUp.schoolType}
+                    value={signup.schoolType}
                   >
                     <option disabled style={{display: 'none'}}></option>
                     <option value="elementary">Elementary School</option>
@@ -221,11 +211,11 @@ class SignUpPage extends React.Component {
                     type="text"
                     placeholder="Unicef"
                     onChange={this.update}
-                    value={this.props.signUp.youthOrganization}
+                    value={signup.youthOrganization}
                   />
                 </div>
               </React.Fragment>}
-              {userType === 'tutor' && <React.Fragment>
+              {signup.userType === 'tutor' && <React.Fragment>
                 <div>
                   <label htmlFor="semester">Semester</label>
                   <input
@@ -236,7 +226,7 @@ class SignUpPage extends React.Component {
                     max="50"
                     placeholder="1"
                     onChange={this.update}
-                    value={this.props.signUp.semester}
+                    value={signup.semester}
                     />
                 </div>
                 <div>
@@ -247,7 +237,7 @@ class SignUpPage extends React.Component {
                     type="text"
                     placeholder="Ufology"
                     onChange={this.update}
-                    value={this.props.signUp.fieldOfStudy}
+                    value={signup.fieldOfStudy}
                   />
                 </div>
               </React.Fragment>}
@@ -265,7 +255,7 @@ class SignUpPage extends React.Component {
                   id="science"
                   style={{height: 'auto'}}
                   onChange={this.updateSubjects}
-                  value={this.props.signUp.subjects}
+                  value={signup.subjects}
                 >
                   <option>Math</option>
                   <option>Physics</option>
@@ -282,7 +272,7 @@ class SignUpPage extends React.Component {
                   id="languages"
                   style={{height: 'auto'}}
                   onChange={this.updateSubjects}
-                  value={this.props.signUp.subjects}
+                  value={signup.subjects}
                 >
                   <option>English</option>
                   <option>Spanish</option>
@@ -302,7 +292,7 @@ class SignUpPage extends React.Component {
                   id="humanities"
                   style={{height: 'auto'}}
                   onChange={this.updateSubjects}
-                  value={this.props.signUp.subjects}
+                  value={signup.subjects}
                 >
                   <option>History</option>
                   <option>Politics</option>
@@ -320,7 +310,7 @@ class SignUpPage extends React.Component {
                   id="other"
                   style={{height: 'auto'}}
                   onChange={this.updateSubjects}
-                  value={this.props.signUp.subjects}
+                  value={signup.subjects}
                 >
                   <option>Physical Education</option>
                   <option>Music</option>
@@ -334,7 +324,7 @@ class SignUpPage extends React.Component {
           <button onClick={this.submitForm}>Submit</button>
           <button onClick={() => {
             if (window.confirm('Are you sure you want to clear the form? This action cannot be undone.'))
-              this.props.clearSignUpForm()}}
+              this.props.clearSignupForm()}}
           >Clear Form</button>
         </div>
       </div>
@@ -344,14 +334,14 @@ class SignUpPage extends React.Component {
 
 const mapStateToProps = (state) => {
   return {
-    userType: state.app.signupUserType,
-    signUp: state.signUp
+    signup: state.signup,
   };
 };
 
 const mapDispatchToProps = (dispatch) => ({
-  updateSignUp: (subtype, data) => dispatch(updateSignUp(subtype, data)),
-  clearSignUpForm: () => dispatch(clearSignUpForm()),
+  updateSignupForm: (data) => dispatch(updateSignupForm(data)),
+  submitSignupForm: (data) => dispatch(submitSignupForm(data)),
+  clearSignupForm: () => dispatch(clearSignupForm()),
 });
 
-export default connect(mapStateToProps, mapDispatchToProps)(SignUpPage);
+export default connect(mapStateToProps, mapDispatchToProps)(SignupPage);
