@@ -17,16 +17,25 @@ class ConnectPage extends React.Component {
   }
 
   render() {
+    const {userType, studentsList, tutorsList} = this.props;
+    const list = userType === 'student' ? studentsList : tutorsList;
     return (
       <div id="find-page">
         <Filters/>
-        <PersonList/>
+        <PersonList userType={userType} list={list}/>
         <PersonModal/>
-        <Map/>
+        <Map list={list}/>
       </div>
     );
   }
 }
+const mapStateToProps = (state) => {
+  return {
+    userType: state.filters.userType,
+    studentsList: state.studentsList,
+    tutorsList: state.tutorsList
+  };
+};
 
 const mapDispatchToProps = (dispatch) => ({
   getStudents: () => dispatch(getStudents()),
@@ -34,4 +43,4 @@ const mapDispatchToProps = (dispatch) => ({
   getConnections: () => dispatch(getConnections()),
 });
 
-export default connect(null, mapDispatchToProps)(ConnectPage);
+export default connect(mapStateToProps, mapDispatchToProps)(ConnectPage);

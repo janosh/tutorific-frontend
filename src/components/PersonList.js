@@ -4,29 +4,19 @@ import {connect} from 'react-redux';
 import PersonListItem from './PersonListItem';
 import './PersonList.css';
 
-class PersonList extends React.Component {
+export default class PersonList extends React.Component {
 
   render() {
-    const personsList = this.props.userType === 'student' ? this.props.studentsList : this.props.tutorsList;
+    const {list, userType} = this.props;
     return (
       <div className="person-list">
-        <div className="list">
-          {personsList.length === 0 && <div><h2>No {this.props.userType}s to display.</h2></div> }
-          {personsList.map(person =>
-            <PersonListItem key={person._id} person={person}/>
-          )}
-        </div>
+        {list.length === 0 &&
+          <div className="empty-list"><h2>No {userType}s to display.</h2></div>
+        }
+        {list.map(person =>
+          <PersonListItem key={person._id} person={person}/>
+        )}
       </div>
     );
   }
 }
-
-const mapStateToProps = (state) => {
-  return {
-    userType: state.filters.userType,
-    studentsList: state.studentsList,
-    tutorsList: state.tutorsList
-  };
-};
-
-export default connect(mapStateToProps)(PersonList);
