@@ -3,6 +3,7 @@ const prefilledSignup = true;
 export default {
   filters: {
     userType: 'student',
+    location: {},
   },
   login: {
     showLoginModal: false,

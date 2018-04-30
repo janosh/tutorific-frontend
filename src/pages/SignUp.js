@@ -33,6 +33,7 @@ class SignupPage extends React.Component {
 
   submitForm = (e) => {
     e.preventDefault();
+    console.log(JSON.stringify(this.props.signup));
     this.props.submitSignupForm(this.props.signup);
   }
 
