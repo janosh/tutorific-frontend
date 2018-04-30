@@ -24,7 +24,7 @@ class LandingPage extends React.Component {
 
 const mapStateToProps = (state) => {
   return {
-    userType: state.app.signup.userType,
+    userType: state.signup.userType,
   };
 };
 

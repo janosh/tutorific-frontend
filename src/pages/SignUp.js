@@ -195,12 +195,12 @@ class SignupPage extends React.Component {
                     value={signup.schoolType}
                   >
                     <option disabled style={{display: 'none'}}></option>
-                    <option value="elementary">Elementary School</option>
-                    <option value="middle">Middle School</option>
-                    <option value="high">High School</option>
-                    <option value="special-needs">Special-Needs School</option>
-                    <option value="vocational">Vocational School</option>
-                    <option value="refugee">Refugee School</option>
+                    <option value="Elementary">Elementary School</option>
+                    <option value="Middle">Middle School</option>
+                    <option value="High">High School</option>
+                    <option value="Special-Needs">Special-Needs School</option>
+                    <option value="Vocational">Vocational School</option>
+                    <option value="Refugee">Refugee School</option>
                   </select>
                 </div>
                 <div>

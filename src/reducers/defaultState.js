@@ -40,7 +40,7 @@ export default {
     // student-specific data
     youthOrganization: prefilledSignup ? 'Unicef' : '',
     grade: prefilledSignup ? '7' : '',
-    schoolType: prefilledSignup ? 'middle' : '',
+    schoolType: prefilledSignup ? 'Middle' : '',
     // tutor-specific data
     semester: prefilledSignup ? '5' : '',
     fieldOfStudy: prefilledSignup ? 'Theoretical Physics' : '',
