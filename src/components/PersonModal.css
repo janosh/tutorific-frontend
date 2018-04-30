@@ -19,25 +19,24 @@
   min-width: fit-content;
   overflow: scroll;
   margin: 1rem;
+  display: flex;
 }
+
+.person-modal button {
+  height: min-content;
+}
+
+.person-modal .map-container {
+  border-radius: 0;
+}
+
 .person-modal-content {
   font-size: 1.3rem;
-  padding: 3rem 4rem;
-}
-
-.person-modal-title {
-  display: flex;
-  justify-content: space-between;
-  align-items: flex-start;
-  margin-bottom: 2rem;
-  color: var(--dark-blue);
-  white-space: nowrap;
-  flex-wrap: wrap;
-}
-
-.person-modal-title h1 {
-  margin-right: 4rem;
-  margin-bottom: 1rem;
+  margin: 1.5rem 2rem;
+  display: grid;
+  grid-gap: 1rem;
+  overflow: scroll;
+  grid-auto-rows: min-content;
 }
 
 .person-modal span {
@@ -45,26 +44,14 @@
   font-weight: lighter;
 }
 
-.person-modal-grid {
-  display: grid;
-  grid-template-columns: repeat(2, minmax(15rem, 1fr));
-  grid-row-gap: 1rem;
-  grid-column-gap: 2rem;
-}
-
-.close-modal {
-  font-size: 2.5rem;
-  float: right;
-  cursor: pointer;
-  min-width: 2.5rem;
-}
-
-@media screen and (max-width: 700px) {
-  .person-modal-content {
-    padding: 1rem 2rem;
+@media screen and (max-width: 1000px) {
+  .person-modal {
+    flex-direction: column;
+    width: 80%;
+    height: 80%;
   }
 
-  .person-modal-grid {
-    grid-template-columns: 1fr;
+  .person-modal-content {
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
   }
 }

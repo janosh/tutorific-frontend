@@ -20,7 +20,7 @@ class ConnectPage extends React.Component {
     const {userType, studentsList, tutorsList} = this.props;
     const list = userType === 'student' ? studentsList : tutorsList;
     return (
-      <div id="find-page">
+      <div id="connect-page">
         <Filters/>
         <PersonList userType={userType} list={list}/>
         <PersonModal/>

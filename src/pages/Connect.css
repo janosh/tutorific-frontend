@@ -1,4 +1,4 @@
-#find-page {
+#connect-page {
   height: 100%;
   display: grid;
   grid-gap: 1rem;
@@ -11,16 +11,16 @@
 }
 
 @media screen and (max-width: 1000px) {
-  #find-page {
+  #connect-page {
     grid-template-columns: min-content 1fr;
   }
-  #find-page .map-container {
+  #connect-page .map-container {
     grid-column: 1/-1;
   }
 }
 
 @media screen and (max-width: 500px) {
-  #find-page {
+  #connect-page {
     grid-template-columns: 1fr;
   }
 }
