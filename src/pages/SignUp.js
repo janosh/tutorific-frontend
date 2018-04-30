@@ -46,7 +46,7 @@ class SignupPage extends React.Component {
           <SelectPersonType storePrefix="signup"/>
         </div>
         <form id="signup-form">
-          <div className="signup-form-section account-info">
+          <fieldset div className="signup-form-section account-info">
             <h2>Account</h2>
             <div className="signup-form-section-fields account-info">
               <div>
@@ -98,8 +98,8 @@ class SignupPage extends React.Component {
                 />
               </div>
             </div>
-          </div>
-          <div className="signup-form-section contact-info">
+          </fieldset>
+          <fieldset className="signup-form-section contact-info">
             <h2>Contact</h2>
             <div className="signup-form-section-fields contact-info">
               <div>
@@ -131,8 +131,8 @@ class SignupPage extends React.Component {
                 <Geosearch name="address" storePrefix="signup" placeholder="Wonderland"/>
               </div>
             </div>
-          </div>
-          <div className="signup-form-section personal-info">
+          </fieldset>
+          <fieldset className="signup-form-section personal-info">
             <h2>Personal</h2>
             <div className="signup-form-section-fields personal-info">
               <div>
@@ -243,8 +243,8 @@ class SignupPage extends React.Component {
                 </div>
               </React.Fragment>}
             </div>
-          </div>
-          <div className="signup-form-section subjects-info">
+          </fieldset>
+          <fieldset className="signup-form-section subjects-info">
             <h2>Subjects</h2>
             <legend>Hold command or control to toggle selections.</legend>
             <div className="signup-form-section-fields subject-info">
@@ -319,7 +319,7 @@ class SignupPage extends React.Component {
                 </select>
               </div>
             </div>
-          </div>
+          </fieldset>
         </form>
         <div id="submit-sign-up-form">
           <button onClick={this.submitForm}>Submit</button>
