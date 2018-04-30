@@ -3,6 +3,7 @@
   overflow: scroll;
   display: grid;
   grid-gap: 0.7rem;
+  grid-auto-rows: min-content;
 }
 
 .person-list .empty-list {
