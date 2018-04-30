@@ -45,6 +45,10 @@
   min-width: 10rem;
 }
 
+fieldset {
+  border: none;
+}
+
 @media screen and (max-width: 500px) {
   .signup-form-section-fields {
     grid-template-columns: 1fr;
