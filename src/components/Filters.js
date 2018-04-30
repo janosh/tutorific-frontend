@@ -23,7 +23,7 @@ class Filters extends React.Component {
     return (
       <div className="filters">
         <h2>Filters</h2>
-        <p>Number of <strong>{filters.userType}s</strong> near you: <strong>{findCount}</strong> of which <strong>{availableCount}</strong> are currently available.</p>
+        <p><strong>{findCount}</strong> {filters.userType}s near you. <strong>{availableCount}</strong> of them are currently available.</p>
         <Geosearch storePrefix="filters"/>
         <div>
           <label htmlFor="searchfor">Search for</label>
@@ -50,12 +50,33 @@ class Filters extends React.Component {
             onChange={this.update}
           />
         </div>
-        <div className="distance-filter">
-          <label htmlFor="distance">Distance</label>
-          <div name="distance" className="distance-buttons">
-            <button className="selected">5 km</button>
-            <button>10 km</button>
-            <button>20 km</button>
+        <div>
+          <label htmlFor="max-distance">Distance</label>
+          <div className="max-distance" id="max-distance">
+            <input
+              type="radio"
+              name="max-distance"
+              id="max-distance-5km"
+              value="5"
+              onClick={this.update}
+            />
+            <label htmlFor="max-distance-5km">5 km</label>
+            <input
+              type="radio"
+              name="max-distance"
+              id="max-distance-10km"
+              value="10"
+              onClick={this.update}
+            />
+            <label htmlFor="max-distance-10km">10 km</label>
+            <input
+              type="radio"
+              name="max-distance"
+              id="max-distance-20km"
+              value="20"
+              onClick={this.update}
+            />
+            <label htmlFor="max-distance-20km">20 km</label>
           </div>
         </div>
       </div>
