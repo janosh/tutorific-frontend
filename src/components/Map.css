@@ -1,6 +1,14 @@
 .map-container {
   border-radius: 10px;
-  overflow: hidden;
+}
+
+.marker {
+  background: var(--very-light-background);
+  font-size: 1.2rem;
+  padding: 0.5rem 0.8rem;
+  border-radius: 5px;
+  width: fit-content;
+  opacity: 0.8;
 }
 
 @media screen and (max-width: 1000px) {
