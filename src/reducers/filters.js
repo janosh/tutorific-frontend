@@ -2,6 +2,11 @@ import defaultAppState from './defaultState';
 
 export const filters = (state = defaultAppState.filters, action) => {
   switch (action.type) {
+    case 'updateFilters':
+    return {
+      ...state,
+      ...action.data
+    }
     case 'setFiltersUserType':
     return {
       ...state,

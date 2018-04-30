@@ -3,20 +3,27 @@ import {connect} from 'react-redux';
 
 import SelectPersonType from './SelectPersonType';
 import Geosearch from './Geosearch';
+import {updateFilters} from '../actions';
 
 import './Filters.css';
 
 class Filters extends React.Component {
 
+  update = async (e) => {
+    await this.props.updateFilters({
+      [e.target.name]: e.target.value
+    });
+  }
+
   render() {
-    const {userType, studentsList, tutorsList} = this.props;
-    const relevantList = userType === 'student' ? studentsList : tutorsList;
+    const {filters, studentsList, tutorsList} = this.props;
+    const relevantList = filters.userType === 'student' ? studentsList : tutorsList;
     const findCount = relevantList.length;
     const availableCount = relevantList.filter(person => person.status === 'available').length;
     return (
       <div className="filters">
         <h2>Filters</h2>
-        <p>Number of <strong>{userType}s</strong> near you: <strong>{findCount}</strong> of which <strong>{availableCount}</strong> are currently available.</p>
+        <p>Number of <strong>{filters.userType}s</strong> near you: <strong>{findCount}</strong> of which <strong>{availableCount}</strong> are currently available.</p>
         <Geosearch storePrefix="filters"/>
         <div>
           <label htmlFor="searchfor">Search for</label>
@@ -27,7 +34,6 @@ class Filters extends React.Component {
           <select
             name="status"
             id="status"
-            required
             onChange={this.update}
           >
             <option value="available">Available</option>
@@ -59,10 +65,14 @@ class Filters extends React.Component {
 
 const mapStateToProps = (state) => {
   return {
-    userType: state.filters.userType,
+    filters: state.filters,
     studentsList: state.studentsList,
     tutorsList: state.tutorsList,
   }
 }
 
-export default connect(mapStateToProps)(Filters);
+const mapDispatchToProps = (dispatch) => ({
+  updateFilters: (data) => dispatch(updateFilters(data)),
+});
+
+export default connect(mapStateToProps, mapDispatchToProps)(Filters);
