@@ -17,12 +17,12 @@ class ConnectPage extends React.Component {
   }
 
   render() {
-    const {userType, studentsList, tutorsList} = this.props;
-    const list = userType === 'student' ? studentsList : tutorsList;
+    const {filters, studentsList, tutorsList} = this.props;
+    const list = filters.userType === 'student' ? studentsList : tutorsList;
     return (
       <div id="connect-page">
         <Filters/>
-        <PersonList userType={userType} list={list}/>
+        <PersonList userType={filters.userType} list={list}/>
         <PersonModal/>
         <Map list={list}/>
       </div>
@@ -31,7 +31,7 @@ class ConnectPage extends React.Component {
 }
 const mapStateToProps = (state) => {
   return {
-    userType: state.filters.userType,
+    filters: state.filters,
     studentsList: state.studentsList,
     tutorsList: state.tutorsList
   };
