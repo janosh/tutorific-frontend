@@ -1,26 +1,26 @@
 export const getTutors = (tutors) => ({
-  type: 'getTutors',
+  type: 'get_tutors',
   backendCall: {
     endpoint: 'tutors'
   }
 });
 
 export const getStudents = (students) => ({
-  type: 'getStudents',
+  type: 'get_students',
   backendCall: {
     endpoint: 'students'
   }
 });
 
 export const getConnections = (connections) => ({
-  type: 'getConnections',
+  type: 'get_connections',
   backendCall: {
     endpoint: 'connections'
   }
 });
 
 export const submitSignupForm = (data) => ({
-  type: 'submitSignupForm',
+  type: 'submit_signup_form',
   backendCall: {
     endpoint: data.userType,
     method: 'POST',

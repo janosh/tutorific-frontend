@@ -1,8 +1,8 @@
 export const updateSignupForm = (data) => ({
-  type: 'updateSignupForm',
+  type: 'update_signup_form',
   data,
 });
 
 export const clearSignupForm = () => ({
-  type: 'clearSignupForm',
+  type: 'clear_signup_form',
 });

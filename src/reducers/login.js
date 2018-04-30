@@ -2,17 +2,17 @@ import defaultAppState from './defaultState';
 
 export const login = (state = defaultAppState.login, action) => {
   switch (action.type) {
-    case 'setLoginUserType':
+    case 'set_login_user_type':
     return {
       ...state,
       userType: action.userType
     }
-    case 'toggleLoginPanel':
+    case 'toggle_login_panel':
     return {
       ...state,
       showLoginModal: !state.showLoginModal
     }
-    case 'updateLoginData':
+    case 'update_login_data':
     return {
       ...state,
       ...action.data

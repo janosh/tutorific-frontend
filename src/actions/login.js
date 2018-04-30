@@ -1,10 +1,10 @@
 export const updateLoginData = (data) => ({
-  type: 'updateLoginData',
+  type: 'update_login_data',
   data,
 });
 
 export const submitLoginData = (data) => ({
-  type: 'submitLoginData',
+  type: 'submit_login_data',
   data,
   backendCall: {
     endpoint: 'login',
@@ -12,5 +12,9 @@ export const submitLoginData = (data) => ({
 });
 
 export const toggleUserLoggedIn = () => ({
-  type: 'toggleUserLoggedIn',
+  type: 'toggle_user_logged_in',
+});
+
+export const toggleLoginPanel = () => ({
+  type: 'toggle_login_panel',
 });

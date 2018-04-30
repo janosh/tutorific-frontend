@@ -2,7 +2,7 @@ import defaultAppState from './defaultState';
 
 export const currentUser= (state = defaultAppState.user, action) => {
   switch (action.type) {
-    case 'setUserLocation':
+    case 'set_user_location':
     return {
       ...state,
       location: {
@@ -10,12 +10,7 @@ export const currentUser= (state = defaultAppState.user, action) => {
         ...action.userLocation
       }
     }
-    case 'userSetLocationChoice':
-    return {
-      ...state,
-      locationChoice: action.locationChoice
-    }
-    case 'toggleUserLoggedIn':
+    case 'toggle_user_logged_in':
     return {
       ...state,
       loggedIn: !state.loggedIn

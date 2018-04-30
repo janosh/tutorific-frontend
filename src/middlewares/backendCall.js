@@ -10,7 +10,7 @@ export const backendCall = store => next => action => {
   if (store.getState().currentUser.token) {
     const token = store.getState().currentUser.token;
     headers['Authorization'] = 'Bearer ' + token;
-  } else if (action.type === 'submitLoginData') {
+  } else if (action.type === 'submit_login_data') {
     const {email, password, userType} = action.data;
     const encodedLoginData = Base64.encode(`${email}:${password}:${userType}`)
     headers['Authorization'] = 'Basic ' + encodedLoginData;
@@ -27,20 +27,20 @@ export const backendCall = store => next => action => {
   .then(res => res.json())
   .then(data => {
     store.dispatch({
-      type: action.type + 'Success',
+      type: action.type + '_success',
       data,
     })
   })
   .catch(err => {
     console.error(err);
     store.dispatch({
-      type: action.type + 'Failure',
+      type: action.type + '_failure',
       err,
     })
   });
   next({
     ...action,
-    type: action.type + 'Pending'
+    type: action.type + '_pending'
   });
 }
 

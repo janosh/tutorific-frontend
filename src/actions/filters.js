@@ -1,4 +1,4 @@
 export const updateFilters = (data) => ({
-  type: 'updateFilters',
+  type: 'update_filters',
   data,
 });

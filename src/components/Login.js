@@ -2,7 +2,7 @@ import React from 'react';
 import {connect} from 'react-redux';
 
 import SelectPersonType from './SelectPersonType';
-import {updateLoginData, submitLoginData} from '../actions';
+import {updateLoginData, submitLoginData, toggleLoginPanel, toggleUserLoggedIn} from '../actions';
 
 import './Login.css';
 
@@ -70,8 +70,8 @@ const mapStateToProps = (state) => {
 };
 
 const mapDispatchToProps = (dispatch) => ({
-  toggleUserLoggedIn: () => dispatch({type: 'toggleUserLoggedIn'}),
-  toggleLoginPanel: () => dispatch({type: 'toggleLoginPanel'}),
+  toggleUserLoggedIn: () => dispatch(toggleUserLoggedIn()),
+  toggleLoginPanel: () => dispatch(toggleLoginPanel()),
   updateLoginData: (data) => dispatch(updateLoginData(data)),
   submitLoginData: (data) => dispatch(submitLoginData(data)),
 });
