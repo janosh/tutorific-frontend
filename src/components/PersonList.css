@@ -1,6 +1,17 @@
-.list {
+.person-list {
   border-radius: 5px;
   overflow: scroll;
   display: grid;
   grid-gap: 0.7rem;
+}
+
+.person-list .empty-list {
+  height: 100%;
+  background: var(--very-light-background);
+  display: flex;
+  justify-content: center;
+}
+
+.person-list .empty-list h2 {
+  margin-top: 15%;
 }
