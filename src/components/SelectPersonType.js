@@ -25,10 +25,6 @@ class SelectPersonType extends React.Component {
   }
 }
 
-SelectPersonType.defaultProps = {
-  storePrefix: '',
-}
-
 const mapStateToProps = (state, ownProps) => {
   return {
     userType: state[ownProps.storePrefix].userType,
