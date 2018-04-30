@@ -1,9 +1,9 @@
 export const setUserLocation = (userLocation) => ({
-  type: 'setUserLocation',
+  type: 'set_user_location',
   userLocation,
 });
 
 export const setLocationChoice = (storePrefix, locationChoice) => ({
-  type: 'set' + storePrefix[0].toUpperCase() + storePrefix.substr(1) + 'LocationChoice',
+  type: 'set_' + storePrefix + '_location_choice',
   locationChoice,
 });
