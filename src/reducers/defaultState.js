@@ -4,6 +4,8 @@ export default {
   filters: {
     userType: 'student',
     location: {},
+    status: '',
+    lastLoginAfter: '',
   },
   login: {
     showLoginModal: false,
