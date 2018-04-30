@@ -23,7 +23,7 @@
 }
 
 .person-modal button {
-  height: min-content;
+  height: fit-content;
 }
 
 .person-modal .map-container {

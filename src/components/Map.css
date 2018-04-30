@@ -13,10 +13,10 @@
   border-radius: 5px;
   width: fit-content;
   opacity: 0.8;
+  transition: all 0.5s;
 }
 
-@media screen and (max-width: 1000px) {
-  #connect-page .map-container {
-    height: 40vh;
-  }
+.marker:hover {
+  transform: scale(1.2);
+  opacity: 1;
 }
