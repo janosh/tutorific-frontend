@@ -32,6 +32,7 @@ export const backendCall = store => next => action => {
     })
   })
   .catch(err => {
+    console.error(err);
     store.dispatch({
       type: action.type + 'Failure',
       err,

@@ -37,15 +37,13 @@ class PersonModal extends React.Component {
             </div>
             <div className="person-modal-grid">
               <p><span>Status</span> {person.status}</p>
-              <p><span>Subjects</span> {person.subjects.map(subject => subject.name).join(', ')}</p>
+              <p><span>Subjects</span> {person.subjects.join(', ')}</p>
               <p><span>Email</span> {person.email}</p>
               <p><span>Phone</span> {person.phone}</p>
-              <p><span>Address</span> {person.address.city}</p>
+              {person.address && person.address.label && <p><span>Address</span> {person.address.label}</p>}
               <p><span>Gender</span> {person.gender}</p>
-              <p><span>Joined Tutorific</span> {moment(person.createdAt).format('MMMM DD, YYYY')}
-                ({moment(person.createdAt).fromNow()})</p>
-              <p><span>Last login</span> {moment(person.updatedAt).format('MMMM DD, YYYY')}
-                ({moment(person.updatedAt).fromNow()})</p>
+              <p><span>Joined Tutorific</span> {moment(person.createdAt).format('MMMM DD, YYYY')} ({moment(person.createdAt).fromNow()})</p>
+              <p><span>Last login</span> {moment(person.updatedAt).format('MMMM DD, YYYY')} ({moment(person.updatedAt).fromNow()})</p>
               {person.type === 'student' && <React.Fragment>
                 {person.schooltype && <p><span>Schooltype</span> {person.schooltype} + school</p>}
                 {person.grade && <p><span>Grade</span> {person.grade}</p>}

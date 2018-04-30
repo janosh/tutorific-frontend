@@ -20,9 +20,9 @@
   overflow: scroll;
   margin: 1rem;
 }
-
 .person-modal-content {
-  padding: 1rem 2rem;
+  font-size: 1.3rem;
+  padding: 3rem 4rem;
 }
 
 .person-modal-title {
@@ -47,7 +47,7 @@
 
 .person-modal-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(15rem, 1fr));
+  grid-template-columns: repeat(2, minmax(15rem, 1fr));
   grid-row-gap: 1rem;
   grid-column-gap: 2rem;
 }
@@ -59,9 +59,12 @@
   min-width: 2.5rem;
 }
 
-@media screen and (min-width: 700px) {
+@media screen and (max-width: 700px) {
   .person-modal-content {
-    font-size: 1.3rem;
-    padding: 3rem 4rem;
+    padding: 1rem 2rem;
+  }
+
+  .person-modal-grid {
+    grid-template-columns: 1fr;
   }
 }
