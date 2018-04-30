@@ -23,7 +23,6 @@ class Geosearch extends React.Component {
       placeId: data.placeId,
       location: data.location,
       components: data.gmaps.address_components,
-      bounds: data.gmaps.geometry.bounds,
     })
   }
 

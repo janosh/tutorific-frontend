@@ -10,7 +10,7 @@ export const filters = (state = defaultAppState.filters, action) => {
     case 'setFiltersLocationChoice':
     return {
       ...state,
-      address: action.locationChoice,
+      location: action.locationChoice,
     }
     default:
     return state;
