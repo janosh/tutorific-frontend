@@ -14,8 +14,10 @@
   #connect-page {
     grid-template-columns: min-content 1fr;
   }
-  #connect-page .map-container {
+
+  #connect-page > .map-container {
     grid-column: 1/-1;
+    height: 40vh;
   }
 }
 
