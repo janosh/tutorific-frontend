@@ -22,8 +22,7 @@ export const setUserLocation = (userLocation) => ({
 });
 
 export const setLocationChoice = (storePrefix, locationChoice) => ({
-  type: storePrefix + 'SetLocationChoice',
-  storePrefix,
+  type: 'set' + storePrefix[0].toUpperCase() + storePrefix.substr(1) + 'LocationChoice',
   locationChoice,
 });
 
@@ -59,7 +58,6 @@ export const updateSignupForm = (data) => ({
 
 export const submitSignupForm = (data) => ({
   type: 'submitSignupForm',
-  data,
   backendCall: {
     endpoint: data.userType,
     method: 'POST',

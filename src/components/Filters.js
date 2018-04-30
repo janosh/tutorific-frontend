@@ -17,7 +17,7 @@ class Filters extends React.Component {
       <div className="filters">
         <h2>Filters</h2>
         <p>Number of <strong>{userType}s</strong> near you: <strong>{findCount}</strong> of which <strong>{availableCount}</strong> are currently available.</p>
-        <Geosearch storePrefix="user"/>
+        <Geosearch storePrefix="filters"/>
         <div>
           <label htmlFor="searchfor">Search for</label>
           <SelectPersonType id="searchfor" storePrefix="filters"/>

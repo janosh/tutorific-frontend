@@ -12,6 +12,11 @@ export const signup = (state = defaultAppState.signup, action) => {
       ...state,
       ...action.data
     }
+    case 'setSignupLocationChoice':
+    return {
+      ...state,
+      address: action.locationChoice,
+    }
     case 'clearSignupForm':
     return {
       ...defaultAppState.signup

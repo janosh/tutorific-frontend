@@ -7,6 +7,15 @@ import './Geosearch.css';
 
 class Geosearch extends React.Component {
 
+  getUserLocation() {
+    if (!this.props.userLocation.lat && 'geolocation' in navigator) {
+      navigator.geolocation.getCurrentPosition(postition => {
+        const {latitude: lat, longitude: lng} = postition.coords;
+        this.props.setUserLocation({lat, lng});
+      })
+    }
+  }
+
   storeSelection = (data) => {
     if (!data || !data.gmaps || !data.gmaps.geometry) return;
     this.props.setLocationChoice({
@@ -19,12 +28,7 @@ class Geosearch extends React.Component {
   }
 
   componentDidMount() {
-    if (!this.props.userLocation.lat && 'geolocation' in navigator) {
-      navigator.geolocation.getCurrentPosition(postition => {
-        const {latitude: lat, longitude: lng} = postition.coords;
-        this.props.setUserLocation({lat, lng});
-      })
-    }
+    this.getUserLocation();
   }
 
   render() {
