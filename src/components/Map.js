@@ -5,6 +5,8 @@ import {connect} from 'react-redux';
 import config from '../config';
 import './Map.css';
 
+const Marker = ({ text }) => <div className="marker">{text}</div>;
+
 class Map extends React.Component {
 
   render() {
@@ -19,13 +21,11 @@ class Map extends React.Component {
           zoom={userLng ? 12 : 4}
         >
           {list && list.map(person =>
-            <div
-              className="marker"
-              lat={person.address.location.lat}
-              lng={person.address.location.lng}
-            >
-              {person.firstname}
-            </div>
+            <Marker key={person._id}
+            lat={person.address.location.lat}
+            lng={person.address.location.lng}
+            text={person.firstname}
+            />
           )}
         </GoogleMapReact>
       </div>
