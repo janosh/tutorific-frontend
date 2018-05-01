@@ -1,6 +1,7 @@
 import React from 'react';
 import {connect} from 'react-redux';
 import Geosuggest from 'react-geosuggest';
+import {withRouter} from 'react-router-dom';
 
 import {setUserLocation, setLocationChoice} from '../actions';
 import './Geosearch.css';
@@ -16,8 +17,10 @@ class Geosearch extends React.Component {
     }
   }
 
-  storeSelection = (data) => {
-    if (!data || !data.gmaps || !data.gmaps.geometry) return;
+  handleSelection = (data) => {
+    if (!data || !data.gmaps) return;
+    if (this.props.history.location.pathname === '/')
+      this.props.history.push('/connect');
     this.props.setLocationChoice({
       label: data.label,
       placeId: data.placeId,
@@ -34,14 +37,14 @@ class Geosearch extends React.Component {
     return (
       <Geosuggest
         placeholder={this.props.placeholder || 'Choose location'}
-        onSuggestSelect={this.storeSelection}
+        onSuggestSelect={this.handleSelection}
       />);
   }
 }
 
 const mapStateToProps = (state) => {
   return {
-    userLocation: state.currentUser.location,
+    userLocation: state.currentUser.userLocation,
   };
 };
 
@@ -50,4 +53,4 @@ const mapDispatchToProps = (dispatch, ownProps) => ({
   setLocationChoice: (locationChoice) => dispatch(setLocationChoice(ownProps.storePrefix, locationChoice))
 });
 
-export default connect(mapStateToProps, mapDispatchToProps)(Geosearch);
+export default connect(mapStateToProps, mapDispatchToProps)(withRouter(Geosearch));
