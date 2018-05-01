@@ -2,6 +2,10 @@ import { Base64 } from 'js-base64';
 
 import config from '../config';
 
+const querify = (obj) => (
+  '?' + Object.keys(obj).map(prop => prop + '=' + obj[prop]).join('&')
+);
+
 export const backendCall = store => next => action => {
   if(!action.backendCall) return next(action);
   const {endpoint, method, body} = action.backendCall;
@@ -10,7 +14,8 @@ export const backendCall = store => next => action => {
   if (store.getState().currentUser.token) {
     const token = store.getState().currentUser.token;
     headers['Authorization'] = 'Bearer ' + token;
-  } else if (action.type === 'submit_login_data') {
+  }
+  if (action.type === 'submit_login_data') {
     const {email, password, userType} = action.data;
     const encodedLoginData = Base64.encode(`${email}:${password}:${userType}`)
     headers['Authorization'] = 'Basic ' + encodedLoginData;
@@ -19,7 +24,9 @@ export const backendCall = store => next => action => {
     headers['content-type'] = 'application/json';
   }
 
-  fetch(config.backendUrl + endpoint, {
+  const query = action.type === 'get_person_list' ? querify(action.params) : '';
+
+  fetch(config.backendUrl + endpoint + query, {
     method: method || 'GET',
     body: JSON.stringify(body),
     headers,

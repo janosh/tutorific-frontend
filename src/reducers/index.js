@@ -5,8 +5,7 @@ import {filters} from './filters';
 import {login} from './login';
 import {signup} from './signup';
 import {singlePersonView} from './singlePersonView';
-import {studentsList} from './studentsList';
-import {tutorsList} from './tutorsList';
+import {personList} from './personList';
 
 export default combineReducers({
   currentUser,
@@ -14,6 +13,5 @@ export default combineReducers({
   login,
   signup,
   singlePersonView,
-  studentsList,
-  tutorsList,
+  personList,
 });

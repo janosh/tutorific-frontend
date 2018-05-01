@@ -50,8 +50,6 @@ export default {
     // subjects info
     subjects: prefilledSignup ? ['Physics', 'Math', 'English', 'Biology'] : [],
   },
-  tutorsList: [],
-  studentsList: [],
-  connectionsList: [],
+  personList: [],
   singlePersonView: null,
 };

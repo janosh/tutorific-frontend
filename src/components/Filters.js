@@ -3,9 +3,14 @@ import {connect} from 'react-redux';
 
 import SelectPersonType from './SelectPersonType';
 import Geosearch from './Geosearch';
-import {updateFilters} from '../actions';
+import {updateFilters, getPersonList} from '../actions';
 
 import './Filters.css';
+
+const flatten = (obj) => Object.assign({}, ...function _flatten(o) {
+  return [].concat(...Object.keys(o).map(k => typeof o[k] === 'object'
+  ? _flatten(o[k]) : ({[k]: o[k]})))}(obj));
+
 
 class Filters extends React.Component {
 
@@ -15,11 +20,20 @@ class Filters extends React.Component {
     });
   }
 
+  componentDidMount() {
+    this.props.getPersonList(flatten(this.props.filters));
+  }
+
+  componentWillReceiveProps(nextProps) {
+    if (nextProps.filters !== this.props.filters) {
+      this.props.getPersonList(flatten(nextProps.filters));
+    }
+  }
+
   render() {
-    const {filters, studentsList, tutorsList} = this.props;
-    const relevantList = filters.userType === 'student' ? studentsList : tutorsList;
-    const findCount = relevantList.length;
-    const availableCount = relevantList.filter(person => person.status === 'available').length;
+    const {filters, personList} = this.props;
+    const findCount = personList.length;
+    const availableCount = personList.filter(person => person.status === 'available').length;
     return (
       <div className="filters">
         <h2>Filters</h2>
@@ -87,13 +101,13 @@ class Filters extends React.Component {
 const mapStateToProps = (state) => {
   return {
     filters: state.filters,
-    studentsList: state.studentsList,
-    tutorsList: state.tutorsList,
+    personList: state.personList,
   }
 }
 
 const mapDispatchToProps = (dispatch) => ({
   updateFilters: (data) => dispatch(updateFilters(data)),
+  getPersonList: (params) => dispatch(getPersonList(params)),
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(Filters);
