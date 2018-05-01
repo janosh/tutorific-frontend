@@ -3,7 +3,8 @@ const prefilledSignup = true;
 export default {
   filters: {
     userType: 'student',
-    location: {},
+    userLocation: {},
+    locationChoice: {},
     status: '',
     lastLoginAfter: '',
     maxDistance: '20',
@@ -15,8 +16,7 @@ export default {
     userType: 'student',
   },
   user: {
-    location: {},
-    locationChoice: {},
+    userLocation: {},
     loggedIn: false,
     token: '',
   },

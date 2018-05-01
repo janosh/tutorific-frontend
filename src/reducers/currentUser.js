@@ -5,10 +5,7 @@ export const currentUser= (state = defaultAppState.user, action) => {
     case 'set_user_location':
     return {
       ...state,
-      location: {
-        ...state.location,
-        ...action.userLocation
-      }
+      userLocation: action.userLocation
     }
     case 'toggle_user_logged_in':
     return {

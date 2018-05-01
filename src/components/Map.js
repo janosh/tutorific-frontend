@@ -35,8 +35,8 @@ class Map extends React.Component {
 
 const mapStateToProps = (state) => {
   return {
-    userLocation: state.currentUser.location,
-    userLocationChoice: state.filters.location,
+    userLocation: state.currentUser.userLocation,
+    userLocationChoice: state.filters.locationChoice,
     personList: state.personList,
   };
 };
