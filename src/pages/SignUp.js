@@ -33,8 +33,12 @@ class SignupPage extends React.Component {
 
   submitForm = (e) => {
     e.preventDefault();
-    console.log(JSON.stringify(this.props.signup));
     this.props.submitSignupForm(this.props.signup);
+  }
+
+  clearForm = (e) => {
+    if (window.confirm('Are you sure you want to clear the form? This action cannot be undone.'))
+      this.props.clearSignupForm()
   }
 
   render() {
@@ -46,7 +50,7 @@ class SignupPage extends React.Component {
           <SelectPersonType storePrefix="signup"/>
         </div>
         <form id="signup-form">
-          <fieldset div className="signup-form-section account-info">
+          <fieldset className="signup-form-section account-info">
             <h2>Account</h2>
             <div className="signup-form-section-fields account-info">
               <div>
@@ -322,11 +326,8 @@ class SignupPage extends React.Component {
           </fieldset>
         </form>
         <div id="submit-sign-up-form">
-          <button onClick={this.submitForm}>Submit</button>
-          <button onClick={() => {
-            if (window.confirm('Are you sure you want to clear the form? This action cannot be undone.'))
-              this.props.clearSignupForm()}}
-          >Clear Form</button>
+          <button type="submit" onClick={this.submitForm}>Submit</button>
+          <button type="reset" onClick={this.clearForm}>Clear Form</button>
         </div>
       </div>
     );

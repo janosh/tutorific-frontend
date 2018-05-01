@@ -10,13 +10,11 @@ class SelectPersonType extends React.Component {
     const {userType, changeUserType} = this.props;
     return (
       <div className="person-type">
-        <button
-          onClick={() => changeUserType('student')}
+        <button type="button" value="student" onClick={changeUserType}
           className={userType === 'student' ? 'active' : null}>
           Student
         </button>
-        <button
-          onClick={() => changeUserType('tutor')}
+        <button type="button" value="tutor" onClick={changeUserType}
           className={userType === 'tutor' ? 'active' : null}>
           Tutor
         </button>
@@ -32,7 +30,7 @@ const mapStateToProps = (state, ownProps) => {
 };
 
 const mapDispatchToProps = (dispatch, ownProps) => ({
-  changeUserType: (userType) => dispatch(changeUserType(ownProps.storePrefix, userType)),
+  changeUserType: (e) => dispatch(changeUserType(ownProps.storePrefix, e.target.value)),
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(SelectPersonType);

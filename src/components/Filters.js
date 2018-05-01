@@ -65,32 +65,20 @@ class Filters extends React.Component {
           />
         </div>
         <div>
-          <label htmlFor="max-distance">Distance</label>
+          <label htmlFor="max-distance">Maximum Distance</label>
           <div className="max-distance" id="max-distance">
-            <input
-              type="radio"
-              name="max-distance"
-              id="max-distance-5km"
-              value="5"
-              onClick={this.update}
-            />
-            <label htmlFor="max-distance-5km">5 km</label>
-            <input
-              type="radio"
-              name="max-distance"
-              id="max-distance-10km"
-              value="10"
-              onClick={this.update}
-            />
-            <label htmlFor="max-distance-10km">10 km</label>
-            <input
-              type="radio"
-              name="max-distance"
-              id="max-distance-20km"
-              value="20"
-              onClick={this.update}
-            />
-            <label htmlFor="max-distance-20km">20 km</label>
+            <button type="button" name="maxDistance" value="5" onClick={this.update}
+              className={filters.maxDistance === '5' ? 'active' : null}>
+              5 km
+            </button>
+            <button type="button" name="maxDistance" value="10" onClick={this.update}
+              className={filters.maxDistance === '10' ? 'active' : null}>
+              10 km
+            </button>
+            <button type="button" name="maxDistance" value="20" onClick={this.update}
+              className={filters.maxDistance === "20" ? 'active' : null}>
+              20 km
+            </button>
           </div>
         </div>
       </div>
