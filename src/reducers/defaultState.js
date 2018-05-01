@@ -27,14 +27,14 @@ export default {
   },
   signup: {
     // account info
-    firstname: prefilledSignup ? 'Jack' : '',
-    lastname: prefilledSignup ? 'the Ripper' : '',
+    firstname: prefilledSignup ? 'John' : '',
+    lastname: prefilledSignup ? 'Doe' : '',
     password: prefilledSignup ? 'yxcvbnm' : '',
     confirmPassword: prefilledSignup ? 'yxcvbnm' : '',
-    email: prefilledSignup ? 'jacky@theripper.com' : '',
-    userType: 'student',
+    email: prefilledSignup ? 'john@doe.com' : '',
+    userType: 'tutor',
     // contact info
-    phone: prefilledSignup ? '+34 4321 123 523' : '',
+    phone: prefilledSignup ? '+49 151 1234 5678' : '',
     location: {
       label: prefilledSignup ? 'Heidelberg, Germany' : '',
       placeId: prefilledSignup ? 'ChIJzdzMDgXBl0cR1zokRADq5u8' : '',
@@ -42,9 +42,9 @@ export default {
       lng: prefilledSignup ? 8.672433500000011 : undefined,
     },
     // personal info
-    birthday: prefilledSignup ? '2000-01-01' : '',
-    birthplace: prefilledSignup ? 'Honolulu' : '',
-    gender: prefilledSignup ? 'female' : '',
+    birthday: prefilledSignup ? '1990-03-24' : '',
+    birthplace: prefilledSignup ? 'Hamburg, Germany' : '',
+    gender: prefilledSignup ? 'male' : '',
     // student-specific data
     youthOrganization: prefilledSignup ? 'Unicef' : '',
     grade: prefilledSignup ? '7' : '',

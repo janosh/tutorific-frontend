@@ -13,7 +13,7 @@ class PersonListItem extends React.Component {
         <h3>{person.firstname} {person.lastname}</h3>
         <p><span>Status</span> {person.status}</p>
         <p><span>Subjects</span> {person.subjects.join(', ')}</p>
-        {person.address && person.address.label && <p><span>Address</span> {person.address.label}</p>}
+        {person.location && person.location.label && <p><span>Address</span> {person.location.label}</p>}
         <p><span>Gender</span> {person.gender}</p>
         <p><span>Last login</span> {moment(person.updatedAt).format('MMMM DD, YYYY')}</p>
       </div>

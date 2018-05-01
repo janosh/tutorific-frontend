@@ -9,10 +9,9 @@ class PersonList extends React.Component {
   render() {
     const {personList, filters} = this.props;
     return (
+      personList.length === 0 ?
+      <div className="empty-list"><h2>No {filters.userType}s to display.</h2></div> :
       <div className="person-list">
-        {personList.length === 0 &&
-          <div className="empty-list"><h2>No {filters.userType}s to display.</h2></div>
-        }
         {personList.map(person =>
           <PersonListItem key={person._id} person={person}/>
         )}

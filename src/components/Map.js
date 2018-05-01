@@ -10,8 +10,8 @@ const Marker = ({ text }) => <div className="marker">{text}</div>;
 class Map extends React.Component {
 
   render() {
-    const {userLocation, userLocationChoice, personList} = this.props;
-    const {lng: userLng, lat: userLat} = (userLocationChoice && userLocationChoice.location) || userLocation;
+    const {userLocation, location, personList} = this.props;
+    const {lng: userLng, lat: userLat} = location.lng ? location : userLocation;
     return (
       <div className="map-container">
         <GoogleMapReact
@@ -20,13 +20,13 @@ class Map extends React.Component {
           center={{lat: userLat || 50, lng: userLng || 10}}
           zoom={userLng ? 12 : 4}
         >
-          {personList && personList.map(person =>
-            <Marker key={person._id}
-            lat={person.address.location.lat}
-            lng={person.address.location.lng}
+          {personList && personList.map(person => {
+            const [lng, lat] = person.location.coordinates;
+            return <Marker key={person._id}
+            lng={lng} lat={lat}
             text={person.firstname}
             />
-          )}
+          })}
         </GoogleMapReact>
       </div>
     );
@@ -35,8 +35,8 @@ class Map extends React.Component {
 
 const mapStateToProps = (state) => {
   return {
-    userLocation: state.currentUser.userLocation,
-    userLocationChoice: state.filters.locationChoice,
+    userLocation: state.filters.userLocation,
+    location: state.filters.location,
     personList: state.personList,
   };
 };
