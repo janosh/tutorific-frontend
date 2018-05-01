@@ -21,52 +21,17 @@
   width: 100%;
 }
 
-.filters .person-type button:not(.active) {
-  background: var(--less-light-background);
-}
-
-.distance-buttons button {
-  flex: 1;
-  border-radius: 0;
-  font-size: 1rem;
+.filters button:not(.active) {
   background: var(--less-light-background);
   color: var(--dark-text);
-}
-
-.distance-buttons button.selected {
-  background: var(--main-blue);
-  color: var(--light-text);
-}
-
-.distance-buttons {
-  border-radius: 5px;
-  overflow: hidden;
-  white-space: nowrap;
-  display: flex;
 }
 
 .max-distance {
   border-radius: 5px;
   overflow: hidden;
   white-space: nowrap;
-  display: flex;
-  justify-content: space-around;
 }
 
-.max-distance label {
-  font-weight: normal;
-  cursor: pointer;
-  text-align: center;
-  flex: 1;
-  background: var(--less-light-background);
-  padding: 0.5rem;
-}
-
-.max-distance input {
-  display: none;
-}
-
-.max-distance input:checked + label {
-  background: var(--main-blue);
-  color: white;
+.max-distance button {
+  border-radius: 0;
 }
