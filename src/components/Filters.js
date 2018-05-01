@@ -37,7 +37,7 @@ class Filters extends React.Component {
     return (
       <div className="filters">
         <h2>Filters</h2>
-        <p><strong>{findCount}</strong> {filters.userType}s near you. <strong>{availableCount}</strong> of them are currently available.</p>
+        <p>There {findCount === 1 ? 'is' : 'are'} <strong>{findCount}</strong> {filters.userType}{findCount === 1 ? '' : 's'} near you, <strong>{availableCount}</strong> of which {findCount === 1 ? 'is' : 'are'} currently available.</p>
         <Geosearch storePrefix="filters"/>
         <div>
           <label htmlFor="searchfor">Search for</label>

@@ -35,12 +35,12 @@ class PersonModal extends React.Component {
             <p><span>Subjects</span> {person.subjects.join(', ')}</p>
             <p><span>Email</span> {person.email}</p>
             <p><span>Phone</span> {person.phone}</p>
-            {person.address && person.address.label && <p><span>Address</span> {person.address.label}</p>}
+            {person.location && person.location.label && <p><span>Address</span> {person.location.label}</p>}
             <p><span>Gender</span> {person.gender}</p>
             <p><span>Joined Tutorific</span> {moment(person.createdAt).format('MMMM DD, YYYY')} ({moment(person.createdAt).fromNow()})</p>
             <p><span>Last login</span> {moment(person.updatedAt).format('MMMM DD, YYYY')} ({moment(person.updatedAt).fromNow()})</p>
             {person.type === 'student' && <React.Fragment>
-              {person.schooltype && <p><span>Schooltype</span> {person.schooltype} + school</p>}
+              {person.schooltype && <p><span>Schooltype</span> {person.schooltype} + School</p>}
               {person.grade && <p><span>Grade</span> {person.grade}</p>}
               {person.youthOrganization && <p><span>Youth Aid Organization</span> {person.youthOrganization}</p>}
             </React.Fragment>}

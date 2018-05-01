@@ -250,7 +250,6 @@ class SignupPage extends React.Component {
           </fieldset>
           <fieldset className="signup-form-section subjects-info">
             <h2>Subjects</h2>
-            <legend>Hold command or control to toggle selections.</legend>
             <div className="signup-form-section-fields subject-info">
               <div>
                 <label htmlFor="science">Science</label>
@@ -324,6 +323,7 @@ class SignupPage extends React.Component {
               </div>
             </div>
           </fieldset>
+          <legend>Hold cmd/ctrl to toggle selections. Use drag or shift to select multiple subjects.</legend>
         </form>
         <div id="submit-sign-up-form">
           <button type="submit" onClick={this.submitForm}>Submit</button>
