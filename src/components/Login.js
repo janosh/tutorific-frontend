@@ -28,19 +28,20 @@ class Login extends React.Component {
   }
 
   render() {
+    const {login, currentUser, submitLoginData, toggleLoginPanel} = this.props;
     return (
       <div id="login" ref={node => this.node = node}>
-        <span onClick={this.props.toggleLoginPanel}>
-          {this.props.currentUser.loggedIn ? this.props.currentUser.firstname : 'Login'}
+        <span onClick={toggleLoginPanel}>
+          {currentUser.firstname || 'Login'}
         </span>
-        {this.props.login.showLoginModal && <form id="login-modal">
+        {login.showLoginModal && <form id="login-modal">
           <input
             name="email"
             type="email"
             placeholder="email"
             required
             onChange={this.update}
-            value={this.props.login.email}
+            value={login.email}
           />
           <input
             name="password"
@@ -48,13 +49,13 @@ class Login extends React.Component {
             placeholder="password"
             required
             onChange={this.update}
-            value={this.props.login.password}
+            value={login.password}
           />
           <SelectPersonType storePrefix="login"/>
-          <button className="login-button" onClick={() => this.props.submitLoginData({
-            email: this.props.login.email,
-            password: this.props.login.password,
-            userType: this.props.login.userType,
+          <button className="login-button" onClick={() => submitLoginData({
+            email: login.email,
+            password: login.password,
+            userType: login.userType,
           })}>Login</button>
         </form>}
       </div>
