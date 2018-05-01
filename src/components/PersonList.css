@@ -6,13 +6,14 @@
   grid-auto-rows: min-content;
 }
 
-.person-list .empty-list {
+.empty-list {
+  border-radius: 5px;
   height: 100%;
   background: var(--very-light-background);
   display: flex;
   justify-content: center;
 }
 
-.person-list .empty-list h2 {
+.empty-list h2 {
   margin-top: 15%;
 }
