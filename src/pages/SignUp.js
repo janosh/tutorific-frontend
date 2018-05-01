@@ -169,7 +169,7 @@ class SignupPage extends React.Component {
                   onChange={this.update}
                   value={signup.gender}
                 >
-                  <option disabled style={{display: 'none'}}></option>
+                  <option hidden></option>
                   <option value="male">Male</option>
                   <option value="female">Female</option>
                   <option value="other">Other</option>
@@ -199,7 +199,7 @@ class SignupPage extends React.Component {
                     onChange={this.update}
                     value={signup.schoolType}
                   >
-                    <option disabled style={{display: 'none'}}></option>
+                    <option hidden></option>
                     <option value="Elementary">Elementary School</option>
                     <option value="Middle">Middle School</option>
                     <option value="High">High School</option>

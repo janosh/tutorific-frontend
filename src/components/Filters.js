@@ -49,7 +49,9 @@ class Filters extends React.Component {
             name="status"
             id="status"
             onChange={this.update}
+            value={filters.status}
           >
+            <option hidden></option>
             <option value="available">Available</option>
             <option value="connected">Connected</option>
             <option value="inactive">Inactive</option>
@@ -62,6 +64,7 @@ class Filters extends React.Component {
             id="last-login-after"
             type="date"
             onChange={this.update}
+            value={filters.lastLoginAfter}
           />
         </div>
         <div>
