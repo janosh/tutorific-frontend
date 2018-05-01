@@ -4,7 +4,12 @@ export default {
   filters: {
     userType: 'student',
     userLocation: {},
-    locationChoice: {},
+    location: {
+      label: '',
+      placeId: '',
+      lat: undefined,
+      lng: undefined,
+    },
     status: '',
     lastLoginAfter: '',
     maxDistance: '20',
@@ -30,12 +35,11 @@ export default {
     userType: 'student',
     // contact info
     phone: prefilledSignup ? '+34 4321 123 523' : '',
-    address: prefilledSignup ? {} : {
-      street: prefilledSignup ? 'Long Lane' : '',
-      number: prefilledSignup ? '42' : '',
-      city: prefilledSignup ? 'Paradise City' : '',
-      zip: prefilledSignup ? '6942' : '',
-      country: prefilledSignup ? 'Wonderland' : '',
+    location: {
+      label: prefilledSignup ? 'Heidelberg, Germany' : '',
+      placeId: prefilledSignup ? 'ChIJzdzMDgXBl0cR1zokRADq5u8' : '',
+      lat: prefilledSignup ? 49.3987524 : undefined,
+      lng: prefilledSignup ? 8.672433500000011 : undefined,
     },
     // personal info
     birthday: prefilledSignup ? '2000-01-01' : '',

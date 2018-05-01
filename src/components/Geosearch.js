@@ -3,7 +3,7 @@ import {connect} from 'react-redux';
 import Geosuggest from 'react-geosuggest';
 import {withRouter} from 'react-router-dom';
 
-import {setUserLocation, setLocationChoice} from '../actions';
+import {setUserLocation, setLocation} from '../actions';
 import './Geosearch.css';
 
 class Geosearch extends React.Component {
@@ -18,14 +18,14 @@ class Geosearch extends React.Component {
   }
 
   handleSelection = (data) => {
-    if (!data || !data.gmaps) return;
+    if (!data || !data.location) return;
     if (this.props.history.location.pathname === '/')
       this.props.history.push('/connect');
-    this.props.setLocationChoice({
+    this.props.setLocation({
       label: data.label,
       placeId: data.placeId,
-      location: data.location,
-      components: data.gmaps.address_components,
+      lat: data.location.lat,
+      lng: data.location.lng,
     })
   }
 
@@ -36,21 +36,24 @@ class Geosearch extends React.Component {
   render() {
     return (
       <Geosuggest
+        initialValue={this.props.locationChoice.label}
+        queryDelay={50}
         placeholder={this.props.placeholder || 'Choose location'}
         onSuggestSelect={this.handleSelection}
       />);
   }
 }
 
-const mapStateToProps = (state) => {
+const mapStateToProps = (state, ownProps) => {
   return {
     userLocation: state.currentUser.userLocation,
+    locationChoice: state[ownProps.storePrefix].location,
   };
 };
 
 const mapDispatchToProps = (dispatch, ownProps) => ({
   setUserLocation: (userLocation) => dispatch(setUserLocation(userLocation)),
-  setLocationChoice: (locationChoice) => dispatch(setLocationChoice(ownProps.storePrefix, locationChoice))
+  setLocation: (location) => dispatch(setLocation(ownProps.storePrefix, location))
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(withRouter(Geosearch));

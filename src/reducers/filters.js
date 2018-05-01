@@ -17,10 +17,10 @@ export const filters = (state = defaultAppState.filters, action) => {
       ...state,
       userLocation: action.userLocation
     }
-    case 'set_filters_location_choice':
+    case 'set_filters_location':
     return {
       ...state,
-      locationChoice: action.locationChoice,
+      location: action.location,
     }
     default:
     return state;
