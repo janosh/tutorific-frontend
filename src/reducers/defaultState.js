@@ -6,6 +6,7 @@ export default {
     location: {},
     status: '',
     lastLoginAfter: '',
+    maxDistance: '20',
   },
   login: {
     showLoginModal: false,

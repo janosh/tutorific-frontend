@@ -30,7 +30,7 @@ class PersonModal extends React.Component {
         <div className="person-modal" ref={node => this.node = node}>
           <div className="person-modal-content">
             <h1>{person.firstname} {person.lastname}</h1>
-            <button>Send contact request</button>
+            <button type="submit">Send contact request</button>
             <p><span>Status</span> {person.status}</p>
             <p><span>Subjects</span> {person.subjects.join(', ')}</p>
             <p><span>Email</span> {person.email}</p>

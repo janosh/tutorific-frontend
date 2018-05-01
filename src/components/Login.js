@@ -52,11 +52,7 @@ class Login extends React.Component {
             value={login.password}
           />
           <SelectPersonType storePrefix="login"/>
-          <button className="login-button" onClick={() => submitLoginData({
-            email: login.email,
-            password: login.password,
-            userType: login.userType,
-          })}>Login</button>
+          <button type="submit" className="login-button" onClick={() => submitLoginData(login)}>Login</button>
         </form>}
       </div>
     );
