@@ -40,8 +40,8 @@ class Filters extends React.Component {
         <p>There {findCount === 1 ? 'is' : 'are'} <strong>{findCount}</strong> {filters.userType}{findCount === 1 ? '' : 's'} near you, <strong>{availableCount}</strong> of which {findCount === 1 ? 'is' : 'are'} currently available.</p>
         <Geosearch storePrefix="filters"/>
         <div>
-          <label htmlFor="searchfor">Search for</label>
-          <SelectPersonType id="searchfor" storePrefix="filters"/>
+          <label htmlFor="searchFor">Search for</label>
+          <SelectPersonType id="searchFor" storePrefix="filters"/>
         </div>
         <div>
           <label htmlFor="status">Status</label>
@@ -58,18 +58,18 @@ class Filters extends React.Component {
           </select>
         </div>
         <div>
-          <label htmlFor="last-login-after">Last login after</label>
+          <label htmlFor="lastLoginAfter">Last login after</label>
           <input
             name="lastLoginAfter"
-            id="last-login-after"
+            id="lastLoginAfter"
             type="date"
             onChange={this.update}
             value={filters.lastLoginAfter}
           />
         </div>
         <div>
-          <label htmlFor="max-distance">Maximum Distance</label>
-          <div className="max-distance" id="max-distance">
+          <label htmlFor="maxDistance">Maximum Distance</label>
+          <div className="max-distance" id="maxDistance">
             <button type="button" name="maxDistance" value="5" onClick={this.update}
               className={filters.maxDistance === '5' ? 'active' : null}>
               5 km
