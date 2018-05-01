@@ -1,21 +1,8 @@
-export const getTutors = (tutors) => ({
-  type: 'get_tutors',
+export const getPersonList = (params) => ({
+  type: 'get_person_list',
+  params,
   backendCall: {
-    endpoint: 'tutors'
-  }
-});
-
-export const getStudents = (students) => ({
-  type: 'get_students',
-  backendCall: {
-    endpoint: 'students'
-  }
-});
-
-export const getConnections = (connections) => ({
-  type: 'get_connections',
-  backendCall: {
-    endpoint: 'connections'
+    endpoint: params.userType + 's',
   }
 });
 

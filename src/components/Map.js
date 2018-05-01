@@ -10,7 +10,7 @@ const Marker = ({ text }) => <div className="marker">{text}</div>;
 class Map extends React.Component {
 
   render() {
-    const {userLocation, userLocationChoice, list} = this.props;
+    const {userLocation, userLocationChoice, personList} = this.props;
     const {lng: userLng, lat: userLat} = (userLocationChoice && userLocationChoice.location) || userLocation;
     return (
       <div className="map-container">
@@ -20,7 +20,7 @@ class Map extends React.Component {
           center={{lat: userLat || 50, lng: userLng || 10}}
           zoom={userLng ? 12 : 4}
         >
-          {list && list.map(person =>
+          {personList && personList.map(person =>
             <Marker key={person._id}
             lat={person.address.location.lat}
             lng={person.address.location.lng}
@@ -37,6 +37,7 @@ const mapStateToProps = (state) => {
   return {
     userLocation: state.currentUser.location,
     userLocationChoice: state.filters.location,
+    personList: state.personList,
   };
 };
 
