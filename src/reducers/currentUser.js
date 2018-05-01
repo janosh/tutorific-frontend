@@ -15,6 +15,11 @@ export const currentUser= (state = defaultAppState.user, action) => {
       ...state,
       loggedIn: !state.loggedIn
     }
+    case 'submit_login_data_success':
+    return {
+      ...state,
+      ...action.data
+    }
     default:
     return state;
   }
