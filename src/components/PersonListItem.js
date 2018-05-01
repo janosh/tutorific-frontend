@@ -10,7 +10,7 @@ class PersonListItem extends React.Component {
     const person = this.props.person;
     return (
       <div className="person-list-item" onClick={() => this.props.setSinglePersonView(person)}>
-        <h3>{person.firstname} {person.lastname}</h3>
+        <h3>{person.firstName} {person.lastName}</h3>
         <p><span>Status</span> {person.status}</p>
         <p><span>Subjects</span> {person.subjects.join(', ')}</p>
         {person.location && person.location.label && <p><span>Address</span> {person.location.label}</p>}

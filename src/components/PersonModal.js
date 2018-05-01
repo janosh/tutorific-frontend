@@ -29,7 +29,7 @@ class PersonModal extends React.Component {
       <div className="person-modal-backdrop">
         <div className="person-modal" ref={node => this.node = node}>
           <div className="person-modal-content">
-            <h1>{person.firstname} {person.lastname}</h1>
+            <h1>{person.firstName} {person.lastName}</h1>
             <button type="submit">Send contact request</button>
             <p><span>Status</span> {person.status}</p>
             <p><span>Subjects</span> {person.subjects.join(', ')}</p>
@@ -40,7 +40,7 @@ class PersonModal extends React.Component {
             <p><span>Joined Tutorific</span> {moment(person.createdAt).format('MMMM DD, YYYY')} ({moment(person.createdAt).fromNow()})</p>
             <p><span>Last login</span> {moment(person.updatedAt).format('MMMM DD, YYYY')} ({moment(person.updatedAt).fromNow()})</p>
             {person.type === 'student' && <React.Fragment>
-              {person.schooltype && <p><span>Schooltype</span> {person.schooltype} + School</p>}
+              {person.schoolType && <p><span>Schooltype</span> {person.schoolType} + School</p>}
               {person.grade && <p><span>Grade</span> {person.grade}</p>}
               {person.youthOrganization && <p><span>Youth Aid Organization</span> {person.youthOrganization}</p>}
             </React.Fragment>}

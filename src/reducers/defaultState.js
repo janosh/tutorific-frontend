@@ -27,8 +27,8 @@ export default {
   },
   signup: {
     // account info
-    firstname: prefilledSignup ? 'John' : '',
-    lastname: prefilledSignup ? 'Doe' : '',
+    firstName: prefilledSignup ? 'John' : '',
+    lastName: prefilledSignup ? 'Doe' : '',
     password: prefilledSignup ? 'yxcvbnm' : '',
     confirmPassword: prefilledSignup ? 'yxcvbnm' : '',
     email: prefilledSignup ? 'john@doe.com' : '',
@@ -42,8 +42,8 @@ export default {
       lng: prefilledSignup ? 8.672433500000011 : undefined,
     },
     // personal info
-    birthday: prefilledSignup ? '1990-03-24' : '',
-    birthplace: prefilledSignup ? 'Hamburg, Germany' : '',
+    birthDate: prefilledSignup ? '1990-03-24' : '',
+    birthPlace: prefilledSignup ? 'Hamburg, Germany' : '',
     gender: prefilledSignup ? 'male' : '',
     // student-specific data
     youthOrganization: prefilledSignup ? 'Unicef' : '',
@@ -52,6 +52,8 @@ export default {
     // tutor-specific data
     semester: prefilledSignup ? '5' : '',
     fieldOfStudy: prefilledSignup ? 'Theoretical Physics' : '',
+    minStudentGrade: prefilledSignup ? '5' : '',
+    maxStudentGrade: prefilledSignup ? '12' : '',
     // subjects info
     subjects: prefilledSignup ? ['Physics', 'Math', 'English', 'Biology'] : [],
   },

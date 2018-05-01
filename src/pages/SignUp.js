@@ -25,7 +25,7 @@ class SignupPage extends React.Component {
 
   passwordsMatch = () => {
     if (this.props.signup.password !== this.props.signup.confirmPassword) {
-      document.getElementById('confirm-password').setCustomValidity("Passwords don't match!");
+      document.getElementById('confirmPassword').setCustomValidity("Passwords don't match!");
       return false;
     }
     return true;
@@ -54,27 +54,27 @@ class SignupPage extends React.Component {
             <h2>Account</h2>
             <div className="signup-form-section-fields account-info">
               <div>
-                <label htmlFor="firstname">First Name <span>*</span></label>
+                <label htmlFor="firstName">First Name <span>*</span></label>
                 <input
-                  name="firstname"
-                  id="firstname"
+                  name="firstName"
+                  id="firstName"
                   type="text"
                   placeholder="John"
                   required
                   onChange={this.update}
-                  value={signup.firstname}
+                  value={signup.firstName}
                 />
               </div>
               <div>
-                <label htmlFor="lastname">Last Name <span>*</span></label>
+                <label htmlFor="lastName">Last Name <span>*</span></label>
                 <input
-                  name="lastname"
-                  id="lastname"
+                  name="lastName"
+                  id="lastName"
                   type="text"
                   placeholder="Doe"
                   required
                   onChange={this.update}
-                  value={signup.lastname}
+                  value={signup.lastName}
                 />
               </div>
               <div>
@@ -90,10 +90,10 @@ class SignupPage extends React.Component {
                 />
               </div>
               <div>
-                <label htmlFor="confirm-password">Confirm Password <span>*</span></label>
+                <label htmlFor="confirmPassword">Confirm Password <span>*</span></label>
                 <input
                   name="confirmPassword"
-                  id="confirm-password"
+                  id="confirmPassword"
                   type="password"
                   placeholder={String.fromCharCode('0x2022').repeat(10)}
                   required
@@ -131,8 +131,8 @@ class SignupPage extends React.Component {
                 />
               </div>
               <div>
-                <label htmlFor="address">Address <span>*</span></label>
-                <Geosearch name="address" storePrefix="signup" placeholder="Wonderland"/>
+                <label htmlFor="location">Address <span>*</span></label>
+                <Geosearch name="location" id="location" storePrefix="signup" placeholder="Wonderland"/>
               </div>
             </div>
           </fieldset>
@@ -140,24 +140,24 @@ class SignupPage extends React.Component {
             <h2>Personal</h2>
             <div className="signup-form-section-fields personal-info">
               <div>
-                <label htmlFor="birthday">Birthday</label>
+                <label htmlFor="birthDate">Birthday</label>
                 <input
-                  name="birthday"
-                  id="birthday"
+                  name="birthDate"
+                  id="birthDate"
                   type="date"
                   onChange={this.update}
-                  value={signup.birthday}
+                  value={signup.birthDate}
                 />
               </div>
               <div>
-                <label htmlFor="birthplace">Birthplace</label>
+                <label htmlFor="birthPlace">Birthplace</label>
                 <input
-                  name="birthplace"
-                  id="birthplace"
+                  name="birthPlace"
+                  id="birthPlace"
                   type="tel"
                   placeholder="Honolulu"
                   onChange={this.update}
-                  value={signup.birthplace}
+                  value={signup.birthPlace}
                 />
               </div>
               <div>
@@ -191,10 +191,10 @@ class SignupPage extends React.Component {
                     />
                 </div>
                 <div>
-                  <label htmlFor="schooltype">Schooltype <span>*</span></label>
+                  <label htmlFor="schoolType">Schooltype <span>*</span></label>
                   <select
                     name="schoolType"
-                    id="schooltype"
+                    id="schoolType"
                     required
                     onChange={this.update}
                     value={signup.schoolType}
@@ -209,10 +209,10 @@ class SignupPage extends React.Component {
                   </select>
                 </div>
                 <div>
-                  <label htmlFor="youth-organization">Youth Organization</label>
+                  <label htmlFor="youthOrganization">Youth Organization</label>
                   <input
-                    name="youth-organization"
-                    id="youth-organization"
+                    name="youthOrganization"
+                    id="youthOrganization"
                     type="text"
                     placeholder="Unicef"
                     onChange={this.update}
@@ -235,10 +235,10 @@ class SignupPage extends React.Component {
                     />
                 </div>
                 <div>
-                  <label htmlFor="field-of-study">Field of Study</label>
+                  <label htmlFor="fieldOfStudy">Field of Study</label>
                   <input
-                    name="field-of-study"
-                    id="field-of-study"
+                    name="fieldOfStudy"
+                    id="fieldOfStudy"
                     type="text"
                     placeholder="Ufology"
                     onChange={this.update}
@@ -251,6 +251,34 @@ class SignupPage extends React.Component {
           <fieldset className="signup-form-section subjects-info">
             <h2>Subjects</h2>
             <div className="signup-form-section-fields subject-info">
+              {signup.userType === 'tutor' && <React.Fragment>
+                <div>
+                  <label htmlFor="minStudentGrade">Minimum Student Grade</label>
+                  <input
+                    name="minStudentGrade"
+                    id="minStudentGrade"
+                    type="number"
+                    min="1"
+                    max="13"
+                    placeholder="1"
+                    onChange={this.update}
+                    value={signup.minStudentGrade}
+                    />
+                </div>
+                <div>
+                  <label htmlFor="maxStudentGrade">Maximum Student Grade</label>
+                  <input
+                    name="maxStudentGrade"
+                    id="maxStudentGrade"
+                    type="number"
+                    min="1"
+                    max="13"
+                    placeholder="13"
+                    onChange={this.update}
+                    value={signup.maxStudentGrade}
+                  />
+                </div>
+              </React.Fragment>}
               <div>
                 <label htmlFor="science">Science</label>
                 <select

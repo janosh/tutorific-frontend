@@ -32,7 +32,7 @@ class Login extends React.Component {
     return (
       <div id="login" ref={node => this.node = node}>
         <span onClick={toggleLoginPanel}>
-          {currentUser.firstname || 'Login'}
+          {currentUser.firstName || 'Login'}
         </span>
         {login.showLoginModal && <form id="login-modal">
           <input
