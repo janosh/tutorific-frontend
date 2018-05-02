@@ -7,11 +7,6 @@ import {updateFilters, getPersonList} from '../actions';
 
 import './Filters.css';
 
-const flatten = (obj) => Object.assign({}, ...function _flatten(o) {
-  return [].concat(...Object.keys(o).map(k => typeof o[k] === 'object'
-  ? _flatten(o[k]) : ({[k]: o[k]})))}(obj));
-
-
 class Filters extends React.Component {
 
   update = async (e) => {
@@ -20,14 +15,19 @@ class Filters extends React.Component {
     });
   }
 
+  requestPersonList(filters) {
+    filters.lng = filters.location.lng || filters.userLocation.lng;
+    filters.lat = filters.location.lat || filters.userLocation.lat;
+    this.props.getPersonList(filters)
+  }
+
   componentDidMount() {
-    this.props.getPersonList(flatten(this.props.filters));
+    this.requestPersonList(this.props.filters);
   }
 
   componentWillReceiveProps(nextProps) {
-    if (nextProps.filters !== this.props.filters) {
-      this.props.getPersonList(flatten(nextProps.filters));
-    }
+    if (nextProps.filters !== this.props.filters)
+      this.requestPersonList(nextProps.filters);
   }
 
   render() {
