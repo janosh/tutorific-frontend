@@ -20,7 +20,7 @@ class Filters extends React.Component {
     query.lng = filters.location.lng || filters.userLocation.lng;
     query.lat = filters.location.lat || filters.userLocation.lat;
     Object.keys(query).forEach(key => (!query[key] || typeof query[key] === 'object') && delete query[key])
-    this.props.getPersonList(filters)
+    this.props.getPersonList(query)
   }
 
   componentDidMount() {
