@@ -31,7 +31,10 @@ export const backendCall = store => next => action => {
     body: JSON.stringify(body),
     headers,
   })
-  .then(res => res.json())
+  .then(res => {
+    if (!res.ok) throw new Error(res.statusText + ' for request to URL ' + res.url);
+    return res.json()
+  })
   .then(data => {
     store.dispatch({
       type: action.type + '_success',
