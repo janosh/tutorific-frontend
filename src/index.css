@@ -11,6 +11,7 @@ body {
   --less-light-text: rgb(180, 180, 180);
   --medium-text: rgb(124, 124, 124);
   --dark-text: black;
+  --error-color: rgba(200, 50, 50, 0.8);
   background: var(--light-background);
 }
 
