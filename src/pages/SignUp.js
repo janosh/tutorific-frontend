@@ -119,7 +119,7 @@ class SignupPage extends React.Component {
                 />
               </div>
               <div>
-                <label htmlFor="phone">Phone <span>*</span></label>
+                <label htmlFor="phone">Phone</label>
                 <input
                   name="phone"
                   id="phone"

@@ -24,8 +24,6 @@ export const backendCall = store => next => action => {
 
   const query = action.type === 'get_person_list' ? querify(action.params) : '';
 
-  console.log(process.env.REACT_APP_BACKEND_URL);
-
   fetch(process.env.REACT_APP_BACKEND_URL + endpoint + query, {
     method: method || 'GET',
     body: JSON.stringify(body),

@@ -13,6 +13,7 @@ export default {
     status: '',
     lastLoginAfter: '',
     maxDistance: '20',
+    subjects: [],
   },
   login: {
     showLoginModal: false,

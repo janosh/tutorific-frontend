@@ -19,8 +19,8 @@ class Filters extends React.Component {
     const query = {...filters};
     query.lng = filters.location.lng || filters.userLocation.lng;
     query.lat = filters.location.lat || filters.userLocation.lat;
-    Object.keys(query).forEach(key => (!query[key] || typeof query[key] === 'object') && delete query[key])
-    this.props.getPersonList(query)
+    Object.keys(query).forEach(key => (!query[key] || typeof query[key] === 'object') && delete query[key]);
+    this.props.getPersonList(query);
   }
 
   componentDidMount() {
@@ -86,6 +86,40 @@ class Filters extends React.Component {
             </button>
           </div>
         </div>
+        <datalist id="subjects">
+          <option value="Math"/>
+          <option value="Physics"/>
+          <option value="Chemistry"/>
+          <option value="Biology"/>
+          <option value="Computer Science"/>
+          <option value="English"/>
+          <option value="Spanish"/>
+          <option value="French"/>
+          <option value="German"/>
+          <option value="Italian"/>
+          <option value="Chinese"/>
+          <option value="Japanese"/>
+          <option value="Latin"/>
+          <option value="History"/>
+          <option value="Politics"/>
+          <option value="Ethics"/>
+          <option value="Social Studies"/>
+          <option value="Philosophy"/>
+          <option value="Economics"/>
+          <option value="Physical Education"/>
+          <option value="Music"/>
+          <option value="Art"/>
+        </datalist>
+        {Array(filters.subjects.length).fill(
+          <input
+            name="subjects"
+            // id={'subject' + i}
+            type="text"
+            list="subjects"
+            onSelectCapture={this.updateSubjects}
+            // value={this.props.filters.subjects[i]}
+          />
+        )}
       </div>
     );
   }

@@ -12,7 +12,9 @@
     "react-redux": "^5.0.7",
     "react-router-dom": "^4.2.2",
     "react-scripts": "1.1.4",
-    "redux": "^4.0.0"
+    "redux": "^4.0.0",
+    "redux-form": "^7.3.0",
+    "validator": "^9.4.1"
   },
   "scripts": {
     "start": "PORT=3001 react-scripts start",
