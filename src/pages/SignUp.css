@@ -8,6 +8,10 @@
   margin-bottom: 1rem;
 }
 
+#signup-page label {
+  font-weight: bold;
+}
+
 #signup-page label span {
   color: var(--dark-blue);
 }
