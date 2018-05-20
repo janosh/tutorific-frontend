@@ -1,4 +1,5 @@
 import {createStore, applyMiddleware, compose} from 'redux';
+import throttle from 'lodash/throttle';
 
 import reducers from './reducers';
 import backendCall from './middlewares/backendCall';
@@ -7,8 +8,14 @@ import backendCall from './middlewares/backendCall';
 // const persistedState = loadState();
 
 const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
-const store = createStore(reducers, /*persistedState,*/ composeEnhancers(applyMiddleware(backendCall)));
+const store = createStore(
+  reducers,
+  // persistedState,
+  composeEnhancers(applyMiddleware(backendCall)),
+);
 
-// store.subscribe(() => saveState(store.getState()));
+// store.subscribe(throttle(() =>
+//   saveState(store.getState()), 3000)
+// );
 
 export default store;

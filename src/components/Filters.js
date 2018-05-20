@@ -3,14 +3,14 @@ import {connect} from 'react-redux';
 
 import SelectPersonType from './SelectPersonType';
 import Geosearch from './Geosearch';
-import {updateFilters, getPersonList} from '../actions';
+import {updateFilters, getPersonList} from '../redux/actions';
 
 import './Filters.css';
 
 class Filters extends React.Component {
 
-  update = async (e) => {
-    await this.props.updateFilters({
+  update = (e) => {
+    this.props.updateFilters({
       [e.target.name]: e.target.value
     });
   }

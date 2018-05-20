@@ -2,14 +2,14 @@ import React from 'react';
 import {connect} from 'react-redux';
 
 import SelectPersonType from './SelectPersonType';
-import {updateLoginData, submitLoginData, toggleLoginPanel, toggleUserLoggedIn} from '../actions';
+import {updateLoginData, submitLoginData, toggleLoginPanel, toggleUserLoggedIn} from '../redux/actions';
 
 import './Login.css';
 
 class Login extends React.Component {
 
-  update = async (e) => {
-    await this.props.updateLoginData({
+  update = (e) => {
+    this.props.updateLoginData({
       [e.target.name]: e.target.value
     });
   }

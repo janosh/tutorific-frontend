@@ -1,4 +1,4 @@
-import defaultAppState from './defaultState';
+import defaultAppState from './initialState';
 
 export const login = (state = defaultAppState.login, action) => {
   switch (action.type) {

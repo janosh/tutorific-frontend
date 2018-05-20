@@ -1,4 +1,4 @@
-import defaultAppState from './defaultState';
+import defaultAppState from './initialState';
 
 export const filters = (state = defaultAppState.filters, action) => {
   switch (action.type) {
