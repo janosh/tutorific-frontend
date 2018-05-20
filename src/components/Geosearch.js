@@ -3,7 +3,7 @@ import {connect} from 'react-redux';
 import Geosuggest from 'react-geosuggest';
 import {withRouter} from 'react-router-dom';
 
-import {setUserLocation, setLocation} from '../actions';
+import {setUserLocation, setLocation} from '../redux/actions';
 import './Geosearch.css';
 
 class Geosearch extends React.Component {

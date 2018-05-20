@@ -1,4 +1,4 @@
-import defaultAppState from './defaultState';
+import defaultAppState from './initialState';
 
 export const signup = (state = defaultAppState.signup, action) => {
   switch (action.type) {

@@ -3,7 +3,7 @@ import {connect} from 'react-redux';
 import moment from 'moment';
 
 import Map from './Map';
-import {setSinglePersonView} from '../actions';
+import {setSinglePersonView} from '../redux/actions';
 import './PersonModal.css';
 
 class PersonModal extends React.Component {

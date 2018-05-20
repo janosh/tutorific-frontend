@@ -2,7 +2,7 @@ import React from 'react';
 import {connect} from 'react-redux';
 import moment from 'moment';
 
-import {setSinglePersonView} from '../actions';
+import {setSinglePersonView} from '../redux/actions';
 import './PersonListItem.css';
 
 class PersonListItem extends React.Component {

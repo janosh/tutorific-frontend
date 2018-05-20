@@ -1,7 +1,7 @@
 import React from 'react';
 import {connect} from 'react-redux';
 
-import {changeUserType} from '../actions';
+import {changeUserType} from '../redux/actions';
 import './SelectPersonType.css';
 
 class SelectPersonType extends React.Component {

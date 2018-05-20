@@ -2,14 +2,14 @@ import React from 'react';
 import {connect} from 'react-redux';
 
 import SelectPersonType from '../components/SelectPersonType';
-import {updateSignupForm, submitSignupForm, clearSignupForm} from '../actions';
+import {updateSignupForm, submitSignupForm, clearSignupForm} from '../redux/actions';
 import Geosearch from '../components/Geosearch';
 import './Signup.css';
 
 class SignupPage extends React.Component {
 
-  update = async (e) => {
-    await this.props.updateSignupForm({
+  update = (e) => {
+    this.props.updateSignupForm({
       [e.target.name]: e.target.value
     });
   }
@@ -20,7 +20,7 @@ class SignupPage extends React.Component {
     selects.forEach(select =>
       subjects.push(...Array.from(select.selectedOptions, option => option.value))
     );
-    await this.props.updateSignupForm({subjects});
+    this.props.updateSignupForm({subjects});
   }
 
   passwordsMatch = () => {

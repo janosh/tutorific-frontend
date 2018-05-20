@@ -1,4 +1,4 @@
-import defaultAppState from './defaultState';
+import defaultAppState from './initialState';
 
 export const singlePersonView = (state = defaultAppState.singlePersonView, action) => {
   switch (action.type) {
