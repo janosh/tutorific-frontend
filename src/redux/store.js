@@ -1,21 +1,31 @@
-import {createStore, applyMiddleware, compose} from 'redux';
-import throttle from 'lodash/throttle';
+import {createStore, applyMiddleware, compose, combineReducers} from 'redux';
+import {reducer as formReducer} from 'redux-form';
+// import throttle from 'lodash/throttle';
 
-import reducers from './reducers';
+import * as reducers from './reducers';
 import backendCall from './middlewares/backendCall';
 // import {loadState, saveState} from './localStorage';
 
-// const persistedState = loadState();
+const configureStore = () => {
+  // const persistedState = loadState();
 
-const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
-const store = createStore(
-  reducers,
-  // persistedState,
-  composeEnhancers(applyMiddleware(backendCall)),
-);
+  const reducer = combineReducers({
+    form: formReducer,
+    ...reducers,
+  });
 
-// store.subscribe(throttle(() =>
-//   saveState(store.getState()), 3000)
-// );
+  const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
+  const store = createStore(
+    reducer,
+    // persistedState,
+    composeEnhancers(applyMiddleware(backendCall)),
+  );
 
-export default store;
+  // store.subscribe(throttle(() =>
+  //   saveState(store.getState()), 3000)
+  // );
+
+  return store;
+}
+
+export default configureStore;
