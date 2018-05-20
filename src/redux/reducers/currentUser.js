@@ -1,6 +1,6 @@
-import defaultAppState from './initialState';
+import initialState from './initialState';
 
-export const currentUser = (state = defaultAppState.user, action) => {
+export const currentUser = (state = initialState.user, action) => {
   switch (action.type) {
     case 'set_user_location':
     return {

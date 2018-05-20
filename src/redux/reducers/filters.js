@@ -1,6 +1,6 @@
-import defaultAppState from './initialState';
+import initialState from './initialState';
 
-export const filters = (state = defaultAppState.filters, action) => {
+export const filters = (state = initialState.filters, action) => {
   switch (action.type) {
     case 'update_filters':
     return {
