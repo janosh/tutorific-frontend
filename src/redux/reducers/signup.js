@@ -1,6 +1,6 @@
-import defaultAppState from './initialState';
+import initialState from './initialState';
 
-export const signup = (state = defaultAppState.signup, action) => {
+export const signup = (state = initialState.signup, action) => {
   switch (action.type) {
     case 'set_signup_user_type':
     return {
@@ -19,7 +19,7 @@ export const signup = (state = defaultAppState.signup, action) => {
     }
     case 'clear_signup_form':
     return {
-      ...defaultAppState.signup
+      ...initialState.signup
     }
     default:
     return state;

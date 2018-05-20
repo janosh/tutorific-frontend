@@ -1,6 +1,6 @@
-import defaultAppState from './initialState';
+import initialState from './initialState';
 
-export const login = (state = defaultAppState.login, action) => {
+export const login = (state = initialState.login, action) => {
   switch (action.type) {
     case 'set_login_user_type':
     return {
