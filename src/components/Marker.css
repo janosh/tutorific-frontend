@@ -1,0 +1,16 @@
+.marker {
+  white-space: nowrap;
+  background: var(--very-light-background);
+  font-size: 1.2rem;
+  padding: 0.5rem 0.8rem;
+  border-radius: 5px;
+  width: fit-content;
+  opacity: 0.8;
+  transition: all 0.5s;
+  border: 1px solid var(--dark-blue);
+}
+
+.marker:hover {
+  transform: scale(1.2);
+  opacity: 1;
+}
