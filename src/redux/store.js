@@ -3,7 +3,7 @@ import {reducer as formReducer} from 'redux-form';
 // import throttle from 'lodash/throttle';
 
 import * as reducers from './reducers';
-import backendCall from './middlewares/backendCall';
+import http from './middlewares/http';
 // import {loadState, saveState} from './localStorage';
 
 const configureStore = () => {
@@ -18,7 +18,7 @@ const configureStore = () => {
   const store = createStore(
     reducer,
     // persistedState,
-    composeEnhancers(applyMiddleware(backendCall)),
+    composeEnhancers(applyMiddleware(http)),
   );
 
   // store.subscribe(throttle(() =>

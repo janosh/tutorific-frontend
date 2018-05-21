@@ -6,7 +6,7 @@ export const updateLoginData = (data) => ({
 export const submitLoginData = (data) => ({
   type: 'submit_login_data',
   data,
-  backendCall: {
+  http: {
     endpoint: 'login',
   }
 });

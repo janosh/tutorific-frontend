@@ -4,9 +4,9 @@ const querify = (obj) => (
   '?' + Object.keys(obj).map(prop => prop + '=' + obj[prop]).join('&')
 );
 
-export const backendCall = store => next => action => {
-  if(!action.backendCall) return next(action);
-  const {endpoint, method, body} = action.backendCall;
+export const http = store => next => action => {
+  if(!action.http) return next(action);
+  const {endpoint, method, body} = action.http;
 
   const headers = {};
   if (store.getState().currentUser.token) {
@@ -52,4 +52,4 @@ export const backendCall = store => next => action => {
   });
 }
 
-export default backendCall;
+export default http;
