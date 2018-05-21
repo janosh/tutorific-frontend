@@ -2,14 +2,15 @@ import React from 'react';
 import GoogleMapReact from 'google-map-react';
 import {connect} from 'react-redux';
 
-import './Map.css';
+import Marker from './Marker';
+import {setSinglePersonView} from '../redux/actions';
 
-const Marker = ({ text }) => <div className="marker">{text}</div>;
+import './Map.css';
 
 class Map extends React.Component {
 
   render() {
-    const {userLocation, location, personList} = this.props;
+    const {userLocation, location, personList, setSinglePersonView} = this.props;
     const {lng: userLng, lat: userLat} = location.lng ? location : userLocation;
     return (
       <div className="map-container">
@@ -23,7 +24,9 @@ class Map extends React.Component {
             const [lng, lat] = person.location.coordinates;
             return <Marker key={person._id}
             lng={lng} lat={lat}
-            text={person.firstName}
+            text={`${person.firstName} ${person.lastName}`}
+            person={person}
+            setSinglePersonView={setSinglePersonView}
             />
           })}
         </GoogleMapReact>
@@ -40,4 +43,8 @@ const mapStateToProps = (state) => {
   };
 };
 
-export default connect(mapStateToProps)(Map);
+const mapDispatchToProps = (dispatch) => ({
+  setSinglePersonView: (person) => dispatch(setSinglePersonView(person)),
+});
+
+export default connect(mapStateToProps, mapDispatchToProps)(Map);
