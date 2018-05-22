@@ -1,7 +1,9 @@
-export const getPersonList = (params) => ({
+export const getPersonList = (params, cb, errCb) => ({
   type: 'get_person_list',
   params,
   http: {
+    cb,
+    errCb,
     endpoint: 'persons',
   }
 });
