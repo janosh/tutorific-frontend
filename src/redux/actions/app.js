@@ -1,5 +1,5 @@
 export const changeUserType = (storePrefix, userType) => ({
-  type: 'set_' + storePrefix + '_user_type',
+  type: `set_${storePrefix}_user_type`,
   userType,
 });
 
