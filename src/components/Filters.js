@@ -3,7 +3,7 @@ import {connect} from 'react-redux';
 
 import SelectPersonType from './SelectPersonType';
 import Geosearch from './Geosearch';
-import {updateFilters, getPersonList} from '../redux/actions';
+import * as actions from '../redux/actions';
 
 import './Filters.css';
 
@@ -19,7 +19,6 @@ class Filters extends React.Component {
     const query = {...filters};
     query.lng = filters.location.lng || filters.userLocation.lng;
     query.lat = filters.location.lat || filters.userLocation.lat;
-    Object.keys(query).forEach(key => (!query[key] || typeof query[key] === 'object') && delete query[key]);
     this.props.getPersonList(query);
   }
 
@@ -132,9 +131,4 @@ const mapStateToProps = (state) => {
   }
 }
 
-const mapDispatchToProps = (dispatch) => ({
-  updateFilters: (data) => dispatch(updateFilters(data)),
-  getPersonList: (params) => dispatch(getPersonList(params)),
-});
-
-export default connect(mapStateToProps, mapDispatchToProps)(Filters);
+export default connect(mapStateToProps, actions)(Filters);
