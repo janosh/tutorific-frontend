@@ -6,11 +6,12 @@
   border-radius: 5px;
   width: fit-content;
   opacity: 0.8;
-  transition: all 0.5s;
+  transition: all 0.3s;
   border: 1px solid var(--dark-blue);
+  transform: translate(-50%, -50%);
 }
 
 .marker:hover {
-  transform: scale(1.2);
+  transform: scale(1.15) translate(-45%, -45%);
   opacity: 1;
 }
