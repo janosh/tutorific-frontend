@@ -2,7 +2,7 @@ import React from 'react';
 import GoogleMapReact from 'google-map-react';
 import {connect} from 'react-redux';
 
-import Marker from './Marker';
+import Marker from './MapMarker';
 import {setSinglePersonView} from '../redux/actions';
 
 import './Map.css';
