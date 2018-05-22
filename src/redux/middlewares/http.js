@@ -1,11 +1,16 @@
 import { Base64 } from 'js-base64';
 
-const querify = (obj) => (
-  '?' + Object.keys(obj).map(prop => prop + '=' + obj[prop]).join('&')
-);
+const querify = (obj) => {
+  Object.keys(obj).forEach(key =>
+    (!obj[key] || typeof obj[key] === 'object') && delete obj[key]
+  );
+  return '?' + Object.keys(obj).map(prop => prop + '=' + obj[prop]).join('&')
+};
 
 export const http = store => next => action => {
+
   if(!action.http) return next(action);
+
   const {endpoint, method, body} = action.http;
 
   const headers = {};
@@ -22,22 +27,24 @@ export const http = store => next => action => {
     headers['content-type'] = 'application/json';
   }
 
-  const query = action.type === 'get_person_list' ? querify(action.params) : '';
+  const query = action.params ? querify(action.params) : '';
 
-  fetch(process.env.REACT_APP_BACKEND_URL + endpoint + query, {
+  fetch(process.env.REACT_APP_SERVER_URL + endpoint + query, {
     method: method || 'GET',
     body: JSON.stringify(body),
     headers,
   })
   .then(res => {
-    if (!res.ok) throw new Error(res.statusText + ' for request to URL ' + res.url);
-    return res.json()
+    if (!res.ok) throw new Error(`${res.statusText} sent to ${res.url}, response status: ${res.status}`);
+    return res.json();
   })
+  .then(res => console.log(res) || res)
   .then(data => {
     store.dispatch({
       type: action.type + '_success',
       data,
     })
+    if (action.http.cb) action.http.cb(data);
   })
   .catch(err => {
     console.error(err);
@@ -45,6 +52,7 @@ export const http = store => next => action => {
       type: action.type + '_failure',
       err,
     })
+    if (action.http.errCb) action.http.errCb(err);
   });
   next({
     ...action,
