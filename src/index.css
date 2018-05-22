@@ -5,7 +5,7 @@ body {
   --medium-background: rgb(165, 157, 157);
   --dark-background: rgb(112, 112, 112);
   --light-blue: rgb(104, 152, 255);
-  --main-blue: #1A8CFF;
+  --main-blue: rgb(26, 140, 255);
   --dark-blue: rgb(0, 3, 158);
   --light-text: white;
   --less-light-text: rgb(180, 180, 180);
@@ -24,24 +24,25 @@ body {
   text-decoration: none;
 }
 
-input, select {
+input, select, button {
   padding: 0.5rem 0.7rem;
-  border-radius: 5px;
+  border-radius: 0.3rem;
   border: none;
-  font-size: 1rem;
+}
+
+input, select {
   border: 1px solid var(--medium-background);
-  line-height: 2.2rem;
-  height: 2.2rem;
   background: white;
+  height: 2.2rem;
 }
 
 button {
-  border-radius: 5px;
   background: var(--main-blue);
   color: var(--light-text);
-  border: none;
-  outline: none;
-  padding: 0.5rem 0.7rem;
   font-size: 1.2rem;
   cursor: pointer;
+}
+
+button:disabled {
+  background: var(--medium-background);
 }
