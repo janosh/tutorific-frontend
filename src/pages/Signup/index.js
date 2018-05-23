@@ -31,26 +31,6 @@ const GeosuggestComp = (props) => {
   </div>
 }
 
-const inputComp = ({input, label, meta: {touched, error, warning}, ...rest}) => {
-  return <div>
-    <label htmlFor={input.name}>{label}</label>
-    <input id={input.name} {...input} {...rest}/>
-    {error && touched && <span className="error">{error}</span>}
-  </div>
-}
-
-const inputComps = ({label, fields, list, placeholder}) => {
-  if (!fields.length) fields.push();
-  return fields.map((el, index) =>
-    <Field key={el} name={el} component={inputComp}
-      placeholder={placeholder[index]}
-      label={`${label} ${index + 1}`} list={list}
-      onClick={e => index === fields.length - 1 && fields.push('')}
-      onBlur={e => !e.target.value && fields.remove(fields.length - 1)}
-    />
-  )
-}
-
 const submitForm = (values, dispatch) => {
   dispatch(submitSignupForm(values));
 }
