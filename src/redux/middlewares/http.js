@@ -35,15 +35,16 @@ export const http = store => next => action => {
     headers,
   })
   .then(res => {
-    if (!res.ok) throw new Error(`${res.statusText} sent to ${res.url}, response status: ${res.status}`);
-    return res.json();
+    if (!res.ok) throw new Error(
+      `${res.statusText} sent to ${res.url}, response status: ${res.status}`
+    );
+    if (res.status !== 204) return res.json();
   })
-  .then(res => console.log(res) || res)
   .then(data => {
     store.dispatch({
       type: action.type + '_success',
       data,
-    })
+    });
     if (action.http.cb) action.http.cb(data);
   })
   .catch(err => {
@@ -51,7 +52,7 @@ export const http = store => next => action => {
     store.dispatch({
       type: action.type + '_failure',
       err,
-    })
+    });
     if (action.http.errCb) action.http.errCb(err);
   });
   next({
