@@ -3,6 +3,7 @@ import {Field, FieldArray, reduxForm} from 'redux-form';
 import Geosuggest from 'react-geosuggest';
 
 import validate, {subjects} from './validate';
+import * as normalize from './normalize';
 import asyncValidate from './asyncValidate';
 import prefill from './prefill';
 import {submitSignupForm} from '../../redux/actions';
@@ -49,12 +50,6 @@ const inputComps = ({label, fields, list, placeholder}) => {
     />
   )
 }
-
-const phoneNormalizer = (val) => val.replace(/[^ +\d]/g, '').replace(/ {2}/g, ' ');
-const inRange = (min, max) => (val) => {
-  val = val.replace(/[^\d]/g, '').replace(/0{2}/g, '0');
-  return (val < min && min) || (val > max && max) || val;
-};
 
 const submitForm = (values, dispatch) => {
   dispatch(submitSignupForm(values));
