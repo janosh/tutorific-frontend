@@ -1,0 +1,23 @@
+#signup-form .person-type {
+  grid-column: 1/-1;
+  width: fit-content;
+  margin: 0 auto;
+}
+
+#signup-form .person-type input {
+  display: none;
+}
+
+#signup-form .person-type label {
+  margin: 0;
+  padding: 0.5rem 0.8rem;
+  font-size: 1.2rem;
+  cursor: pointer;
+  background: var(--very-light-background);
+  color: var(--dark-text);
+}
+
+#signup-form .person-type input:checked + label {
+  background: var(--main-blue);
+  color: var(--light-text);
+}
