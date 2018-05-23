@@ -1,7 +1,7 @@
 .person-list-item {
   background: var(--very-light-background);
   padding: 1rem;
-  border-radius: 5px;
+  border-radius: var(--small-border-radius);
   cursor: pointer;
 }
 

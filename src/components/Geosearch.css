@@ -7,7 +7,7 @@
   position: absolute;
   background: var(--very-light-background);
   list-style: none;
-  border-radius: 5px;
+  border-radius: var(--small-border-radius);
   border: 1px solid var(--medium-background);
 }
 

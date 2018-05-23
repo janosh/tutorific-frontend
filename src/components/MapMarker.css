@@ -3,9 +3,8 @@
   background: var(--very-light-background);
   font-size: 1.2rem;
   padding: 0.5rem 0.8rem;
-  border-radius: 5px;
+  border-radius: var(--small-border-radius);
   width: fit-content;
-  opacity: 0.8;
   transition: all 0.3s;
   border: 1px solid var(--dark-blue);
   transform: translate(-50%, -50%);
@@ -13,5 +12,4 @@
 
 .marker:hover {
   transform: scale(1.15) translate(-45%, -45%);
-  opacity: 1;
 }
