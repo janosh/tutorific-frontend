@@ -1,4 +1,4 @@
-#redux-form {
+#signup-form {
   padding: 2rem;
   margin: 0 auto;
   max-width: fit-content;
@@ -7,34 +7,25 @@
   grid-gap: 1rem;
 }
 
-#redux-form input {
+#signup-form input {
   width: 100%;
 }
 
-#redux-form label {
+#signup-form label {
   margin: 0.3rem;
   display: inline-block;
 }
 
-#redux-form h1, #redux-form h2, #redux-form .form-end {
+#signup-form h1, #signup-form h2, #signup-form .form-end {
   text-align: center;
   grid-column: 1/-1;
   margin-top: 1rem;
 }
 
-#redux-form button {
+#signup-form button {
   width: fit-content;
 }
 
-#redux-form button[type="submit"] {
+#signup-form button[type="submit"] {
   margin-left: auto;
-}
-
-#redux-form .error {
-  background: var(--error-color);
-  color: var(--light-text);
-  border-radius: 3px;
-  margin: 0.2rem;
-  padding: 0.1rem 0.2rem;
-  display: inline-block;
 }
