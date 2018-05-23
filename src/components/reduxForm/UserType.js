@@ -2,6 +2,8 @@
 import React from 'react';
 import {Field} from 'redux-form';
 
+import './UserType.css';
+
 const UserType = () => {
   return <div className="person-type">
     <Field id="student"  name="userType" component="input" type="radio" value="student" checked/>
