@@ -13,7 +13,7 @@
 
 .person-modal {
   background-color: var(--very-light-background);
-  border-radius: 5px;
+  border-radius: var(--small-border-radius);
   width: 70%;
   height: 70%;
   min-width: fit-content;

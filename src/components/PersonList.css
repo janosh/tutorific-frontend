@@ -1,5 +1,5 @@
 .person-list {
-  border-radius: 5px;
+  border-radius: var(--small-border-radius);
   overflow: scroll;
   display: grid;
   grid-gap: 0.7rem;
@@ -7,7 +7,7 @@
 }
 
 .empty-list {
-  border-radius: 5px;
+  border-radius: var(--small-border-radius);
   height: 100%;
   background: var(--very-light-background);
   display: flex;

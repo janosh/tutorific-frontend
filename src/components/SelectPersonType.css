@@ -1,5 +1,5 @@
 .person-type {
-  border-radius: 5px;
+  border-radius: var(--small-border-radius);
   overflow: hidden;
   display: flex;
 }

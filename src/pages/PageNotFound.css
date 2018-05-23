@@ -4,7 +4,7 @@
   width: 90%;
   max-width: 900px;
   background: var(--very-light-background);
-  border-radius: 5px;
+  border-radius: var(--small-border-radius);
 }
 
 #page-not-found h1 {

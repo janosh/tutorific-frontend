@@ -4,14 +4,27 @@ body {
   --less-light-background: rgb(209, 208, 208);
   --medium-background: rgb(165, 157, 157);
   --dark-background: rgb(112, 112, 112);
+
   --light-blue: rgb(104, 152, 255);
   --main-blue: rgb(26, 140, 255);
   --dark-blue: rgb(0, 3, 158);
+
   --light-text: white;
   --less-light-text: rgb(180, 180, 180);
   --medium-text: rgb(124, 124, 124);
   --dark-text: black;
-  --error-color: rgba(200, 50, 50, 0.8);
+
+  --error-color: rgb(197, 74, 74);
+  --warning-color: rgb(255, 237, 73);
+
+  --small-border-radius: 0.3rem;
+  --medium-border-radius: 0.5rem;
+  --large-border-radius: 0.8rem;
+
+  --small-padding: 0.3rem 0.5rem;
+  --medium-padding: 0.5rem 0.8rem;
+  --large-padding: 0.8rem 1.2rem;
+
   background: var(--light-background);
 }
 
@@ -25,27 +38,14 @@ body {
 }
 
 input, select, button {
-  padding: 0.5rem 0.7rem;
-  border-radius: 0.3rem;
+  padding: var(--medium-padding);
+  border-radius: var(--small-border-radius);
   border: none;
 }
 
 input, select {
   border: 1px solid var(--medium-background);
-  background: white;
-  height: 2.2rem;
-}
-
-button {
-  background: var(--main-blue);
-  color: var(--light-text);
-  font-size: 1.2rem;
-  cursor: pointer;
-}
-
-button:disabled {
-  background: var(--medium-background);
-} background: var(--very-light-background);
+  background: var(--very-light-background);
   height: 2.2rem;
 }
 

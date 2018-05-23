@@ -4,7 +4,7 @@
   grid-auto-rows: min-content;
   background: var(--very-light-background);
   padding: 1rem;
-  border-radius: 5px;
+  border-radius: var(--small-border-radius);
   overflow: scroll;
 }
 
@@ -27,7 +27,7 @@
 }
 
 .max-distance {
-  border-radius: 5px;
+  border-radius: var(--small-border-radius);
   overflow: hidden;
   white-space: nowrap;
 }
