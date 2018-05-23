@@ -35,11 +35,11 @@ class Map extends React.Component {
   }
 }
 
-const mapStateToProps = (state) => {
+const mapStateToProps = (state, ownProps) => {
   return {
     userLocation: state.filters.userLocation,
     location: state.filters.location,
-    personList: state.personList,
+    personList: ownProps.personList || state.personList,
   };
 };
 

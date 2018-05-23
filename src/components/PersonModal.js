@@ -51,7 +51,7 @@ class PersonModal extends React.Component {
               {person.semester && <p><span>Semester</span> {person.semester}</p>}
             </React.Fragment>}
           </div>
-          <Map list={[person]}/>
+          <Map personList={[person]}/>
         </div>
       </div>
     );
