@@ -1,11 +1,11 @@
 export default {
   // account info
   firstName: 'John',
-  lastName: 'Doe',
-  password: 'yxcvbnm',
-  confirmPassword: 'yxcvbnm',
-  email: 'john@doe.com',
-  userType: 'tutor',
+  lastName: 'Snow',
+  password: '1qwertyuiopQ',
+  confirmPassword: '1qwertyuiopQ',
+  email: 'john@snow.com',
+  userType: 'student',
   // contact info
   phone: '+49 151 1234 5678',
   location: {
