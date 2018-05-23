@@ -45,4 +45,26 @@ button {
 
 button:disabled {
   background: var(--medium-background);
+} background: var(--very-light-background);
+  height: 2.2rem;
+}
+
+button {
+  background: var(--main-blue);
+  color: var(--light-text);
+  font-size: 1.2rem;
+  cursor: pointer;
+}
+
+button:disabled {
+  background: var(--medium-background);
+}
+
+form .error {
+  background: var(--error-color);
+  color: var(--light-text);
+  border-radius: var(--small-border-radius);
+  margin-top: 0.4rem;
+  padding: var(--small-padding);
+  display: inline-block;
 }
