@@ -1,9 +1,10 @@
 body {
-  --very-light-background: white;
-  --light-background: rgb(226, 225, 225);
-  --less-light-background: rgb(209, 208, 208);
-  --medium-background: rgb(165, 157, 157);
-  --dark-background: rgb(112, 112, 112);
+  --white: white;
+  --very-light-bg: rgb(247, 247, 247);
+  --light-bg: rgb(226, 225, 225);
+  --less-light-bg: rgb(209, 208, 208);
+  --medium-bg: rgb(165, 157, 157);
+  --dark-bg: rgb(112, 112, 112);
 
   --light-blue: rgb(104, 152, 255);
   --main-blue: rgb(26, 140, 255);
@@ -25,7 +26,7 @@ body {
   --medium-padding: 0.5rem 0.8rem;
   --large-padding: 0.8rem 1.2rem;
 
-  background: var(--light-background);
+  background: var(--light-bg);
 }
 
 * {
@@ -44,8 +45,8 @@ input, select, button {
 }
 
 input, select {
-  border: 1px solid var(--medium-background);
-  background: var(--very-light-background);
+  border: 1px solid var(--medium-bg);
+  background: var(--white);
   height: 2.2rem;
 }
 
@@ -57,14 +58,16 @@ button {
 }
 
 button:disabled {
-  background: var(--medium-background);
+  background: var(--medium-bg);
 }
 
-form .error {
+form .form-error {
   background: var(--error-color);
   color: var(--light-text);
   border-radius: var(--small-border-radius);
   margin-top: 0.4rem;
   padding: var(--small-padding);
-  display: inline-block;
+  display: block;
+  width: min-content;
+  border: 0.5px solid var(--white);
 }
