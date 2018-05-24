@@ -9,42 +9,30 @@ header {
   overflow: scroll;
 }
 
+main {
+  flex: 1;
+  overflow: scroll;
+}
+
 nav {
-  display: flex;
-  justify-content: space-between;
+  display: grid;
   align-items: center;
-  font-size: 1.5rem;
   font-weight: lighter;
+  grid-template-columns: repeat(5, min-content) 1fr repeat(2, min-content);
 }
 
-#main-nav {
-  display: flex;
-  align-items: center;
-}
-
-#main-nav > a {
-  padding: 0.3rem 1rem 0 1rem;
-}
-
-#signup-nav {
-  display: flex;
-}
-
-nav img {
+nav > a img {
   height: 3rem;
+  margin: -0.5rem;
 }
 
-nav a {
+nav > * {
+  font-size: 1.5rem;
   color: var(--light-text);
   padding: var(--large-padding);
   white-space: nowrap;
 }
 
-nav a:hover {
+nav > *:hover {
   text-decoration: underline;
-}
-
-main {
-  flex: 1;
-  overflow: scroll;
 }
