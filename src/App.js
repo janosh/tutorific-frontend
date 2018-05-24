@@ -19,19 +19,14 @@ export default class App extends React.Component {
         <div id="app">
           <header>
             <nav>
-              <div id="main-nav">
-                <Link to="/"><img src="./assets/logo.svg" alt="Logo"/></Link>
-                <div>
-                  <Link to="/">Tutorific</Link>
-                  <Link to="/connect">Connect</Link>
-                  <Link to="/about">About</Link>
-                  <Link to="/support">Support</Link>
-                </div>
-              </div>
-              <div id="signup-nav">
-                <Link to="/signup">Sign up</Link>
-                <Link to="#"><Login/></Link>
-              </div>
+              <Link to="/"><img src="./assets/logo.svg" alt="Logo"/></Link>
+              <Link to="/">Tutorific</Link>
+              <Link to="/connect">Connect</Link>
+              <Link to="/about">About</Link>
+              <Link to="/support">Support</Link>
+              <span></span>
+              <Link to="/signup">Sign up</Link>
+              <Login/>
             </nav>
           </header>
           <main>
