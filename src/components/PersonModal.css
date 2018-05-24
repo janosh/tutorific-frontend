@@ -12,7 +12,7 @@
 }
 
 .person-modal {
-  background-color: var(--very-light-background);
+  background-color: var(--white);
   border-radius: var(--small-border-radius);
   width: 70%;
   height: 70%;

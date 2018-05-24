@@ -1,6 +1,6 @@
 .marker {
   white-space: nowrap;
-  background: var(--very-light-background);
+  background: var(--white);
   font-size: 1.2rem;
   padding: 0.5rem 0.8rem;
   border-radius: var(--small-border-radius);
