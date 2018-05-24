@@ -6,26 +6,22 @@ import * as reducers from './reducers';
 import http from './middlewares/http';
 // import {loadState, saveState} from './localStorage';
 
-const configureStore = () => {
-  // const persistedState = loadState();
+// const persistedState = loadState();
 
-  const reducer = combineReducers({
-    form: formReducer,
-    ...reducers,
-  });
+const reducer = combineReducers({
+  form: formReducer,
+  ...reducers,
+});
 
-  const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
-  const store = createStore(
-    reducer,
-    // persistedState,
-    composeEnhancers(applyMiddleware(http)),
-  );
+const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
+const store = createStore(
+  reducer,
+  // persistedState,
+  composeEnhancers(applyMiddleware(http)),
+);
 
-  // store.subscribe(throttle(() =>
-  //   saveState(store.getState()), 3000)
-  // );
+// store.subscribe(throttle(() =>
+//   saveState(store.getState()), 3000)
+// );
 
-  return store;
-}
-
-export default configureStore;
+export default store;
