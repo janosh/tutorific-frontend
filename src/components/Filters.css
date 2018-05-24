@@ -2,7 +2,7 @@
   display: grid;
   grid-gap: 1rem;
   grid-auto-rows: min-content;
-  background: var(--very-light-background);
+  background: var(--white);
   padding: 1rem;
   border-radius: var(--small-border-radius);
   overflow: scroll;
@@ -10,7 +10,7 @@
 
 .filters h2, .filters p {
   padding-bottom: 0.7rem;
-  border-bottom: 1px solid var(--dark-background);
+  border-bottom: 1px solid var(--dark-bg);
 }
 
 .filters label {
@@ -22,7 +22,7 @@
 }
 
 .filters button:not(.active) {
-  background: var(--less-light-background);
+  background: var(--less-light-bg);
   color: var(--dark-text);
 }
 

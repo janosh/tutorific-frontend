@@ -5,10 +5,10 @@
 .geosuggest__suggests {
   padding: 0;
   position: absolute;
-  background: var(--very-light-background);
+  background: var(--white);
   list-style: none;
   border-radius: var(--small-border-radius);
-  border: 1px solid var(--medium-background);
+  border: 1px solid var(--medium-bg);
 }
 
 .geosuggest__suggests--hidden {
@@ -23,7 +23,7 @@
 
 .geosuggest__item:hover, .geosuggest__item:focus {
   background: var(--main-blue);
-  color: var(--very-light-background);
+  color: var(--white);
 }
 
 .geosuggest__item__matched-text {
