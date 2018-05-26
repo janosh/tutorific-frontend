@@ -8,7 +8,7 @@
   background: var(--white);
   list-style: none;
   border-radius: var(--small-border-radius);
-  border: 1px solid var(--medium-bg);
+  border: var(--small-border);
 }
 
 .geosuggest__suggests--hidden {
