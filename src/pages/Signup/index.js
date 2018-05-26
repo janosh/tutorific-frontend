@@ -6,13 +6,17 @@ import * as normalize from '../../components/inputs/normalize';
 import asyncValidate from './asyncValidate';
 import initial from './initial';
 
-import {submitForm} from '../../redux/actions';
+import {submitSignupForm} from '../../redux/actions';
 import ButtonGroup from '../../components/inputs/ButtonGroup';
 import SelectInput from '../../components/inputs/SelectInput';
 import TextInput from '../../components/inputs/TextInput';
 import TextInputArray from '../../components/inputs/TextInputArray';
 import Address from '../../components/inputs/Address';
 import './Signup.css';
+
+const submitForm = (values, dispatch) => {
+  dispatch(submitSignupForm(values));
+}
 
 const SignupForm = ({
   handleSubmit, invalid, submitting, pristine, reset, dispatch, form, userType
