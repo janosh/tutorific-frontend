@@ -53,7 +53,7 @@ input, select, button {
 }
 
 input, select {
-  border: 1px solid var(--medium-bg);
+  border: var(--small-border);
   background: var(--white);
   height: 2.2rem;
 }
@@ -78,4 +78,5 @@ form .form-error {
   display: block;
   width: min-content;
   border: 0.5px solid var(--white);
+  width: fit-content;
 }
