@@ -7,3 +7,8 @@ export const setSinglePersonView = (person) => ({
   type: 'set_single_person_view',
   person,
 });
+
+export const toggleModal = (name) => ({
+  type: 'toggle_modal',
+  name,
+});
