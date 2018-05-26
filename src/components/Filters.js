@@ -1,8 +1,8 @@
 import React from 'react';
 import {connect} from 'react-redux';
 
-import SelectPersonType from './SelectPersonType';
-import Geosearch from './Geosearch';
+import ButtonGroup from './inputs/ButtonGroup';
+import Geosearch from './inputs/Geosearch';
 import * as actions from '../redux/actions';
 
 import './Filters.css';
@@ -40,10 +40,14 @@ class Filters extends React.Component {
         <h2>Filters</h2>
         <p>There {findCount === 1 ? 'is' : 'are'} <strong>{findCount}</strong> {filters.userType}{findCount === 1 ? '' : 's'} near you, <strong>{availableCount}</strong> of which {findCount === 1 ? 'is' : 'are'} currently available.</p>
         <Geosearch storePrefix="filters"/>
-        <div>
-          <label htmlFor="searchFor">Search for</label>
-          <SelectPersonType id="searchFor" storePrefix="filters"/>
-        </div>
+        <ButtonGroup
+          label="Search for"
+          id="searchFor"
+          name="userType"
+          clickHandler={this.update}
+          btnValues={['student', 'tutor']}
+          currentValue={filters.userType}
+        />
         <div>
           <label htmlFor="status">Status</label>
           <select
@@ -68,57 +72,15 @@ class Filters extends React.Component {
             value={filters.lastLoginAfter}
           />
         </div>
-        <div>
-          <label htmlFor="maxDistance">Maximum Distance</label>
-          <div className="max-distance" id="maxDistance">
-            <button type="button" name="maxDistance" value="5" onClick={this.update}
-              className={filters.maxDistance === '5' ? 'active' : null}>
-              5 km
-            </button>
-            <button type="button" name="maxDistance" value="10" onClick={this.update}
-              className={filters.maxDistance === '10' ? 'active' : null}>
-              10 km
-            </button>
-            <button type="button" name="maxDistance" value="20" onClick={this.update}
-              className={filters.maxDistance === "20" ? 'active' : null}>
-              20 km
-            </button>
-          </div>
-        </div>
-        <datalist id="subjects">
-          <option value="Math"/>
-          <option value="Physics"/>
-          <option value="Chemistry"/>
-          <option value="Biology"/>
-          <option value="Computer Science"/>
-          <option value="English"/>
-          <option value="Spanish"/>
-          <option value="French"/>
-          <option value="German"/>
-          <option value="Italian"/>
-          <option value="Chinese"/>
-          <option value="Japanese"/>
-          <option value="Latin"/>
-          <option value="History"/>
-          <option value="Politics"/>
-          <option value="Ethics"/>
-          <option value="Social Studies"/>
-          <option value="Philosophy"/>
-          <option value="Economics"/>
-          <option value="Physical Education"/>
-          <option value="Music"/>
-          <option value="Art"/>
-        </datalist>
-        {Array(filters.subjects.length).fill(
-          <input
-            name="subjects"
-            // id={'subject' + i}
-            type="text"
-            list="subjects"
-            onSelectCapture={this.updateSubjects}
-            // value={this.props.filters.subjects[i]}
-          />
-        )}
+        <ButtonGroup
+          label="Maximum distance"
+          id="maxDistance"
+          name="maxDistance"
+          clickHandler={this.update}
+          btnValues={['5', '10', '20', '500']}
+          btnLabels={['5 km', '10 km', '20 km', 'any']}
+          currentValue={filters.maxDistance}
+        />
       </div>
     );
   }
