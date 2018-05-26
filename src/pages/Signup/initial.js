@@ -8,11 +8,11 @@ export default {
   userType: 'student',
   // contact info
   phone: '+49 151 1234 5678',
-  location: {
-    label: 'Heidelberg, Germany',
-    placeId: 'ChIJzdzMDgXBl0cR1zokRADq5u8',
-    lat: 49.3987524,
-    lng: 8.672433500000011,
+  address: {
+    street: 'Carrer d\'Àvila 27',
+    // supplement: 'Codeworks LLC',
+    zipCode: '08005',
+    city: 'Barcelona',
   },
   // personal info
   birthDate: '1990-03-24',
@@ -21,7 +21,7 @@ export default {
   // student-specific data
   youthOrganization: 'Unicef',
   grade: '7',
-  schoolType: 'Middle',
+  schoolType: 'Middle School',
   // tutor-specific data
   semester: '5',
   fieldOfStudy: 'Theoretical Physics',
