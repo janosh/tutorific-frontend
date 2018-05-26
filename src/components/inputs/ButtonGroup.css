@@ -1,0 +1,23 @@
+.group-button {
+  background: var(--white);
+  color: var(--dark-text);
+  border-radius: 0;
+  flex: 1;
+  white-space: nowrap;
+}
+
+.group-button.grayBg {
+  background: var(--light-bg);
+}
+
+.group-button.active {
+  background: var(--main-blue);
+  color: var(--light-text);
+}
+
+.button-group {
+  border-radius: var(--small-border-radius);
+  overflow: hidden;
+  display: flex;
+  flex-wrap: wrap;
+}
