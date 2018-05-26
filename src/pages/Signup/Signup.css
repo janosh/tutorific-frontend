@@ -1,14 +1,17 @@
 #signup-form {
   padding: 2rem;
-  margin: 0 auto;
+  margin: 1rem auto;
   max-width: fit-content;
   display: grid;
   grid-template-columns: repeat(2, minmax(200px, 300px));
   grid-gap: 1rem;
+  background: var(--white);
+  border-radius: var(--medium-border-radius);
 }
 
-#signup-form input {
+#signup-form input, #signup-form select {
   width: 100%;
+  background: var(--very-light-bg);
 }
 
 #signup-form label {
@@ -24,8 +27,21 @@
 
 #signup-form button {
   width: fit-content;
+  font-size: 1.1rem;
 }
 
 #signup-form button[type="submit"] {
   margin-left: auto;
+}
+
+#signup-form .signup-userType {
+  grid-column: 1/-1;
+  margin: 0 auto;
+  width: fit-content;
+}
+
+@media screen and (max-width: 500px) {
+  #signup-form {
+    grid-template-columns: minmax(200px, 300px);
+  }
 }
