@@ -21,13 +21,15 @@ class Map extends React.Component {
           zoom={userLng ? 12 : 4}
         >
           {personList && personList.map(person => {
-            const [lng, lat] = person.location.coordinates;
-            return <Marker key={person._id}
-            lng={lng} lat={lat}
-            text={`${person.firstName} ${person.lastName}`}
-            person={person}
-            setSinglePersonView={setSinglePersonView}
-            />
+            const [lng, lat] = person.address.coordinates;
+            return (
+              <Marker key={person._id}
+                lng={lng} lat={lat}
+                text={`${person.firstName} ${person.lastName}`}
+                person={person}
+                setSinglePersonView={setSinglePersonView}
+              />
+            )
           })}
         </GoogleMapReact>
       </div>
