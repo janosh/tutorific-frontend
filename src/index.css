@@ -26,6 +26,14 @@ body {
   --medium-padding: 0.5rem 0.8rem;
   --large-padding: 0.8rem 1.2rem;
 
+  --small-border: 1px solid var(--medium-bg);
+  --medium-border: 2px solid var(--medium-bg);
+  --large-border: 3px solid var(--medium-bg);
+
+  --small-light-border: 1px solid var(--white);
+  --medium-light-border: 2px solid var(--white);
+  --large-light-border: 3px solid var(--white);
+
   background: var(--light-bg);
 }
 
