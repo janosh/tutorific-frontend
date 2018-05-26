@@ -35,9 +35,11 @@ export const http = store => next => action => {
     headers,
   })
   .then(res => {
-    if (!res.ok) throw new Error(
+    if (!res.ok) {
+      console.log(res);
+      throw new Error(
       `${res.statusText} sent to ${res.url}, response status: ${res.status}`
-    );
+    );}
     if (res.status !== 204) return res.json();
   })
   .then(data => {
