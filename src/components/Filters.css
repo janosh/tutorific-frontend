@@ -10,7 +10,7 @@
 
 .filters h2, .filters p {
   padding-bottom: 0.7rem;
-  border-bottom: 1px solid var(--dark-bg);
+  border-bottom: var(--small-border);
 }
 
 .filters label {
