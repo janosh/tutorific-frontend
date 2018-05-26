@@ -13,23 +13,18 @@ const filters = {
   subjects: [],
 };
 
-const login = {
-  showLoginModal: false,
-  email: '',
-  password: '',
-  userType: 'student',
-};
-
 const user = {
   userLocation: {},
   loggedIn: false,
   token: '',
 };
 
+const modals = {};
+
 export default {
   filters,
-  login,
   user,
+  modals,
   personList: [],
   singlePersonView: null,
 };
