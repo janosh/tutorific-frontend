@@ -26,7 +26,7 @@ class Modal extends React.Component {
     const {modal, name, closebutton, toggleModal, children} = this.props;
     if (!modal) return null;
     return (
-      <div ref={node => this.node = node} id={name + "-modal"}>
+      <div ref={node => this.node = node} id={name + '-modal'}>
         {closebutton &&
           <button className='close-button' onClick={toggleModal}>
             &#10005;

@@ -1,0 +1,20 @@
+.modal {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  padding: 2rem;
+  border-radius: 0.5rem;
+  background-color: rgba(0, 0, 0, 0.9);
+  display: grid;
+  justify-items: center;
+  align-items: center;
+  grid-gap: 1rem;
+}
+
+.modal .close-button {
+  background: inherit;
+  position: absolute;
+  top: 0;
+  right: 0;
+}
