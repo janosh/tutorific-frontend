@@ -1,0 +1,31 @@
+#login-modal {
+  position: absolute;
+  background: var(--light-bg);
+  border-radius: var(--small-border-radius);
+  border: var(--small-border);
+  top: 4.5rem;
+  right: 1rem;
+  z-index: 2;
+  padding: var(--large-padding);
+  text-decoration: initial;
+}
+
+#login-form {
+  font-size: 1.2rem;
+  display: grid;
+  grid-auto-flow: row;
+  grid-gap: 1rem;
+}
+
+#login-modal .login-userType.button-group {
+  display: inline-block;
+  margin-right: 1rem;
+}
+
+#login-modal input {
+  width: 100%;
+}
+
+#login-modal .login-buttons {
+  display: flex;
+}
