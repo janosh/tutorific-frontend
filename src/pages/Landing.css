@@ -1,5 +1,5 @@
 #landing-page {
-  border-top: 1px solid var(--light-bg);
+  border-top: var(--small-light-border);
   overflow: hidden;
   flex: 1;
   height: 100%;
