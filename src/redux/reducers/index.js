@@ -1,5 +1,5 @@
 export * from './currentUser';
 export * from './filters';
-export * from './login';
-export * from './singlePersonView';
+export * from './modals';
 export * from './personList';
+export * from './singlePersonView';
